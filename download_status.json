@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T18:00:03Z",
-  "download_bytes": 881961410263,
-  "download_human": "843G",
-  "disk_used": "843G",
+  "timestamp": "2026-02-27T19:00:04Z",
+  "download_bytes": 920168354900,
+  "download_human": "871G",
+  "disk_used": "871G",
   "disk_percent": "3%",
-  "files_transferred": 262,
-  "files_total": 10274,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…ch__DLC__BLJS10330.rar","progress":"78%"},{"file":"PS3_ALVRO_PART…Graces_F_BLUS30903.rar","progress":"48%"},{"file":"PS3_ALVRO_PART…ronicles_BLES01864.rar","progress":"22%"},{"file":"PS3_ALVRO_PART…ronicles_BLUS31172.rar","progress":"13%"},{"file":"5%","progress":null}],
+  "files_transferred": 266,
+  "files_total": 10278,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…Vesperia_BLJS10053.rar","progress":"81%"},{"file":"PS3_ALVRO_PART…53_English_Patched.rar","progress":"57%"},{"file":"PS3_ALVRO_PART…_2_UNDUB_BLJS10188.rar","progress":"38%"},{"file":"PS3_ALVRO_PART…_2_UNDUB_BLUS31397.rar","progress":"16%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Graces_F_BLUS30903.rar",
-    "size": "3.2Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Xillia_2_UNDUB_BLJS10188.rar",
+    "size": "2.7Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Symphonia_Chronicles_BLUS31172.rar",
-    "size": "1.3Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Vesperia_BLJS10053.rar",
+    "size": "6.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Symphonia_Chronicles_BLES01864.rar",
-    "size": "2.2Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Xillia_2_UNDUB_BLUS31397.rar",
+    "size": "940Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Berseria__English_Patch__DLC__BLJS10330.rar",
-    "size": "7.0Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Vesperia_BLJS10053_English_Patched.rar",
+    "size": "4.8Gi"
   }
 ]
 }
