@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T16:43:06Z",
-  "download_bytes": 822841710040,
-  "download_human": "770G",
-  "disk_used": "770G",
+  "timestamp": "2026-02-27T17:00:03Z",
+  "download_bytes": 829225342756,
+  "download_human": "776G",
+  "disk_used": "776G",
   "disk_percent": "2%",
-  "files_transferred": 231,
-  "files_total": 10243,
-  "currently_downloading": [{"file":"RedumpNintendo…ll Z - Sagas (USA).zip","progress":"96%"},{"file":"RedumpNintendo…s Madagascar (USA).zip","progress":"8%"},{"file":"RedumpNintendo…er the Hedge (USA).zip","progress":"5%"},{"file":"RedumpNintendo…s Shark Tale (USA).zip","progress":"1%"},{"file":"5%","progress":null}],
+  "files_transferred": 242,
+  "files_total": 10254,
+  "currently_downloading": [{"file":"RedumpNintendo…Crash Racing (USA).zip","progress":"79%"},{"file":"RedumpNintendo… - SuperSlam (USA).zip","progress":"62%"},{"file":"RedumpNintendo…) (En,Fr,De,Es,It).zip","progress":"35%"},{"file":"pkmn_colle… Nintendo DS Top 25.7z","progress":"8%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Sagas (USA).zip",
-    "size": "1.3Gi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shrek - Smash n' Crash Racing (USA).zip",
+    "size": "1.1Gi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Madagascar (USA).zip",
-    "size": "113Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shrek - SuperSlam (USA).zip",
+    "size": "841Mi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Over the Hedge (USA).zip",
-    "size": "66Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/Driven (USA) (En,Fr,De,Es,It).zip",
+    "size": "399Mi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shark Tale (USA).zip",
-    "size": "31Mi"
+    "file": "bingbong294/pkmn_collection/IGN - Nintendo DS Top 25.7z",
+    "size": "249Mi"
   }
 ]
 }
