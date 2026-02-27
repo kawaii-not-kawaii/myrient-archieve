@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T19:00:04Z",
-  "download_bytes": 920168354900,
-  "download_human": "871G",
-  "disk_used": "871G",
+  "timestamp": "2026-02-27T20:00:03Z",
+  "download_bytes": 960533127982,
+  "download_human": "909G",
+  "disk_used": "909G",
   "disk_percent": "3%",
-  "files_transferred": 266,
-  "files_total": 10278,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…Vesperia_BLJS10053.rar","progress":"81%"},{"file":"PS3_ALVRO_PART…53_English_Patched.rar","progress":"57%"},{"file":"PS3_ALVRO_PART…_2_UNDUB_BLJS10188.rar","progress":"38%"},{"file":"PS3_ALVRO_PART…_2_UNDUB_BLUS31397.rar","progress":"16%"},{"file":"5%","progress":null}],
+  "files_transferred": 272,
+  "files_total": 10284,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…iria_DLC_BLJS93020.rar","progress":"54%"},{"file":"PS3_ALVRO_PART…Overlord_BLJM61076.rar","progress":"82%"},{"file":"PS3_ALVRO_PART…Overlord_BLUS31476.rar","progress":"17%"},{"file":"PS3_ALVRO_PART…_no_Nazo_BLJM60166.rar","progress":"3%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Xillia_2_UNDUB_BLJS10188.rar",
-    "size": "2.7Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Vesperia_BLJS10053.rar",
-    "size": "6.6Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Xillia_2_UNDUB_BLUS31397.rar",
-    "size": "940Mi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Vesperia_BLJS10053_English_Patched.rar",
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Zestiria_DLC_BLJS93020.rar",
     "size": "4.8Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_10/Tears_to_Tiara_Gaiden_Avalon_no_Nazo_BLJM60166.rar",
+    "size": "247Mi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_10/Tears_To_Tiara_2_Heir_of_The_Overlord_BLUS31476.rar",
+    "size": "678Mi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_10/Tears_To_Tiara_2_Heir_of_The_Overlord_BLJM61076.rar",
+    "size": "3.1Gi"
   }
 ]
 }
