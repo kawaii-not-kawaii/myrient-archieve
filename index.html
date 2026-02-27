@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive Status - Myrient Mirror Progress</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #7d8590;
+            --text-muted: #484f58;
+            --border-color: #30363d;
+            --accent-success: #238636;
+            --accent-success-bg: rgba(35, 134, 54, 0.15);
+            --accent-success-dim: rgba(35, 134, 54, 0.3);
+            --accent-warning: #d29922;
+            --accent-info: #58a6ff;
+            --accent-danger: #da3633;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--bg-tertiary);
+            border-top-color: var(--accent-success);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-success), var(--accent-info));
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .stats-summary {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent-success);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Progress Overview Card */
+        .overview-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .overview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .overview-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .overall-progress {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-bar-bg {
+            background-color: var(--bg-tertiary);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-success), var(--accent-info));
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .progress-stats .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legend-icon.downloaded {
+            color: var(--accent-success);
+        }
+
+        .legend-icon.pending {
+            color: var(--text-muted);
+        }
+
+        .legend-icon.in-progress {
+            color: var(--accent-warning);
+        }
+
+        /* Collection Cards Grid */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .collection-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: border-color 0.2s ease, transform 0.1s ease;
+            cursor: pointer;
+        }
+
+        .collection-card:hover {
+            border-color: var(--accent-info);
+            transform: translateY(-1px);
+        }
+
+        .collection-card.downloaded {
+            border-color: var(--accent-success-dim);
+        }
+
+        .collection-card.in-progress {
+            border-color: var(--accent-warning);
+        }
+
+        .collection-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .collection-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+            word-break: break-word;
+        }
+
+        .collection-files {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .collection-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .collection-progress {
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* File Browser */
+        .file-browser {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .browser-header {
+            background-color: var(--bg-tertiary);
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-info);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-muted);
+        }
+
+        /* Table */
+        .file-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .file-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            background-color: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .file-table th:hover {
+            color: var(--text-primary);
+        }
+
+        .file-table th.sort-asc::after {
+            content: ' ↑';
+        }
+
+        .file-table th.sort-desc::after {
+            content: ' ↓';
+        }
+
+        .file-table td {
+            padding: 0.625rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            vertical-align: middle;
+        }
+
+        .file-table tr:hover td {
+            background-color: rgba(48, 54, 61, 0.5);
+        }
+
+        .file-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* File Row States */
+        .file-row {
+            transition: opacity 0.2s ease;
+        }
+
+        .file-row.downloaded {
+            background-color: var(--accent-success-bg);
+        }
+
+        .file-row.pending {
+            opacity: 0.6;
+        }
+
+        .file-row.pending .filename {
+            color: var(--text-muted);
+        }
+
+        /* File Name Cell */
+        .file-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .file-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .file-icon.folder {
+            color: var(--accent-warning);
+        }
+
+        .file-icon.file {
+            color: var(--text-secondary);
+        }
+
+        .file-icon.checkmark {
+            color: var(--accent-success);
+        }
+
+        .filename {
+            color: var(--text-primary);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .filename:hover {
+            color: var(--accent-info);
+            text-decoration: underline;
+        }
+
+        .filename.pending {
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+
+        /* Size and Date Cells */
+        .size-cell {
+            white-space: nowrap;
+            color: var(--text-secondary);
+        }
+
+        .files-cell {
+            white-space: nowrap;
+            color: var(--text-secondary);
+            font-size: 0.8125rem;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-badge.downloaded {
+            background-color: var(--accent-success-bg);
+            color: var(--accent-success);
+        }
+
+        .status-badge.pending {
+            background-color: var(--bg-tertiary);
+            color: var(--text-muted);
+        }
+
+        .status-badge.in-progress {
+            background-color: rgba(210, 153, 34, 0.15);
+            color: var(--accent-warning);
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .toggle-btn {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .toggle-btn.active {
+            background-color: var(--accent-success);
+            color: white;
+            border-color: var(--accent-success);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--accent-danger);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-summary {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .file-table th,
+            .file-table td {
+                padding: 0.5rem;
+            }
+
+            .files-cell {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading archive data...</p>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">📦</div>
+                <span>Archive Status</span>
+            </a>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-collections">-</div>
+                    <div class="stat-label">Collections</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-files">-</div>
+                    <div class="stat-label">Total Files</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-size">-</div>
+                    <div class="stat-label">Total Size</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Overall Progress -->
+        <div class="overview-card">
+            <div class="overview-header">
+                <h2 class="overview-title" id="progress-title">Internet Archive Download Progress</h2>
+                <span class="last-updated">Updated: <span id="last-updated">-</span></span>
+            </div>
+            
+            <div class="overall-progress">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="overall-progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span><span class="highlight" id="downloaded-amount">-</span> downloaded</span>
+                    <span><span class="highlight" id="total-amount">-</span> total</span>
+                    <span><span class="highlight" id="percentage">-</span></span>
+                </div>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-icon downloaded">✓</span>
+                    <span>Downloaded</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon in-progress">⏳</span>
+                    <span>In Progress</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-icon pending">○</span>
+                    <span>Pending</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Collections Grid -->
+        <div class="section-header">
+            <h2 class="section-title">Collections Overview</h2>
+            <div class="view-toggle">
+                <button class="toggle-btn active" data-filter="all">All</button>
+                <button class="toggle-btn" data-filter="in-progress">In Progress</button>
+                <button class="toggle-btn" data-filter="pending">Pending</button>
+            </div>
+        </div>
+        <div class="collections-grid" id="collections-grid">
+            <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Current Directory Browser -->
+        <div class="section-header">
+            <h2 class="section-title" id="browser-title">Directory Contents</h2>
+        </div>
+        <div class="file-browser">
+            <div class="browser-header">
+                <div class="breadcrumb" id="breadcrumb">
+                    <a data-path="">files</a>
+                </div>
+            </div>
+            <table class="file-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"></th>
+                        <th data-sort="name">Name</th>
+                        <th data-sort="files" style="width: 120px;">Files</th>
+                        <th data-sort="size" style="width: 120px;">Size</th>
+                        <th style="width: 120px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="file-list">
+                    <!-- Populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>Myrient Archive Mirror • Progress Tracker</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Data updates automatically from JSON</p>
+    </footer>
+
+    <script>
+        // Global state
+        let collectionsData = null;
+        let folderData = null;
+        let currentPath = '';
+        let currentFilter = 'all';
+        let sortColumn = 'name';
+        let sortDirection = 'asc';
+
+        // Download status tracking (will be populated from server or manual)
+        // This maps collection names to their download status
+        const downloadStatus = {
+            // Format: 'Collection Name': { status: 'pending'|'downloading'|'downloaded', progress: 0-100 }
+            'Internet Archive': { status: 'downloading', progress: 1.8, downloadedBytes: 735 * 1024 * 1024 * 1024 },
+            // Everything else starts as pending
+        };
+
+        // Helper: Format bytes to human readable
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Helper: Extract collection name from URL
+        function getCollectionName(url) {
+            const match = url.match(/\/files\/([^/]+)\/?$/);
+            if (match) {
+                return decodeURIComponent(match[1]);
+            }
+            return url;
+        }
+
+        // Helper: Get status for a collection
+        function getStatus(collectionName) {
+            // Check exact match
+            if (downloadStatus[collectionName]) {
+                return downloadStatus[collectionName];
+            }
+            // Check if any key partially matches
+            for (const [key, value] of Object.entries(downloadStatus)) {
+                if (collectionName.toLowerCase().includes(key.toLowerCase()) ||
+                    key.toLowerCase().includes(collectionName.toLowerCase())) {
+                    return value;
+                }
+            }
+            return { status: 'pending', progress: 0 };
+        }
+
+        // Load JSON data
+        async function loadData() {
+            try {
+                // Load both JSON files
+                const [estimateRes, breakdownRes] = await Promise.all([
+                    fetch('myrient_file_estimate_final.json'),
+                    fetch('myrient_folder_breakdown.json')
+                ]);
+
+                if (!estimateRes.ok || !breakdownRes.ok) {
+                    throw new Error('Failed to load JSON files');
+                }
+
+                collectionsData = await estimateRes.json();
+                folderData = await breakdownRes.json();
+
+                // Process and render
+                updateOverview();
+                renderCollections();
+                renderFileBrowser();
+
+                // Hide loading overlay
+                document.getElementById('loading-overlay').classList.add('hidden');
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('loading-overlay').innerHTML = `
+                    <div class="error-state">
+                        <p>❌ Error loading data</p>
+                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">${error.message}</p>
+                        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted);">
+                            Make sure myrient_file_estimate_final.json and myrient_folder_breakdown.json exist
+                        </p>
+                    </div>
+                `;
+            }
+        }
+
+        // Update overview stats
+        function updateOverview() {
+            if (!collectionsData) return;
+
+            const collections = Object.keys(collectionsData.collections);
+            const totals = collectionsData.totals;
+
+            // Update header stats
+            document.getElementById('total-collections').textContent = totals.collections;
+            document.getElementById('total-files').textContent = (totals.files_total / 1000000).toFixed(2) + 'M';
+            document.getElementById('total-size').textContent = totals.bytes_human;
+
+            // Update timestamp
+            document.getElementById('last-updated').textContent = new Date(collectionsData.timestamp_utc).toLocaleString();
+
+            // Find Internet Archive data for progress
+            let iaCollection = null;
+            for (const [url, data] of Object.entries(collectionsData.collections)) {
+                if (url.includes('Internet%20Archive')) {
+                    iaCollection = data;
+                    break;
+                }
+            }
+
+            if (iaCollection) {
+                const status = getStatus('Internet Archive');
+                const totalBytes = iaCollection.bytes_total;
+                const downloadedBytes = status.downloadedBytes || 0;
+                const progress = (downloadedBytes / totalBytes * 100).toFixed(1);
+
+                document.getElementById('progress-title').textContent = 'Internet Archive Download Progress';
+                document.getElementById('overall-progress-bar').style.width = progress + '%';
+                document.getElementById('downloaded-amount').textContent = formatBytes(downloadedBytes);
+                document.getElementById('total-amount').textContent = iaCollection.bytes_human;
+                document.getElementById('percentage').textContent = progress + '%';
+            }
+        }
+
+        // Render collections grid
+        function renderCollections() {
+            if (!collectionsData) return;
+
+            const grid = document.getElementById('collections-grid');
+            grid.innerHTML = '';
+
+            const collections = Object.entries(collectionsData.collections);
+
+            collections.forEach(([url, data]) => {
+                const name = getCollectionName(url);
+                const status = getStatus(name);
+
+                // Filter
+                if (currentFilter === 'in-progress' && status.status !== 'downloading') return;
+                if (currentFilter === 'pending' && status.status !== 'pending') return;
+
+                const card = document.createElement('div');
+                card.className = `collection-card ${status.status === 'downloaded' ? 'downloaded' : ''} ${status.status === 'downloading' ? 'in-progress' : ''}`;
+                
+                const statusIcon = status.status === 'downloaded' ? '✓' : 
+                                  status.status === 'downloading' ? '⏳' : '○';
+                const statusColor = status.status === 'downloaded' ? 'var(--accent-success)' : 
+                                   status.status === 'downloading' ? 'var(--accent-warning)' : 'var(--text-muted)';
+                const statusText = status.status === 'downloaded' ? 'Downloaded' : 
+                                  status.status === 'downloading' ? 'In Progress' : 'Not Started';
+
+                card.innerHTML = `
+                    <div class="collection-header">
+                        <div>
+                            <div class="collection-name">${name}</div>
+                            <div class="collection-files">${data.files_total.toLocaleString()} files • ${data.dirs_processed} dirs</div>
+                        </div>
+                        <span class="collection-icon" style="color: ${statusColor}">${statusIcon}</span>
+                    </div>
+                    <div class="collection-progress">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: ${status.progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="collection-stats">
+                        <span>${data.bytes_human}</span>
+                        <span style="color: ${statusColor}">${statusText}</span>
+                    </div>
+                `;
+
+                // Click to browse collection
+                card.addEventListener('click', () => {
+                    currentPath = name;
+                    renderFileBrowser();
+                    window.scrollTo({ top: document.querySelector('.file-browser').offsetTop - 100, behavior: 'smooth' });
+                });
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Render file browser
+        function renderFileBrowser() {
+            if (!folderData) return;
+
+            const tbody = document.getElementById('file-list');
+            const breadcrumb = document.getElementById('breadcrumb');
+            tbody.innerHTML = '';
+
+            // Update breadcrumb
+            breadcrumb.innerHTML = '<a data-path="">files</a>';
+            if (currentPath) {
+                const parts = currentPath.split('/');
+                let pathSoFar = '';
+                parts.forEach((part, index) => {
+                    pathSoFar += (index > 0 ? '/' : '') + part;
+                    breadcrumb.innerHTML += `
+                        <span class="breadcrumb-separator">/</span>
+                        <a data-path="${pathSoFar}">${part}</a>
+                    `;
+                });
+            }
+
+            // Add breadcrumb click handlers
+            breadcrumb.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    currentPath = e.target.dataset.path;
+                    renderFileBrowser();
+                });
+            });
+
+            // Filter rows based on current path
+            let rows = folderData.rows.filter(row => {
+                if (currentPath === '') {
+                    return row.depth === 1; // Top level collections
+                }
+                return row.path.startsWith(currentPath + '/') && row.depth === currentPath.split('/').length + 1;
+            });
+
+            // Sort rows
+            rows.sort((a, b) => {
+                let valA, valB;
+                switch (sortColumn) {
+                    case 'name':
+                        valA = a.path.toLowerCase();
+                        valB = b.path.toLowerCase();
+                        break;
+                    case 'files':
+                        valA = a.recursive_files;
+                        valB = b.recursive_files;
+                        break;
+                    case 'size':
+                        valA = a.recursive_bytes;
+                        valB = b.recursive_bytes;
+                        break;
+                    default:
+                        valA = a.path;
+                        valB = b.path;
+                }
+                if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+                if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+                return 0;
+            });
+
+            // Render rows
+            if (rows.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="empty-state">
+                            No items to display
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            rows.forEach(row => {
+                const name = row.path.split('/').pop();
+                const isDir = row.subdir_count > 0;
+                const status = getStatus(row.path);
+                const isDownloaded = status.status === 'downloaded';
+                const isDownloading = status.status === 'downloading';
+
+                const tr = document.createElement('tr');
+                tr.className = `file-row ${isDownloaded ? 'downloaded' : 'pending'}`;
+
+                const icon = isDownloaded ? '✓' : isDir ? '📁' : '📄';
+                const iconClass = isDownloaded ? 'checkmark' : isDir ? 'folder' : 'file';
+                const statusBadge = isDownloaded ? 
+                    '<span class="status-badge downloaded">✓ Downloaded</span>' :
+                    isDownloading ? 
+                    `<span class="status-badge in-progress">⏳ ${status.progress.toFixed(1)}%</span>` :
+                    '<span class="status-badge pending">○ Pending</span>';
+
+                tr.innerHTML = `
+                    <td><div class="file-icon ${iconClass}">${icon}</div></td>
+                    <td>
+                        <div class="file-cell">
+                            <span class="filename ${!isDownloaded ? 'pending' : ''}" data-path="${row.path}">${name}</span>
+                        </div>
+                    </td>
+                    <td class="files-cell">${row.recursive_files.toLocaleString()}</td>
+                    <td class="size-cell">${row.recursive_bytes_human}</td>
+                    <td>${statusBadge}</td>
+                `;
+
+                // Click to navigate into directory
+                if (isDir) {
+                    tr.querySelector('.filename').addEventListener('click', () => {
+                        currentPath = row.path;
+                        renderFileBrowser();
+                    });
+                }
+
+                tbody.appendChild(tr);
+            });
+
+            // Update browser title
+            document.getElementById('browser-title').textContent = currentPath ? 
+                `Contents of ${currentPath.split('/').pop()}` : 'Top Level Collections';
+        }
+
+        // Setup sort handlers
+        document.querySelectorAll('.file-table th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const column = th.dataset.sort;
+                if (sortColumn === column) {
+                    sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+                } else {
+                    sortColumn = column;
+                    sortDirection = 'asc';
+                }
+
+                // Update visual indicators
+                document.querySelectorAll('.file-table th').forEach(header => {
+                    header.classList.remove('sort-asc', 'sort-desc');
+                });
+                th.classList.add(sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
+
+                renderFileBrowser();
+            });
+        });
+
+        // Setup filter handlers
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                renderCollections();
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+{
+  "timestamp_utc": "2026-02-27T13:12:47Z",
+  "base": "https://myrient.erista.me/files/",
+  "collections": {
+    "https://myrient.erista.me/files/Eggman%27s%20Arcade%20Repository/": {
+      "dirs_processed": 988,
+      "files_total": 3635,
+      "bytes_total": 3066399107191,
+      "bytes_human": "2.79 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 36.85192513465881
+    },
+    "https://myrient.erista.me/files/FinalBurn%20Neo/": {
+      "dirs_processed": 19,
+      "files_total": 24333,
+      "bytes_total": 30073971110,
+      "bytes_human": "28.01 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 4.048813581466675
+    },
+    "https://myrient.erista.me/files/HBMAME/": {
+      "dirs_processed": 14,
+      "files_total": 10500,
+      "bytes_total": 38357862790,
+      "bytes_human": "35.72 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 4.370223522186279
+    },
+    "https://myrient.erista.me/files/Hardware%20Target%20Game%20Database/": {
+      "dirs_processed": 733,
+      "files_total": 7227,
+      "bytes_total": 490822207707,
+      "bytes_human": "457.11 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 27.17251467704773
+    },
+    "https://myrient.erista.me/files/Internet%20Archive/": {
+      "dirs_processed": 6469,
+      "files_total": 234616,
+      "bytes_total": 44511371905891,
+      "bytes_human": "40.48 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 258.66924500465393
+    },
+    "https://myrient.erista.me/files/Laserdisc%20Collection/": {
+      "dirs_processed": 1396,
+      "files_total": 39600,
+      "bytes_total": 4807823157944,
+      "bytes_human": "4.37 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 56.04613280296326
+    },
+    "https://myrient.erista.me/files/Lost%20Level/": {
+      "dirs_processed": 88,
+      "files_total": 3884,
+      "bytes_total": 311390053439,
+      "bytes_human": "290.00 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 5.7963645458221436
+    },
+    "https://myrient.erista.me/files/MAME/": {
+      "dirs_processed": 12750,
+      "files_total": 750984,
+      "bytes_total": 6555943847300,
+      "bytes_human": "5.96 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 592.0036344528198
+    },
+    "https://myrient.erista.me/files/Miscellaneous/": {
+      "dirs_processed": 17445,
+      "files_total": 61907,
+      "bytes_total": 7171146462257,
+      "bytes_human": "6.52 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 606.3369228839874
+    },
+    "https://myrient.erista.me/files/No-Intro/": {
+      "dirs_processed": 492,
+      "files_total": 306890,
+      "bytes_total": 91769116340239,
+      "bytes_human": "83.46 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 28.697373867034912
+    },
+    "https://myrient.erista.me/files/Redump/": {
+      "dirs_processed": 114,
+      "files_total": 131734,
+      "bytes_total": 206763162393373,
+      "bytes_human": "188.05 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 12.704986572265625
+    },
+    "https://myrient.erista.me/files/RetroAchievements/": {
+      "dirs_processed": 200,
+      "files_total": 15805,
+      "bytes_total": 3120336236985,
+      "bytes_human": "2.84 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 9.395120620727539
+    },
+    "https://myrient.erista.me/files/T-En%20Collection/": {
+      "dirs_processed": 74,
+      "files_total": 4465,
+      "bytes_total": 832446147181,
+      "bytes_human": "775.28 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 5.787479877471924
+    },
+    "https://myrient.erista.me/files/TOSEC-ISO/": {
+      "dirs_processed": 492,
+      "files_total": 12064,
+      "bytes_total": 6647320460325,
+      "bytes_human": "6.05 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 19.68416476249695
+    },
+    "https://myrient.erista.me/files/TOSEC-PIX/": {
+      "dirs_processed": 1699,
+      "files_total": 39056,
+      "bytes_total": 2477640936497,
+      "bytes_human": "2.25 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 65.73763632774353
+    },
+    "https://myrient.erista.me/files/TOSEC/": {
+      "dirs_processed": 4423,
+      "files_total": 1009504,
+      "bytes_total": 326081509387,
+      "bytes_human": "303.69 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 190.12882947921753
+    },
+    "https://myrient.erista.me/files/TeknoParrot/": {
+      "dirs_processed": 1,
+      "files_total": 519,
+      "bytes_total": 1760555216847,
+      "bytes_human": "1.60 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 2.631864070892334
+    },
+    "https://myrient.erista.me/files/Total%20DOS%20Collection/": {
+      "dirs_processed": 178,
+      "files_total": 42306,
+      "bytes_total": 1116805583650,
+      "bytes_human": "1.02 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 12.297152280807495
+    },
+    "https://myrient.erista.me/files/Touhou%20Project%20Collection/": {
+      "dirs_processed": 42,
+      "files_total": 850,
+      "bytes_total": 456578671406,
+      "bytes_human": "425.22 GiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 4.595985412597656
+    },
+    "https://myrient.erista.me/files/bitsavers/": {
+      "dirs_processed": 18667,
+      "files_total": 186964,
+      "bytes_total": 1807835033486,
+      "bytes_human": "1.64 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 697.6029686927795
+    },
+    "https://myrient.erista.me/files/eXo/": {
+      "dirs_processed": 95,
+      "files_total": 22001,
+      "bytes_total": 2408746311315,
+      "bytes_human": "2.19 TiB",
+      "error_count": 0,
+      "external_refs": 0,
+      "elapsed_sec": 7.494109630584717
+    }
+  },
+  "totals": {
+    "collections": 21,
+    "dirs_processed": 66375,
+    "files_total": 2876797,
+    "bytes_total": 386467885946506,
+    "bytes_human": "351.49 TiB",
+    "error_count": 35,
+    "external_refs": 0
+  }
+}
