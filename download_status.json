@@ -1,36 +1,28 @@
 {
-  "timestamp": "2026-02-27T16:27:55Z",
-  "download_bytes": 817601517835,
-  "download_human": "764G",
-  "disk_used": "764G",
+  "timestamp": "2026-02-27T16:43:06Z",
+  "download_bytes": 822841710040,
+  "download_human": "770G",
+  "disk_used": "770G",
   "disk_percent": "2%",
-  "files_transferred": 225,
-  "files_total": 10237,
-  "currently_downloading": [{"file":"Unknown/RedumpNintendo…e Underminer (USA).zip","progress":"72%"},{"file":"Unknown/RedumpNintendo…ica/Dr. Muto (USA).zip","progress":"47%"},{"file":"Unknown/RedumpNintendo… Z - Budokai (USA).zip","progress":"61%"},{"file":"Unknown/RedumpNintendo… - Budokai 2 (USA).zip","progress":"72%"},{"file":"5%","progress":null}],
+  "files_transferred": 231,
+  "files_total": 10243,
+  "currently_downloading": [{"file":"RedumpNintendo…ll Z - Sagas (USA).zip","progress":"96%"},{"file":"RedumpNintendo…s Madagascar (USA).zip","progress":"8%"},{"file":"RedumpNintendo…er the Hedge (USA).zip","progress":"5%"},{"file":"RedumpNintendo…s Shark Tale (USA).zip","progress":"1%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dr. Muto (USA).zip",
-    "size": "602Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Sagas (USA).zip",
+    "size": "1.3Gi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai (USA).zip",
-    "size": "569Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Madagascar (USA).zip",
+    "size": "113Mi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai 2 (USA).zip",
-    "size": "743Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Over the Hedge (USA).zip",
+    "size": "66Mi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Disney-Pixar The Incredibles - Rise of the Underminer (USA).zip",
-    "size": "950Mi"
-  },
-  {
-    "file": "/mnt/storage/myrient_downloads/public/download_status.json",
-    "size": "238"
-  },
-  {
-    "file": "/mnt/storage/myrient_downloads/rclone.log",
-    "size": "26Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shark Tale (USA).zip",
+    "size": "31Mi"
   }
 ]
 }
