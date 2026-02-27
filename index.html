@@ -671,6 +671,42 @@
             <!-- Populated by JavaScript -->
         </div>
 
+        <!-- Per-File Progress -->
+        <div class="overview-card" id="file-progress-card" style="display: none;">
+            <div class="overview-header">
+                <h2 class="overview-title">📁 File Download Progress</h2>
+            </div>
+            <div class="overall-progress" style="margin-bottom: 1rem;">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="files-progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="progress-stats">
+                    <span><span class="highlight" id="files-transferred">-</span> of <span class="highlight" id="files-total">-</span> files complete</span>
+                    <span><span class="highlight" id="files-percentage">-</span></span>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div>
+                    <h3 style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--accent-warning);">⏳</span> Currently Downloading
+                    </h3>
+                    <div id="currently-downloading" style="font-size: 0.8125rem; max-height: 200px; overflow-y: auto;">
+                        <div class="empty-state" style="padding: 1rem;">No active downloads</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: var(--accent-success);">✓</span> Recently Completed
+                    </h3>
+                    <div id="recently-completed" style="font-size: 0.8125rem; max-height: 200px; overflow-y: auto;">
+                        <div class="empty-state" style="padding: 1rem;">No recent completions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Current Directory Browser -->
         <div class="section-header">
             <h2 class="section-title" id="browser-title">Directory Contents</h2>
@@ -762,6 +798,9 @@
                     const minsUntil = Math.floor((nextUpdate - now) / 60000);
                     document.getElementById('next-update').textContent = minsUntil > 0 ? `${minsUntil} min` : 'soon';
                 }
+                
+                // Update per-file progress
+                updateFileProgress(status);
                 
                 // Refresh UI if data loaded
                 if (collectionsData) {
@@ -1090,6 +1129,80 @@
                 renderCollections();
             });
         });
+
+        // Update per-file progress section
+        function updateFileProgress(status) {
+            const card = document.getElementById('file-progress-card');
+            
+            // Show card if we have file data
+            if (status.files_total > 0) {
+                card.style.display = 'block';
+                
+                // Update file count stats
+                const transferred = status.files_transferred || 0;
+                const total = status.files_total || 1;
+                const percent = ((transferred / total) * 100).toFixed(1);
+                
+                document.getElementById('files-transferred').textContent = transferred.toLocaleString();
+                document.getElementById('files-total').textContent = total.toLocaleString();
+                document.getElementById('files-percentage').textContent = percent + '%';
+                document.getElementById('files-progress-bar').style.width = percent + '%';
+                
+                // Update currently downloading
+                const downloadingDiv = document.getElementById('currently-downloading');
+                if (status.currently_downloading && status.currently_downloading.length > 0) {
+                    downloadingDiv.innerHTML = status.currently_downloading
+                        .filter(item => item.file && !item.file.includes('%')) // Filter out bad entries
+                        .map(item => {
+                            const progress = item.progress || '0%';
+                            const progressNum = parseInt(progress) || 0;
+                            return `
+                                <div style="margin-bottom: 0.5rem; padding: 0.5rem; background: var(--bg-tertiary); border-radius: 4px;">
+                                    <div style="color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.25rem;">
+                                        ${item.file.split('/').pop()}
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <div class="progress-bar-bg" style="flex: 1; height: 4px;">
+                                            <div class="progress-bar-fill" style="width: ${progressNum}%; height: 100%;"></div>
+                                        </div>
+                                        <span style="color: var(--accent-info); font-size: 0.75rem; min-width: 35px;">${progress}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                } else {
+                    downloadingDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No active downloads</div>';
+                }
+                
+                // Update recently completed
+                const completedDiv = document.getElementById('recently-completed');
+                if (status.recently_completed && status.recently_completed.length > 0) {
+                    // Filter out non-downloaded files (like log files, status files)
+                    const realFiles = status.recently_completed.filter(item => 
+                        item.file && 
+                        !item.file.endsWith('.log') && 
+                        !item.file.endsWith('.json') &&
+                        !item.file.includes('public/')
+                    );
+                    
+                    if (realFiles.length > 0) {
+                        completedDiv.innerHTML = realFiles.map(item => {
+                            const filename = item.file.split('/').pop();
+                            return `
+                                <div style="margin-bottom: 0.5rem; padding: 0.5rem; background: var(--accent-success-bg); border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; margin-right: 0.5rem;">${filename}</span>
+                                    <span style="color: var(--accent-success); font-size: 0.75rem; flex-shrink: 0;">${item.size || ''}</span>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        completedDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No recent completions</div>';
+                    }
+                } else {
+                    completedDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No recent completions</div>';
+                }
+            }
+        }
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
