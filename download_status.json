@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T17:00:03Z",
-  "download_bytes": 829225342756,
-  "download_human": "776G",
-  "disk_used": "776G",
-  "disk_percent": "2%",
-  "files_transferred": 242,
-  "files_total": 10254,
-  "currently_downloading": [{"file":"RedumpNintendo…Crash Racing (USA).zip","progress":"79%"},{"file":"RedumpNintendo… - SuperSlam (USA).zip","progress":"62%"},{"file":"RedumpNintendo…) (En,Fr,De,Es,It).zip","progress":"35%"},{"file":"pkmn_colle… Nintendo DS Top 25.7z","progress":"8%"},{"file":"5%","progress":null}],
+  "timestamp": "2026-02-27T18:00:03Z",
+  "download_bytes": 881961410263,
+  "download_human": "843G",
+  "disk_used": "843G",
+  "disk_percent": "3%",
+  "files_transferred": 262,
+  "files_total": 10274,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…ch__DLC__BLJS10330.rar","progress":"78%"},{"file":"PS3_ALVRO_PART…Graces_F_BLUS30903.rar","progress":"48%"},{"file":"PS3_ALVRO_PART…ronicles_BLES01864.rar","progress":"22%"},{"file":"PS3_ALVRO_PART…ronicles_BLUS31172.rar","progress":"13%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shrek - Smash n' Crash Racing (USA).zip",
-    "size": "1.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Graces_F_BLUS30903.rar",
+    "size": "3.2Gi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/DreamWorks Shrek - SuperSlam (USA).zip",
-    "size": "841Mi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Symphonia_Chronicles_BLUS31172.rar",
+    "size": "1.3Gi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmerica/Driven (USA) (En,Fr,De,Es,It).zip",
-    "size": "399Mi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Symphonia_Chronicles_BLES01864.rar",
+    "size": "2.2Gi"
   },
   {
-    "file": "bingbong294/pkmn_collection/IGN - Nintendo DS Top 25.7z",
-    "size": "249Mi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Berseria__English_Patch__DLC__BLJS10330.rar",
+    "size": "7.0Gi"
   }
 ]
 }
