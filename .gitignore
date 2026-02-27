@@ -1,0 +1,6 @@
+
+# Local development files
+server.log
+*.log
+update_status.sh
+.env
