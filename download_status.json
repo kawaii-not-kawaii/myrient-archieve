@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T20:00:03Z",
-  "download_bytes": 960533127982,
-  "download_human": "909G",
-  "disk_used": "909G",
+  "timestamp": "2026-02-27T21:00:02Z",
+  "download_bytes": 997364899087,
+  "download_human": "957G",
+  "disk_used": "957G",
   "disk_percent": "3%",
-  "files_transferred": 272,
-  "files_total": 10284,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…iria_DLC_BLJS93020.rar","progress":"54%"},{"file":"PS3_ALVRO_PART…Overlord_BLJM61076.rar","progress":"82%"},{"file":"PS3_ALVRO_PART…Overlord_BLUS31476.rar","progress":"17%"},{"file":"PS3_ALVRO_PART…_no_Nazo_BLJM60166.rar","progress":"3%"},{"file":"5%","progress":null}],
+  "files_transferred": 278,
+  "files_total": 10290,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…o_Daichi_BLJM60094.rar","progress":"69%"},{"file":"PS3_ALVRO_PART…Tekken_6_BLES00635.rar","progress":"29%"},{"file":"PS3_ALVRO_PART…n_Hybrid_BCES01454.rar","progress":"97%"},{"file":"PS3_ALVRO_PART…nament_2_BLUS31002.rar","progress":"5%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tales_of_Zestiria_DLC_BLJS93020.rar",
-    "size": "4.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tekken_6_BLES00635.rar",
+    "size": "3.3Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tears_to_Tiara_Gaiden_Avalon_no_Nazo_BLJM60166.rar",
-    "size": "247Mi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tekken_Hybrid_BCES01454.rar",
+    "size": "2.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tears_To_Tiara_2_Heir_of_The_Overlord_BLUS31476.rar",
-    "size": "678Mi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tears_to_Tiara_Kakan_no_Daichi_BLJM60094.rar",
+    "size": "7.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tears_To_Tiara_2_Heir_of_The_Overlord_BLJM61076.rar",
-    "size": "3.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/Tekken_Tag_Tournament_2_BLUS31002.rar",
+    "size": "920Mi"
   }
 ]
 }
