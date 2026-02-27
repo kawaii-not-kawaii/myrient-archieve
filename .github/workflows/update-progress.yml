@@ -1,0 +1,70 @@
+name: Update Download Progress
+
+on:
+  schedule:
+    # Run every hour
+    - cron: '0 * * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.8.0
+      with:
+        ssh-private-key: ${{ secrets.ARCHIVE_SERVER_SSH_KEY }}
+        
+    - name: Add server to known hosts
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.ARCHIVE_SERVER_HOST_KEY }}" >> ~/.ssh/known_hosts
+        
+    - name: Fetch download progress from server
+      run: |
+        # Create download_status.json with current stats
+        echo "Fetching download stats..."
+        
+        # Get current download size
+        DOWNLOAD_SIZE=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "du -sb /mnt/storage/myrient_downloads 2>/dev/null || echo 0")
+        DOWNLOAD_SIZE=${DOWNLOAD_SIZE%%$'\t'*}
+        
+        # Get rclone progress
+        RCLONE_STATS=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "tail -5 /mnt/storage/myrient_downloads/rclone.log 2>/dev/null | grep 'Transferred:' | tail -1 || echo 'No data'")
+        
+        # Get disk usage
+        DISK_USAGE=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "df -h /mnt/storage | grep mergerfs || echo 'No data'")
+        
+        # Create status JSON
+        cat > download_status.json << EOF
+        {
+          "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+          "server": "${{ secrets.ARCHIVE_SERVER_HOST }}",
+          "download_bytes": $DOWNLOAD_SIZE,
+          "download_human": "$(numfmt --to=iec-i --suffix=B $DOWNLOAD_SIZE 2>/dev/null || echo '0B')",
+          "rclone_stats": "$RCLONE_STATS",
+          "disk_usage": "$DISK_USAGE"
+        }
+        EOF
+        
+        echo "Status file created:"
+        cat download_status.json
+        
+    - name: Commit and push changes
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
+        # Check if there are changes
+        if git diff --quiet && git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        git add download_status.json
+        git commit -m "Update download progress - $(date -u +%Y-%m-%d %H:%M UTC)"
+        git push

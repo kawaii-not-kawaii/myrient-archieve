@@ -708,13 +708,40 @@
         let sortColumn = 'name';
         let sortDirection = 'asc';
 
-        // Download status tracking (will be populated from server or manual)
-        // This maps collection names to their download status
-        const downloadStatus = {
-            // Format: 'Collection Name': { status: 'pending'|'downloading'|'downloaded', progress: 0-100 }
+        // Download status tracking
+        // Load from download_status.json if available
+        let downloadStatus = {
             'Internet Archive': { status: 'downloading', progress: 1.8, downloadedBytes: 735 * 1024 * 1024 * 1024 },
-            // Everything else starts as pending
         };
+
+        // Try to load real-time status from server
+        async function loadLiveStatus() {
+            try {
+                const response = await fetch('download_status.json?t=' + Date.now());
+                if (!response.ok) return;
+                const status = await response.json();
+                
+                // Update download status with live data
+                const totalBytes = 44511371905891; // IA total from estimate
+                const downloadedBytes = status.download_bytes || 0;
+                const progress = Math.min((downloadedBytes / totalBytes * 100), 100);
+                
+                downloadStatus['Internet Archive'] = {
+                    status: 'downloading',
+                    progress: progress,
+                    downloadedBytes: downloadedBytes,
+                    lastUpdated: status.timestamp
+                };
+                
+                // Refresh UI if data loaded
+                if (collectionsData) {
+                    updateOverview();
+                    renderCollections();
+                }
+            } catch (e) {
+                console.log('Live status not available:', e.message);
+            }
+        }
 
         // Helper: Format bytes to human readable
         function formatBytes(bytes) {
@@ -1035,7 +1062,12 @@
         });
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', loadData);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            loadLiveStatus(); // Try to get live status
+            // Refresh live status every 5 minutes
+            setInterval(loadLiveStatus, 5 * 60 * 1000);
+        });
     </script>
 </body>
 </html>
