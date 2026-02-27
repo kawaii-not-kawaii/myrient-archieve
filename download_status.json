@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-02-27T16:16:46Z",
+  "download_bytes": 814148736351,
+  "download_human": "760G",
+  "disk_used": "760G",
+  "disk_percent": "2%",
+  "rclone_stats": "{"status": "unknown"}"
+}
