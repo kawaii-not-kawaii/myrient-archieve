@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-27T16:26:14Z",
-  "download_bytes": 817242807425,
+  "timestamp": "2026-02-27T16:27:55Z",
+  "download_bytes": 817601517835,
   "download_human": "764G",
   "disk_used": "764G",
   "disk_percent": "2%",
   "files_transferred": 225,
   "files_total": 10237,
-  "currently_downloading": [{"file":"Unknown/RedumpNintendo…e Underminer (USA).zip","progress":"69%"},{"file":"Unknown/RedumpNintendo…ica/Dr. Muto (USA).zip","progress":"42%"},{"file":"Unknown/RedumpNintendo… Z - Budokai (USA).zip","progress":"49%"},{"file":"Unknown/RedumpNintendo… - Budokai 2 (USA).zip","progress":"61%"},{"file":"5%","progress":null}],
+  "currently_downloading": [{"file":"Unknown/RedumpNintendo…e Underminer (USA).zip","progress":"72%"},{"file":"Unknown/RedumpNintendo…ica/Dr. Muto (USA).zip","progress":"47%"},{"file":"Unknown/RedumpNintendo… Z - Budokai (USA).zip","progress":"61%"},{"file":"Unknown/RedumpNintendo… - Budokai 2 (USA).zip","progress":"72%"},{"file":"5%","progress":null}],
   "recently_completed": [
   {
     "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dr. Muto (USA).zip",
-    "size": "530Mi"
+    "size": "602Mi"
   },
   {
     "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai (USA).zip",
-    "size": "452Mi"
+    "size": "569Mi"
   },
   {
     "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai 2 (USA).zip",
-    "size": "633Mi"
+    "size": "743Mi"
   },
   {
     "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Disney-Pixar The Incredibles - Rise of the Underminer (USA).zip",
-    "size": "909Mi"
+    "size": "950Mi"
   },
   {
     "file": "/mnt/storage/myrient_downloads/public/download_status.json",
