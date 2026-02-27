@@ -636,6 +636,10 @@
                     <span><span class="highlight" id="total-amount">-</span> total</span>
                     <span><span class="highlight" id="percentage">-</span></span>
                 </div>
+                <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
+                    <span style="color: var(--text-muted);">Last server update: <span id="server-last-update" style="color: var(--accent-info);">-</span></span>
+                    <span style="color: var(--text-muted);">Next update: <span id="next-update">-</span></span>
+                </div>
             </div>
 
             <div class="legend">
@@ -732,6 +736,32 @@
                     downloadedBytes: downloadedBytes,
                     lastUpdated: status.timestamp
                 };
+                
+                // Update last update time display
+                if (status.timestamp) {
+                    const lastUpdate = new Date(status.timestamp);
+                    const now = new Date();
+                    const diffMinutes = Math.floor((now - lastUpdate) / 60000);
+                    
+                    let timeText;
+                    if (diffMinutes < 1) timeText = 'just now';
+                    else if (diffMinutes < 60) timeText = `${diffMinutes} min ago`;
+                    else {
+                        const diffHours = Math.floor(diffMinutes / 60);
+                        timeText = `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
+                    }
+                    
+                    document.getElementById('server-last-update').textContent = timeText;
+                    
+                    // Calculate next update (hourly on the hour)
+                    const nextUpdate = new Date(lastUpdate);
+                    nextUpdate.setHours(nextUpdate.getHours() + 1);
+                    nextUpdate.setMinutes(0);
+                    nextUpdate.setSeconds(0);
+                    
+                    const minsUntil = Math.floor((nextUpdate - now) / 60000);
+                    document.getElementById('next-update').textContent = minsUntil > 0 ? `${minsUntil} min` : 'soon';
+                }
                 
                 // Refresh UI if data loaded
                 if (collectionsData) {
