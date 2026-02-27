@@ -149,6 +149,8 @@
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .overview-header {
@@ -672,7 +674,7 @@
         </div>
 
         <!-- Per-File Progress -->
-        <div class="overview-card" id="file-progress-card" style="display: none;">
+        <div class="overview-card" id="file-progress-card" style="display: none; margin-top: 2rem;">
             <div class="overview-header">
                 <h2 class="overview-title">📁 File Download Progress</h2>
             </div>
@@ -686,7 +688,7 @@
                 </div>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
                 <div>
                     <h3 style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
                         <span style="color: var(--accent-warning);">⏳</span> Currently Downloading
