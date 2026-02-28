@@ -1,36 +1,52 @@
 {
-  "timestamp": "2026-02-27T16:27:55Z",
-  "download_bytes": 817601517835,
-  "download_human": "764G",
-  "disk_used": "764G",
-  "disk_percent": "2%",
-  "files_transferred": 225,
-  "files_total": 10237,
-  "currently_downloading": [{"file":"Unknown/RedumpNintendo…e Underminer (USA).zip","progress":"72%"},{"file":"Unknown/RedumpNintendo…ica/Dr. Muto (USA).zip","progress":"47%"},{"file":"Unknown/RedumpNintendo… Z - Budokai (USA).zip","progress":"61%"},{"file":"Unknown/RedumpNintendo… - Budokai 2 (USA).zip","progress":"72%"},{"file":"5%","progress":null}],
+  "timestamp": "2026-02-28T06:00:02Z",
+  "download_bytes": 1285001002134,
+  "download_human": "1.6T",
+  "disk_used": "1.6T",
+  "disk_percent": "4%",
+  "files_transferred": 366,
+  "files_total": 10402,
+  "currently_downloading": [{"file":"rhdn_20240801.zip","progress":"22%"},{"file":"htg… NEOGEO 2023-12-08.zip","progress":"32%"},{"file":"htg…erDrive 2023-12-12.zip","progress":"22%"},{"file":"htg…ections 2023-12-12.zip","progress":"27%"}],
   "recently_completed": [
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dr. Muto (USA).zip",
-    "size": "602Mi"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 MAME Complete Add-On 2020-05-24.7z",
+    "size": "1.4Gi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai (USA).zip",
-    "size": "569Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive Game Series Collections 2023-12-12.zip",
+    "size": "1.5Gi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Dragon Ball Z - Budokai 2 (USA).zip",
-    "size": "743Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
+    "size": "346Mi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/Unknown/RedumpNintendoGameCubeAmerica/Disney-Pixar The Incredibles - Rise of the Underminer (USA).zip",
-    "size": "950Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack Add-on - NEOGEO 2023-12-08.zip",
+    "size": "2.7Gi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/public/download_status.json",
-    "size": "238"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft Neo Geo 2020-05-12.7z",
+    "size": "491Mi"
   },
   {
-    "file": "/mnt/storage/myrient_downloads/rclone.log",
-    "size": "26Mi"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 Full MAME Add-On 2020-05-24.7z",
+    "size": "2.1Gi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 Game Series Collections Add-On 2023-05-15.7z",
+    "size": "425Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive 2023-12-12.zip",
+    "size": "1.8Gi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy - EverDrive GB 2020-12-22.zip",
+    "size": "394Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy Color SMDB 2022-05-12.zip",
+    "size": "420Mi"
   }
 ]
 }
