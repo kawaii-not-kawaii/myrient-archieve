@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T08:53:09Z",
+  "timestamp": "2026-02-28T09:30:12Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 243870030649,
-  "download_human": "321G",
-  "disk_used": "321G",
+  "download_bytes": 323468921832,
+  "download_human": "390G",
+  "disk_used": "390G",
   "disk_percent": "1%",
-  "collections": [{"name":"bitsavers","size":"63G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"26G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"49G"},{"name":"TOSEC-PIX","size":"55G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"66G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"29G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"71G"},{"name":"TOSEC-PIX","size":"80G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
     "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Full Re-Dub Xbox Cutscenes].zip",
-    "size": "27Mi"
+    "size": "349Mi"
   },
   {
     "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Full Re-Dub].zip",
-    "size": "30Mi"
+    "size": "382Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text No Re-Dub Xbox Cutscenes].zip",
+    "size": "273Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text No Re-Dub].zip",
+    "size": "218Mi"
   },
   {
     "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Basic Re-Dub].zip",
-    "size": "29Mi"
+    "size": "276Mi"
   },
   {
     "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Basic Re-Dub Xbox Cutscenes].zip",
-    "size": "58Mi"
+    "size": "328Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Primal Fury (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [Full Primal Xbox Cutscenes] [n].zip",
+    "size": "180Mi"
   },
   {
     "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Fatal Frame 4 - Mask of the Lunar Eclipse (Japan) [T-En by Tempus v1.0+update] [n].zip",
-    "size": "1.2Gi"
+    "size": "1.5Gi"
   },
   {
     "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Opoona (USA) [T-En by Opoonaproject v1.1] [Retranslated].zip",
-    "size": "1.1Gi"
+    "size": "1.4Gi"
   },
   {
     "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Earth Seeker (Japan) [T-En by Brand Newman v2.03].zip",
-    "size": "1.4Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Golden Bonds (Japan) [T-En by Brand Newman v1.00] [n].zip",
-    "size": "1.2Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Blades of Reginleiv (Japan) [T-En by Gummi & Brand Newman v1.01] [n].zip",
-    "size": "1.4Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Arc Rise Fantasia (USA) [Undub by Somebody Special v1.1].zip",
-    "size": "1.3Gi"
+    "size": "2.1Gi"
   }
 ]
 }
