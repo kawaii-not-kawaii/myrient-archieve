@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-28T00:00:03Z",
-  "download_bytes": 1057478268590,
-  "download_human": "1004G",
-  "disk_used": "1004G",
+  "timestamp": "2026-02-28T01:00:03Z",
+  "download_bytes": 1079027201686,
+  "download_human": "1022G",
+  "disk_used": "1022G",
   "disk_percent": "3%",
-  "files_transferred": 284,
-  "files_total": 10296,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…nament_2_BLUS31002.rar","progress":"83%"},{"file":"PS3_ALVRO_PART…_2___DLC_BLES01702.rar","progress":"45%"},{"file":"PS3_ALVRO_PART…_Unicorn_BLES01306.rar","progress":"92%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES01989.rar","progress":"59%"},{"file":"6%","progress":null}],
+  "files_transferred": 287,
+  "files_total": 10299,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…_2___DLC_BLES01702.rar","progress":"60%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS41044.rar","progress":"82%"},{"file":"PS3_ALVRO_PART…ider_Man_BLES01547.rar","progress":"27%"},{"file":"PS3_ALVRO_PART…ltimatum_BLUS31500.rar","progress":"97%"},{"file":"6%","progress":null}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Adventures_of_Tintin_The_Secret_of_the_Unicorn_BLES01306.rar",
-    "size": "6.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Amazing_Spider_Man_BLES01547.rar",
+    "size": "2.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_10/Tekken_Tag_Tournament_2___DLC_BLES01702.rar",
-    "size": "10Gi"
+    "size": "14Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tekken_Tag_Tournament_2_BLUS31002.rar",
-    "size": "15Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Amazing_Spider_Man_2____All_DLC__BLUS41044.rar",
+    "size": "5.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Amazing_Spider_Man_2____All_DLC__BLES01989.rar",
-    "size": "4.7Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Awakened_Fate_Ultimatum_BLUS31500.rar",
+    "size": "2.5Gi"
   }
 ]
 }
