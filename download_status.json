@@ -1,28 +1,52 @@
 {
-  "timestamp": "2026-02-28T03:00:03Z",
-  "download_bytes": 1126582836148,
-  "download_human": "1.1T",
-  "disk_used": "1.1T",
-  "disk_percent": "3%",
-  "files_transferred": 294,
-  "files_total": 10306,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLUS30780.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…_Caspian_BLUS30138.rar","progress":"49%"},{"file":"PS3_ALVRO_PART…k_Athena_BLES00311.rar","progress":"20%"},{"file":"PS3_ALVRO_PART…The_Club_BLES00192.rar","progress":"6%"},{"file":"6%","progress":null}],
+  "timestamp": "2026-02-28T04:00:02Z",
+  "download_bytes": 1158365473017,
+  "download_human": "1.3T",
+  "disk_used": "1.3T",
+  "disk_percent": "4%",
+  "files_transferred": 77,
+  "files_total": 10105,
+  "currently_downloading": [{"file":"miyoo-mini-tiny…ini-TinyBestSet-CD.zip","progress":"24%"},{"file":"miyoo-mini-tiny…ini-TinyBestSet-PS.zip","progress":"4%"},{"file":"ibm3700-3709.zip","progress":"86%"},{"file":"miyoo-mini-tiny…o-Mini-TinyBestSet.zip","progress":"24%"}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Chronicles_of_Narnia_Prince_Caspian_BLUS30138.rar",
-    "size": "3.7Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@Game Gear - EverDrive GG 2020-12-21.zip",
+    "size": "65Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Chronicles_of_Riddick_Assault_on_Dark_Athena_BLES00311.rar",
-    "size": "1.9Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@Genesis - MegaSD Mega EverDrive Game Series Collections 2024-01-03.zip",
+    "size": "84Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Club_BLES00192.rar",
-    "size": "359Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
+    "size": "223Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Bureau_XCOM_Declassified____All_DLC__BLUS30780.rar",
-    "size": "7.5Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@Genesis - MegaSD Mega EverDrive 2024-01-03.zip",
+    "size": "155Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy SMDB 2022-05-20.zip",
+    "size": "167Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy - EverDrive GB 2020-12-22.zip",
+    "size": "137Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy Color SMDB 2022-05-12.zip",
+    "size": "146Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack 2023-06-09.7z",
+    "size": "201Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@Master System - Master EverDrive 2022-05-04.zip",
+    "size": "60Mi"
+  },
+  {
+    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA 2022-08-08.zip",
+    "size": "229Mi"
   }
 ]
 }
