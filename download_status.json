@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T12:00:03Z",
-  "download_bytes": 1795708536439,
+  "timestamp": "2026-02-28T13:00:03Z",
+  "download_bytes": 1886117321043,
   "download_human": "2.1T",
   "disk_used": "2.1T",
-  "disk_percent": "5%",
-  "files_transferred": 769,
-  "files_total": 10805,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…disputed_BLUS30299.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…sputed_3_BLES01231.rar","progress":"47%"},{"file":"PS3_ALVRO_PART…ighter_4_BLUS31218.rar","progress":"58%"},{"file":"PS3_ALVRO_PART…_Thieves_BCUS98123.rar","progress":"42%"}],
+  "disk_percent": "6%",
+  "files_transferred": 778,
+  "files_total": 10814,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…sputed_3_BLES01231.rar","progress":"68%"},{"file":"PS3_ALVRO_PART…ighter_4_BLUS31218.rar","progress":"93%"},{"file":"PS3_ALVRO_PART…_Thieves_BCUS98123.rar","progress":"65%"},{"file":"PS3_ALVRO_PART…_Edition_BCES00509.rar","progress":"60%"}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Virtua_Fighter_BLES00029.rar",
-    "size": "1.6Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Utawarerumono_Itsuwari_no_Kamen_BLJM61288.rar",
-    "size": "3.7Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/WRC_2_FIA_World_Rally_Championship_BLES01442.rar",
+    "size": "4.2Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Vanquish____All_DLC__BLUS30543.rar",
-    "size": "3.3Gi"
+    "size": "9.2Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Ultra_Street_Fighter_4_BLUS31218.rar",
-    "size": "11Gi"
+    "size": "17Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_Game_of_the_Year_Edition_BCES00509.rar",
-    "size": "6.4Gi"
+    "size": "12Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Untold_Legends_Dark_Kingdom_BLUS30002.rar",
-    "size": "5.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/WWE_12_BLES01439.rar",
+    "size": "2.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Vanquish____All_DLC__BLES00927.rar",
-    "size": "4.3Gi"
+    "size": "10Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_Drakes_Fortune_BCUS98103.rar",
-    "size": "4.7Gi"
+    "size": "8.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Venetica_BLES00776.rar",
-    "size": "4.0Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/WRC_3_FIA_World_Rally_Championship_BLES01721.rar",
+    "size": "1.8Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_BCUS98123.rar",
-    "size": "8.8Gi"
+    "size": "14Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/WRC_FIA_World_Rally_Championship_BLES00992.rar",
+    "size": "2.6Gi"
   }
 ]
 }
