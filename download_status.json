@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T16:00:03Z",
-  "download_bytes": 2093343170331,
+  "timestamp": "2026-02-28T17:00:03Z",
+  "download_bytes": 2143020506092,
   "download_human": "2.3T",
   "disk_used": "2.3T",
   "disk_percent": "6%",
-  "files_transferred": 799,
-  "files_total": 10835,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…____DLC__BLES01937.rar","progress":"82%"},{"file":"PS3_ALVRO_PART…WWE_2K15_BLUS31464.rar","progress":"78%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES02190.rar","progress":"67%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS31565.rar","progress":"58%"}],
+  "files_transferred": 804,
+  "files_total": 10840,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…WWE_2K15_BLUS31464.rar","progress":"99%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES02190.rar","progress":"84%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS31565.rar","progress":"71%"},{"file":"PS3_ALVRO_PART…le_Mania_BLES00492.rar","progress":"84%"}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Warhawk_BCAS20015.rar",
-    "size": "259Mi"
-  },
-  {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_Smack_Down_Vs_Raw_2010_BLES00651.rar",
-    "size": "3.9Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Wanted_Corp_BLES01416.rar",
-    "size": "1.1Gi"
+    "size": "5.9Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Wanted_Weapons_of_Fate_BLUS30275.rar",
-    "size": "578Mi"
+    "size": "2.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Warriors_Legends_Of_Troy_BLES01183.rar",
-    "size": "346Mi"
+    "size": "4.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLUS31565.rar",
-    "size": "11Gi"
+    "size": "14Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Way_of_the_Samurai_4_BLES01682.rar",
+    "size": "923Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLES02190.rar",
-    "size": "13Gi"
+    "size": "16Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K14____DLC__BLES01937.rar",
-    "size": "12Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Watch_Dogs___All_DLC__BLES01854.rar",
+    "size": "2.0Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Warhammer_40000_Space_Marine_BLUS30432.rar",
-    "size": "384Mi"
+    "size": "3.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Wall-E_BLJM60084.rar",
-    "size": "1.4Gi"
+    "size": "4.5Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/WWE_Smack_Down_Vs_Raw_2009_BLES00361.rar",
+    "size": "11Gi"
   }
 ]
 }
