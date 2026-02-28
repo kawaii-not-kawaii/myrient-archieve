@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T09:30:12Z",
+  "timestamp": "2026-02-28T10:30:16Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 323468921832,
-  "download_human": "390G",
-  "disk_used": "390G",
+  "download_bytes": 452411460750,
+  "download_human": "503G",
+  "disk_used": "503G",
   "disk_percent": "1%",
-  "collections": [{"name":"bitsavers","size":"66G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"29G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"71G"},{"name":"TOSEC-PIX","size":"80G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"72G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"34G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"108G"},{"name":"TOSEC-PIX","size":"122G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Full Re-Dub Xbox Cutscenes].zip",
-    "size": "349Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Future GPX Cyber Formula - Road to the Evolution (Japan) [T-En by NewGBAXL v20240815].zip",
+    "size": "71Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Full Re-Dub].zip",
-    "size": "382Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Lupin III - Lost Treasure Under the Sea (Japan) [T-En by DOL-Translations v1.0.1] [n].zip",
+    "size": "54Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text No Re-Dub Xbox Cutscenes].zip",
-    "size": "273Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Primal Fury (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [Full Primal] [n].zip",
+    "size": "352Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text No Re-Dub].zip",
-    "size": "218Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Primal Fury (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [Partial Primal Xbox Cutscenes] [n].zip",
+    "size": "210Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Basic Re-Dub].zip",
-    "size": "276Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Kururin Squash! (Japan) [T-En by NewGBAXL v2.0.1].zip",
+    "size": "54Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Extreme (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [English Text Basic Re-Dub Xbox Cutscenes].zip",
-    "size": "328Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Fire Emblem - Souen no Kiseki (Japan) [T-En by Shadowofchaos v0.1].zip",
+    "size": "109Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Primal Fury (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [Full Primal Xbox Cutscenes] [n].zip",
-    "size": "180Mi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Dragon Drive - D-Masters Shot (Japan) [T-En by LFA Translations].zip",
+    "size": "211Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Fatal Frame 4 - Mask of the Lunar Eclipse (Japan) [T-En by Tempus v1.0+update] [n].zip",
-    "size": "1.5Gi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Homeland (Japan) (Rev 1) [T-En by DOL-Translations v20250515] [i].zip",
+    "size": "91Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Opoona (USA) [T-En by Opoonaproject v1.1] [Retranslated].zip",
-    "size": "1.4Gi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Bloody Roar - Primal Fury (Japan) [T-En by BloodRaynare & Sigma & TheFirstHunt v1.2] [Partial Primal] [n].zip",
+    "size": "441Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Wii [T-En] Collection/Earth Seeker (Japan) [T-En by Brand Newman v2.03].zip",
-    "size": "2.1Gi"
+    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Metal Gear Solid - The Twin Snakes - Special Disc (Japan) [T-En by AfroJackX v1.0.0].zip",
+    "size": "17Mi"
   }
 ]
 }
