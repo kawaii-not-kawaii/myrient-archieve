@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T06:00:02Z",
-  "download_bytes": 1285001002134,
+  "timestamp": "2026-02-28T07:00:03Z",
+  "download_bytes": 1369892233876,
   "download_human": "1.6T",
   "disk_used": "1.6T",
   "disk_percent": "4%",
-  "files_transferred": 366,
-  "files_total": 10402,
-  "currently_downloading": [{"file":"rhdn_20240801.zip","progress":"22%"},{"file":"htg… NEOGEO 2023-12-08.zip","progress":"32%"},{"file":"htg…erDrive 2023-12-12.zip","progress":"22%"},{"file":"htg…ections 2023-12-12.zip","progress":"27%"}],
+  "files_transferred": 505,
+  "files_total": 10541,
+  "currently_downloading": [{"file":"rhdn_20240801.zip","progress":"64%"},{"file":"htg…Drive 64 2023-12-08.7z","progress":"55%"},{"file":"htg…s Add-On 2023-05-15.7z","progress":"19%"},{"file":"htg…ive GBA 2022-08-08.zip","progress":"46%"}],
   "recently_completed": [
   {
-    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 MAME Complete Add-On 2020-05-24.7z",
-    "size": "1.4Gi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive Game Series Collections 2023-12-12.zip",
-    "size": "1.5Gi"
-  },
-  {
     "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
-    "size": "346Mi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack Add-on - NEOGEO 2023-12-08.zip",
-    "size": "2.7Gi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/Darksoft Neo Geo 2020-05-12.7z",
-    "size": "491Mi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 Full MAME Add-On 2020-05-24.7z",
-    "size": "2.1Gi"
+    "size": "3.5Gi"
   },
   {
     "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 Game Series Collections Add-On 2023-05-15.7z",
-    "size": "425Mi"
+    "size": "3.0Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive 2023-12-12.zip",
-    "size": "1.8Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack 2023-06-09.7z",
+    "size": "2.8Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Boy - EverDrive GB 2020-12-22.zip",
-    "size": "394Mi"
+    "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 2023-12-08.7z",
+    "size": "6.3Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Boy Color SMDB 2022-05-12.zip",
-    "size": "420Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA 2022-08-08.zip",
+    "size": "7.2Gi"
+  },
+  {
+    "file": "md_/mdplus_collection_22_04_16/MD+ Thunder Force IV (Beta) (Original YM2612 OST).7z",
+    "size": "33Mi"
+  },
+  {
+    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (HD Remix Arranged).7z",
+    "size": "291Mi"
+  },
+  {
+    "file": "md_/mdplus_collection_22_04_16/MD+ Truxton (Beta) (Arranged).7z",
+    "size": "25Mi"
+  },
+  {
+    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (Ultra SFII Switch Arranged).7z",
+    "size": "81Mi"
+  },
+  {
+    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (Arcade Q Sound).7z",
+    "size": "170Mi"
   }
 ]
 }
