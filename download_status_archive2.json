@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-02-28T06:49:08Z",
+  "server": "archive2",
+  "host": "65.21.35.118",
+  "download_bytes": 2876537596,
+  "download_human": "59G",
+  "disk_used": "59G",
+  "disk_percent": "1%",
+  "collections": [{"name":"bitsavers","size":"38G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"899M"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"604M"},{"name":"TOSEC-PIX","size":"986M"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}]
+}
