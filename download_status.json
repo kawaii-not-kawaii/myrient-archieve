@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T07:00:03Z",
-  "download_bytes": 1369892233876,
+  "timestamp": "2026-02-28T08:00:03Z",
+  "download_bytes": 1426753467843,
   "download_human": "1.6T",
-  "disk_used": "1.6T",
+  "disk_used": "1.7T",
   "disk_percent": "4%",
-  "files_transferred": 505,
-  "files_total": 10541,
-  "currently_downloading": [{"file":"rhdn_20240801.zip","progress":"64%"},{"file":"htg…Drive 64 2023-12-08.7z","progress":"55%"},{"file":"htg…s Add-On 2023-05-15.7z","progress":"19%"},{"file":"htg…ive GBA 2022-08-08.zip","progress":"46%"}],
+  "files_transferred": 544,
+  "files_total": 10580,
+  "currently_downloading": [{"file":"htg…s Add-On 2023-05-15.7z","progress":"53%"},{"file":"htg…ive GBA 2022-08-08.zip","progress":"98%"},{"file":"htg… Add-On 2022-08-08.zip","progress":"86%"},{"file":"RedumpNintendo…reme Madness (USA).zip","progress":"97%"}],
   "recently_completed": [
   {
     "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
-    "size": "3.5Gi"
+    "size": "7.9Gi"
   },
   {
     "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 Game Series Collections Add-On 2023-05-15.7z",
-    "size": "3.0Gi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack 2023-06-09.7z",
-    "size": "2.8Gi"
-  },
-  {
-    "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 2023-12-08.7z",
-    "size": "6.3Gi"
+    "size": "8.2Gi"
   },
   {
     "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA 2022-08-08.zip",
-    "size": "7.2Gi"
+    "size": "16Gi"
   },
   {
-    "file": "md_/mdplus_collection_22_04_16/MD+ Thunder Force IV (Beta) (Original YM2612 OST).7z",
-    "size": "33Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA World Cup Germany 2006 (USA).zip",
+    "size": "118Mi"
   },
   {
-    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (HD Remix Arranged).7z",
-    "size": "291Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Egg Mania - Eggstreme Madness (USA).zip",
+    "size": "1.3Gi"
   },
   {
-    "file": "md_/mdplus_collection_22_04_16/MD+ Truxton (Beta) (Arranged).7z",
-    "size": "25Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2005 (USA) (En,Es).zip",
+    "size": "215Mi"
   },
   {
-    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (Ultra SFII Switch Arranged).7z",
-    "size": "81Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 06 (USA).zip",
+    "size": "417Mi"
   },
   {
-    "file": "md_/mdplus_collection_22_04_16/MD+ Super Street Fighter II (v1.1) (Arcade Q Sound).7z",
-    "size": "170Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2002 (USA).zip",
+    "size": "402Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Evolution Worlds (USA).zip",
+    "size": "633Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2004 (USA).zip",
+    "size": "199Mi"
   }
 ]
 }
