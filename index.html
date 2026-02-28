@@ -37,7 +37,6 @@
             min-height: 100vh;
         }
 
-        /* Loading Overlay */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -73,7 +72,6 @@
             to { transform: rotate(360deg); }
         }
 
-        /* Header */
         header {
             background-color: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
@@ -137,14 +135,12 @@
             letter-spacing: 0.05em;
         }
 
-        /* Main Content */
         main {
             max-width: 1400px;
             margin: 0 auto;
             padding: 2rem;
         }
 
-        /* Server Tabs */
         .server-tabs {
             display: flex;
             gap: 0.5rem;
@@ -209,7 +205,6 @@
             box-shadow: 0 0 0 2px rgba(163, 113, 247, 0.3);
         }
 
-        /* Combined Progress Card */
         .combined-progress {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -270,7 +265,6 @@
             border-radius: 4px;
         }
 
-        /* Overview Card */
         .overview-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -351,7 +345,6 @@
             color: var(--server2-color);
         }
 
-        /* Legend */
         .legend {
             display: flex;
             gap: 1.5rem;
@@ -387,7 +380,109 @@
             color: var(--accent-warning);
         }
 
-        /* Collections Section */
+        /* File Activity Section */
+        .file-activity {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .activity-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .activity-card.server1 {
+            border-left: 3px solid var(--server1-color);
+        }
+
+        .activity-card.server2 {
+            border-left: 3px solid var(--server2-color);
+        }
+
+        .activity-header {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.625rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 0.75rem;
+            background-color: var(--bg-tertiary);
+            border-radius: 6px;
+            font-size: 0.8125rem;
+        }
+
+        .activity-item .file-icon {
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .activity-item .file-icon.downloading {
+            color: var(--accent-warning);
+        }
+
+        .activity-item .file-icon.completed {
+            color: var(--accent-success);
+        }
+
+        .activity-item .file-name {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: var(--text-primary);
+        }
+
+        .activity-item .file-meta {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .activity-item .progress-bar {
+            width: 50px;
+            height: 4px;
+            background-color: var(--bg-primary);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .activity-item .progress-fill {
+            height: 100%;
+            background-color: var(--accent-warning);
+            border-radius: 2px;
+        }
+
+        .activity-empty {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-style: italic;
+            padding: 1rem;
+            text-align: center;
+        }
+
         .collections-section {
             margin-top: 2rem;
         }
@@ -398,7 +493,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Collection Cards Grid */
         .collections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -475,11 +569,6 @@
             margin-top: 0.25rem;
         }
 
-        .collection-icon {
-            font-size: 1.25rem;
-            flex-shrink: 0;
-        }
-
         .collection-progress {
             margin-bottom: 0.5rem;
         }
@@ -491,7 +580,6 @@
             color: var(--text-secondary);
         }
 
-        /* Section Headers */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -528,21 +616,18 @@
             border-color: var(--accent-success);
         }
 
-        /* Empty State */
         .empty-state {
             text-align: center;
             padding: 3rem;
             color: var(--text-secondary);
         }
 
-        /* Error State */
         .error-state {
             text-align: center;
             padding: 3rem;
             color: var(--accent-danger);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
@@ -552,7 +637,6 @@
             margin-top: 2rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -577,6 +661,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .file-activity {
+                grid-template-columns: 1fr;
+            }
+
             .collections-grid {
                 grid-template-columns: 1fr;
             }
@@ -584,7 +672,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loading-overlay">
         <div class="spinner"></div>
         <p>Loading archive data...</p>
@@ -630,41 +717,83 @@
             </button>
         </div>
 
-        <!-- Combined Progress (for combined view) - NOW DEFAULT -->
-        <div class="combined-progress" id="combined-view" style="display: grid;">
-            <div class="server-progress-card server1">
-                <div class="server-header">
-                    <div class="server-title server1">
-                        <span class="indicator"></span>
-                        Archive 1
+        <!-- Combined View -->
+        <div id="combined-view">
+            <!-- Combined Progress Cards -->
+            <div class="combined-progress">
+                <div class="server-progress-card server1">
+                    <div class="server-header">
+                        <div class="server-title server1">
+                            <span class="indicator"></span>
+                            Archive 1
+                        </div>
+                        <span class="server-status" id="status-archive1">Loading...</span>
                     </div>
-                    <span class="server-status" id="status-archive1">Loading...</span>
+                    <div class="overall-progress">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill server1-fill" id="progress-bar-archive1" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span><span class="highlight server1-text" id="downloaded-archive1">-</span> downloaded</span>
+                            <span><span class="highlight" id="percentage-archive1">-</span></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="overall-progress">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill server1-fill" id="progress-bar-archive1" style="width: 0%"></div>
+                <div class="server-progress-card server2">
+                    <div class="server-header">
+                        <div class="server-title server2">
+                            <span class="indicator"></span>
+                            Archive 2
+                        </div>
+                        <span class="server-status" id="status-archive2">Loading...</span>
                     </div>
-                    <div class="progress-stats">
-                        <span><span class="highlight server1-text" id="downloaded-archive1">-</span> downloaded</span>
-                        <span><span class="highlight" id="percentage-archive1">-</span></span>
+                    <div class="overall-progress">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill server2-fill" id="progress-bar-archive2" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-stats">
+                            <span><span class="highlight server2-text" id="downloaded-archive2">-</span> downloaded</span>
+                            <span><span class="highlight" id="percentage-archive2">-</span></span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="server-progress-card server2">
-                <div class="server-header">
-                    <div class="server-title server2">
-                        <span class="indicator"></span>
-                        Archive 2
+
+            <!-- File Activity Section -->
+            <div class="file-activity" id="file-activity">
+                <!-- Archive 1 Activity -->
+                <div class="activity-card server1" id="activity-archive1">
+                    <div class="activity-header">
+                        <span>📥</span>
+                        <span>Archive 1 - Currently Downloading</span>
                     </div>
-                    <span class="server-status" id="status-archive2">Loading...</span>
+                    <div class="activity-list" id="downloading-list-archive1">
+                        <div class="activity-empty">No active downloads</div>
+                    </div>
+                    <div class="activity-header" style="margin-top: 1rem;">
+                        <span>✓</span>
+                        <span>Recently Completed</span>
+                    </div>
+                    <div class="activity-list" id="completed-list-archive1">
+                        <div class="activity-empty">No recent completions</div>
+                    </div>
                 </div>
-                <div class="overall-progress">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill server2-fill" id="progress-bar-archive2" style="width: 0%"></div>
+
+                <!-- Archive 2 Activity -->
+                <div class="activity-card server2" id="activity-archive2">
+                    <div class="activity-header">
+                        <span>📥</span>
+                        <span>Archive 2 - Currently Downloading</span>
                     </div>
-                    <div class="progress-stats">
-                        <span><span class="highlight server2-text" id="downloaded-archive2">-</span> downloaded</span>
-                        <span><span class="highlight" id="percentage-archive2">-</span></span>
+                    <div class="activity-list" id="downloading-list-archive2">
+                        <div class="activity-empty">No active downloads</div>
+                    </div>
+                    <div class="activity-header" style="margin-top: 1rem;">
+                        <span>✓</span>
+                        <span>Recently Completed</span>
+                    </div>
+                    <div class="activity-list" id="completed-list-archive2">
+                        <div class="activity-empty">No recent completions</div>
                     </div>
                 </div>
             </div>
@@ -688,7 +817,6 @@
                 <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
                     <span style="color: var(--text-muted);">Files: <span id="files-archive1" style="color: var(--server1-color);">-</span></span>
                     <span style="color: var(--text-muted);">Speed: <span id="speed-archive1" style="color: var(--server1-color);">-</span></span>
-                    <span style="color: var(--text-muted);">ETA: <span id="eta-archive1" style="color: var(--server1-color);">-</span></span>
                 </div>
             </div>
             <div class="legend">
@@ -749,9 +877,7 @@
                     <button class="toggle-btn" data-filter="archive2">Archive 2</button>
                 </div>
             </div>
-            <div class="collections-grid" id="collections-grid">
-                <!-- Populated by JavaScript -->
-            </div>
+            <div class="collections-grid" id="collections-grid"></div>
         </div>
     </main>
 
@@ -761,7 +887,6 @@
     </footer>
 
     <script>
-        // Global state
         let serverData = {
             archive1: null,
             archive2: null
@@ -769,7 +894,6 @@
         let currentView = 'combined';
         let currentFilter = 'all';
 
-        // Helper: Format bytes to human readable
         function formatBytes(bytes) {
             if (bytes === 0) return '0 B';
             const k = 1024;
@@ -778,7 +902,6 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // Load data from both servers
         async function loadServerData() {
             try {
                 const response1 = await fetch('download_status.json?t=' + Date.now());
@@ -802,15 +925,14 @@
             document.getElementById('loading-overlay').classList.add('hidden');
         }
 
-        // Update all UI elements
         function updateUI() {
             updateHeaderStats();
             updateArchive1View();
             updateArchive2View();
+            updateFileActivity();
             renderCollections();
         }
 
-        // Update header stats
         function updateHeaderStats() {
             let totalBytes = 0;
             let totalCollections = 0;
@@ -830,7 +952,6 @@
             document.getElementById('total-collections').textContent = totalCollections;
         }
 
-        // Update Archive 1 view
         function updateArchive1View() {
             if (!serverData.archive1) {
                 document.getElementById('status-archive1').textContent = 'Offline';
@@ -863,7 +984,6 @@
             document.getElementById('percentage-archive1').textContent = progress.toFixed(2) + '%';
         }
 
-        // Update Archive 2 view
         function updateArchive2View() {
             if (!serverData.archive2) {
                 document.getElementById('status-archive2').textContent = 'Offline';
@@ -917,7 +1037,54 @@
             document.getElementById('percentage-archive2').textContent = progress.toFixed(1) + '%';
         }
 
-        // Helper: Time ago
+        function updateFileActivity() {
+            // Archive 1 Activity
+            if (serverData.archive1) {
+                const downloading1 = serverData.archive1.currently_downloading || [];
+                const completed1 = serverData.archive1.recently_completed || [];
+                
+                updateActivityList('downloading-list-archive1', downloading1, 'downloading');
+                updateActivityList('completed-list-archive1', completed1, 'completed');
+            }
+
+            // Archive 2 Activity
+            if (serverData.archive2) {
+                const downloading2 = serverData.archive2.currently_downloading || [];
+                const completed2 = serverData.archive2.recently_completed || [];
+                
+                updateActivityList('downloading-list-archive2', downloading2, 'downloading');
+                updateActivityList('completed-list-archive2', completed2, 'completed');
+            }
+        }
+
+        function updateActivityList(elementId, items, type) {
+            const container = document.getElementById(elementId);
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="activity-empty">No ' + (type === 'downloading' ? 'active downloads' : 'recent completions') + '</div>';
+                return;
+            }
+
+            container.innerHTML = items.slice(0, 4).map(item => {
+                const file = item.file || 'Unknown';
+                const shortFile = file.length > 40 ? '...' + file.slice(-37) : file;
+                const meta = type === 'downloading' ? (item.progress || '0%') : (item.size || '');
+                const progressPercent = parseInt(item.progress) || 0;
+                
+                return `
+                    <div class="activity-item">
+                        <span class="file-icon ${type}">${type === 'downloading' ? '⏳' : '✓'}</span>
+                        <span class="file-name" title="${file}">${shortFile}</span>
+                        ${type === 'downloading' ? `
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                            </div>
+                        ` : ''}
+                        <span class="file-meta">${meta}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
         function timeAgo(date) {
             const now = new Date();
             const diff = Math.floor((now - date) / 1000);
@@ -928,12 +1095,19 @@
             return Math.floor(diff / 86400) + ' days ago';
         }
 
-        // Render collections grid
+        function parseSize(sizeStr) {
+            if (!sizeStr) return 0;
+            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 
+                           'K': 1024, 'M': 1024**2, 'G': 1024**3, 'T': 1024**4 };
+            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|K|M|G|T)$/i);
+            if (!match) return 0;
+            return parseFloat(match[1]) * (units[match[2]] || 1);
+        }
+
         function renderCollections() {
             const grid = document.getElementById('collections-grid');
             grid.innerHTML = '';
 
-            // Archive 1 collections
             if (serverData.archive1 && (currentFilter === 'all' || currentFilter === 'archive1')) {
                 const card = createCollectionCard({
                     name: 'Internet Archive',
@@ -946,7 +1120,6 @@
                 grid.appendChild(card);
             }
 
-            // Archive 2 collections
             if (serverData.archive2 && (currentFilter === 'all' || currentFilter === 'archive2')) {
                 const collections = serverData.archive2.collections || [];
                 const collectionSizes = {
@@ -982,17 +1155,6 @@
             }
         }
 
-        // Helper: Parse size string to bytes
-        function parseSize(sizeStr) {
-            if (!sizeStr) return 0;
-            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 
-                           'K': 1024, 'M': 1024**2, 'G': 1024**3, 'T': 1024**4 };
-            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|K|M|G|T)$/i);
-            if (!match) return 0;
-            return parseFloat(match[1]) * (units[match[2]] || 1);
-        }
-
-        // Create collection card
         function createCollectionCard(data) {
             const card = document.createElement('div');
             card.className = `collection-card ${data.server}-card`;
@@ -1038,7 +1200,6 @@
             return card;
         }
 
-        // Tab switching
         document.querySelectorAll('.server-tab').forEach(tab => {
             tab.addEventListener('click', () => {
                 document.querySelectorAll('.server-tab').forEach(t => t.classList.remove('active'));
@@ -1052,7 +1213,7 @@
                 document.getElementById('view-archive2').classList.remove('active');
 
                 if (server === 'combined') {
-                    document.getElementById('combined-view').style.display = 'grid';
+                    document.getElementById('combined-view').style.display = 'block';
                 } else if (server === 'archive1') {
                     document.getElementById('view-archive1').classList.add('active');
                 } else if (server === 'archive2') {
@@ -1061,7 +1222,6 @@
             });
         });
 
-        // Filter buttons
         document.querySelectorAll('.toggle-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
@@ -1071,7 +1231,6 @@
             });
         });
 
-        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             loadServerData();
             setInterval(loadServerData, 5 * 60 * 1000);
