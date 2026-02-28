@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T14:00:03Z",
-  "download_bytes": 1973829869026,
-  "download_human": "2.2T",
-  "disk_used": "2.2T",
+  "timestamp": "2026-02-28T15:00:03Z",
+  "download_bytes": 2040108361455,
+  "download_human": "2.3T",
+  "disk_used": "2.3T",
   "disk_percent": "6%",
-  "files_transferred": 787,
-  "files_total": 10823,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…sputed_3_BLES01231.rar","progress":"80%"},{"file":"PS3_ALVRO_PART…_Thieves_BCUS98123.rar","progress":"79%"},{"file":"PS3_ALVRO_PART…_Edition_BCES00509.rar","progress":"95%"},{"file":"PS3_ALVRO_PART…_Fortune_BCES00065.rar","progress":"84%"}],
+  "files_transferred": 790,
+  "files_total": 10826,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…sputed_3_BLES01231.rar","progress":"91%"},{"file":"PS3_ALVRO_PART…_Thieves_BCUS98123.rar","progress":"92%"},{"file":"PS3_ALVRO_PART…_Fortune_BCUS98103.rar","progress":"84%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30196.rar","progress":"92%"}],
   "recently_completed": [
   {
+    "file": "aitus95/PS3_ALVRO_PART_11/WWE_Smack_Down_Vs_Raw_2010_BLES00651.rar",
+    "size": "1.6Gi"
+  },
+  {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLUS31565.rar",
-    "size": "2.8Gi"
+    "size": "7.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_Smack_Down_Vs_Raw_2008_BLES00137.rar",
-    "size": "1007Mi"
+    "size": "5.0Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K15_BLES02072.rar",
-    "size": "5.3Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_Game_of_the_Year_Edition_BCES00509.rar",
-    "size": "19Gi"
+    "size": "11Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLES02190.rar",
-    "size": "4.3Gi"
+    "size": "8.7Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_Drakes_Fortune_BCUS98103.rar",
-    "size": "15Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/WWE_All_Stars_BLES00995.rar",
-    "size": "2.9Gi"
+    "size": "18Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K14____DLC__BLES01937.rar",
-    "size": "4.2Gi"
+    "size": "7.3Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_BCUS98123.rar",
-    "size": "17Gi"
+    "size": "19Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/WWE_Smack_Down_Vs_Raw_2009_BLES00361.rar",
+    "size": "3.6Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/UFC_Undisputed_3_BLES01231.rar",
-    "size": "19Gi"
+    "size": "22Gi"
   }
 ]
 }
