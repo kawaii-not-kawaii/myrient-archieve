@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T08:00:03Z",
-  "download_bytes": 1426753467843,
-  "download_human": "1.6T",
+  "timestamp": "2026-02-28T09:00:03Z",
+  "download_bytes": 1470105247785,
+  "download_human": "1.7T",
   "disk_used": "1.7T",
   "disk_percent": "4%",
-  "files_transferred": 544,
-  "files_total": 10580,
-  "currently_downloading": [{"file":"htg…s Add-On 2023-05-15.7z","progress":"53%"},{"file":"htg…ive GBA 2022-08-08.zip","progress":"98%"},{"file":"htg… Add-On 2022-08-08.zip","progress":"86%"},{"file":"RedumpNintendo…reme Madness (USA).zip","progress":"97%"}],
+  "files_transferred": 571,
+  "files_total": 10607,
+  "currently_downloading": [{"file":"FireBlade (USA).zip","progress":"85%"},{"file":"RedumpNintendo…ers (USA) (Disc 1).zip","progress":"95%"},{"file":"RedumpNintendo…treet Soccer (USA).zip","progress":"76%"},{"file":"RedumpNintendo…adow (USA) (En,Es).zip","progress":"50%"}],
   "recently_completed": [
   {
-    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
-    "size": "7.9Gi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Frogger Beyond (USA).zip",
+    "size": "511Mi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 Game Series Collections Add-On 2023-05-15.7z",
-    "size": "8.2Gi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Godzilla - Destroy All Monsters Melee (USA).zip",
+    "size": "495Mi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA 2022-08-08.zip",
-    "size": "16Gi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Gladius (USA).zip",
+    "size": "610Mi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA World Cup Germany 2006 (USA).zip",
-    "size": "118Mi"
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FireBlade (USA).zip",
+    "size": "972Mi"
   },
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Egg Mania - Eggstreme Madness (USA).zip",
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Game Boy Player Start-Up Disc (USA) (v1.03).zip",
+    "size": "773Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Gauntlet - Dark Legacy (USA).zip",
+    "size": "972Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/GoldenEye - Rogue Agent (USA) (Disc 1).zip",
+    "size": "150Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Future Tactics - The Uprising (USA).zip",
+    "size": "1.2Gi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Frogger - Ancient Shadow (USA) (En,Es).zip",
+    "size": "670Mi"
+  },
+  {
+    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Freaky Flyers (USA) (Disc 1).zip",
     "size": "1.3Gi"
-  },
-  {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2005 (USA) (En,Es).zip",
-    "size": "215Mi"
-  },
-  {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 06 (USA).zip",
-    "size": "417Mi"
-  },
-  {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2002 (USA).zip",
-    "size": "402Mi"
-  },
-  {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Evolution Worlds (USA).zip",
-    "size": "633Mi"
-  },
-  {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/FIFA Soccer 2004 (USA).zip",
-    "size": "199Mi"
   }
 ]
 }
