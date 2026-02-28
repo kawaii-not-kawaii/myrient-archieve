@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T05:00:03Z",
-  "download_bytes": 1218682757753,
-  "download_human": "1.5T",
-  "disk_used": "1.5T",
+  "timestamp": "2026-02-28T06:00:02Z",
+  "download_bytes": 1285001002134,
+  "download_human": "1.6T",
+  "disk_used": "1.6T",
   "disk_percent": "4%",
-  "files_transferred": 88,
-  "files_total": 10116,
-  "currently_downloading": [{"file":"miyoo-mini-tiny…ini-TinyBestSet-PS.zip","progress":"16%"},{"file":"retro-roms-best…EC - TurboGrafx CD.zip","progress":"94%"},{"file":"retro-roms-best…o - GameCube (A-M).zip","progress":"15%"},{"file":"retro-roms-best…o - GameCube (N-Z).zip","progress":"16%"}],
+  "files_transferred": 366,
+  "files_total": 10402,
+  "currently_downloading": [{"file":"rhdn_20240801.zip","progress":"22%"},{"file":"htg… NEOGEO 2023-12-08.zip","progress":"32%"},{"file":"htg…erDrive 2023-12-12.zip","progress":"22%"},{"file":"htg…ections 2023-12-12.zip","progress":"27%"}],
   "recently_completed": [
   {
-    "file": "EBZero/miyoo-mini-tiny-best-set-ps/Miyoo-Mini-TinyBestSet-PS.zip",
-    "size": "7.0Gi"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 MAME Complete Add-On 2020-05-24.7z",
+    "size": "1.4Gi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sony - PS1 (Update 1).zip",
-    "size": "689Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive Game Series Collections 2023-12-12.zip",
+    "size": "1.5Gi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sega - Dreamcast.zip",
-    "size": "5.4Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
+    "size": "346Mi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sony - PSP (A-G).zip",
-    "size": "556Mi"
+    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack Add-on - NEOGEO 2023-12-08.zip",
+    "size": "2.7Gi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/NEC - TurboGrafx CD.zip",
-    "size": "7.1Gi"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft Neo Geo 2020-05-12.7z",
+    "size": "491Mi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sony - PSP (H-P).zip",
-    "size": "177Mi"
+    "file": "the_last_collector/htgdb-gamepacks/Darksoft CPS2 Full MAME Add-On 2020-05-24.7z",
+    "size": "2.1Gi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sega - Sega CD.zip",
-    "size": "4.9Gi"
+    "file": "the_last_collector/htgdb-gamepacks/N64 - EverDrive 64 Game Series Collections Add-On 2023-05-15.7z",
+    "size": "425Mi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Nintendo - GameCube (A-M).zip",
-    "size": "6.7Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@SNES - SD2SNES - Super EverDrive 2023-12-12.zip",
+    "size": "1.8Gi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sony - PS1 (A-L).zip",
-    "size": "2.9Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy - EverDrive GB 2020-12-22.zip",
+    "size": "394Mi"
   },
   {
-    "file": "EBZero/retro-roms-best-set/Sony - PS1 (L-Z).zip",
-    "size": "3.1Gi"
+    "file": "the_last_collector/htgdb-gamepacks/@Game Boy Color SMDB 2022-05-12.zip",
+    "size": "420Mi"
   }
 ]
 }
