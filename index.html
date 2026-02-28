@@ -270,7 +270,7 @@
             border-radius: 4px;
         }
 
-        /* Progress Overview Card */
+        /* Overview Card */
         .overview-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -491,199 +491,6 @@
             color: var(--text-secondary);
         }
 
-        /* File Browser */
-        .file-browser {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 1rem;
-            display: none;
-        }
-
-        .file-browser.active {
-            display: block;
-        }
-
-        .browser-header {
-            background-color: var(--bg-tertiary);
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .breadcrumb a {
-            color: var(--accent-info);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb-separator {
-            color: var(--text-muted);
-        }
-
-        /* Table */
-        .file-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .file-table th {
-            text-align: left;
-            padding: 0.75rem 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            background-color: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border-color);
-            white-space: nowrap;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .file-table th:hover {
-            color: var(--text-primary);
-        }
-
-        .file-table th.sort-asc::after {
-            content: ' ↑';
-        }
-
-        .file-table th.sort-desc::after {
-            content: ' ↓';
-        }
-
-        .file-table td {
-            padding: 0.625rem 1rem;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.875rem;
-            vertical-align: middle;
-        }
-
-        .file-table tr:hover td {
-            background-color: rgba(48, 54, 61, 0.5);
-        }
-
-        .file-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* File Row States */
-        .file-row {
-            transition: opacity 0.2s ease;
-        }
-
-        .file-row.downloaded {
-            background-color: var(--accent-success-bg);
-        }
-
-        .file-row.pending {
-            opacity: 0.6;
-        }
-
-        .file-row.pending .filename {
-            color: var(--text-muted);
-        }
-
-        /* File Name Cell */
-        .file-cell {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .file-icon {
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .file-icon.folder {
-            color: var(--accent-warning);
-        }
-
-        .file-icon.file {
-            color: var(--text-secondary);
-        }
-
-        .file-icon.checkmark {
-            color: var(--accent-success);
-        }
-
-        .filename {
-            color: var(--text-primary);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .filename:hover {
-            color: var(--accent-info);
-            text-decoration: underline;
-        }
-
-        .filename.pending {
-            text-decoration: line-through;
-            color: var(--text-muted);
-        }
-
-        /* Size and Date Cells */
-        .size-cell {
-            white-space: nowrap;
-            color: var(--text-secondary);
-        }
-
-        .files-cell {
-            white-space: nowrap;
-            color: var(--text-secondary);
-            font-size: 0.8125rem;
-        }
-
-        /* Status Badge */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        .status-badge.downloaded {
-            background-color: var(--accent-success-bg);
-            color: var(--accent-success);
-        }
-
-        .status-badge.pending {
-            background-color: var(--bg-tertiary);
-            color: var(--text-muted);
-        }
-
-        .status-badge.in-progress {
-            background-color: rgba(210, 153, 34, 0.15);
-            color: var(--accent-warning);
-        }
-
         /* Section Headers */
         .section-header {
             display: flex;
@@ -773,15 +580,6 @@
             .collections-grid {
                 grid-template-columns: 1fr;
             }
-
-            .file-table th,
-            .file-table td {
-                padding: 0.5rem;
-            }
-
-            .files-cell {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -818,7 +616,7 @@
     <main>
         <!-- Server Tabs -->
         <div class="server-tabs">
-            <button class="server-tab active server1" data-server="archive1">
+            <button class="server-tab server1" data-server="archive1">
                 <span class="server-indicator online" id="indicator-archive1"></span>
                 Archive 1
             </button>
@@ -826,14 +624,14 @@
                 <span class="server-indicator online" id="indicator-archive2"></span>
                 Archive 2
             </button>
-            <button class="server-tab" data-server="combined">
+            <button class="server-tab active" data-server="combined">
                 <span class="server-indicator online"></span>
                 Combined View
             </button>
         </div>
 
-        <!-- Combined Progress (for combined view) -->
-        <div class="combined-progress" id="combined-view" style="display: none;">
+        <!-- Combined Progress (for combined view) - NOW DEFAULT -->
+        <div class="combined-progress" id="combined-view" style="display: grid;">
             <div class="server-progress-card server1">
                 <div class="server-header">
                     <div class="server-title server1">
@@ -873,7 +671,7 @@
         </div>
 
         <!-- Archive 1 View -->
-        <div class="overview-card active" id="view-archive1">
+        <div class="overview-card" id="view-archive1">
             <div class="overview-header">
                 <h2 class="overview-title">📦 Archive 1 - Internet Archive Download</h2>
                 <span class="last-updated">Updated: <span id="last-updated-archive1">-</span></span>
@@ -968,7 +766,7 @@
             archive1: null,
             archive2: null
         };
-        let currentView = 'archive1';
+        let currentView = 'combined';
         let currentFilter = 'all';
 
         // Helper: Format bytes to human readable
@@ -980,19 +778,9 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // Helper: Parse size string to bytes
-        function parseSize(sizeStr) {
-            if (!sizeStr) return 0;
-            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 'PiB': 1024**5 };
-            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|PiB)$/);
-            if (!match) return 0;
-            return parseFloat(match[1]) * (units[match[2]] || 1);
-        }
-
         // Load data from both servers
         async function loadServerData() {
             try {
-                // Load archive1 status
                 const response1 = await fetch('download_status.json?t=' + Date.now());
                 if (response1.ok) {
                     serverData.archive1 = await response1.json();
@@ -1002,7 +790,6 @@
             }
 
             try {
-                // Load archive2 status
                 const response2 = await fetch('download_status_archive2.json?t=' + Date.now());
                 if (response2.ok) {
                     serverData.archive2 = await response2.json();
@@ -1020,7 +807,6 @@
             updateHeaderStats();
             updateArchive1View();
             updateArchive2View();
-            updateCombinedView();
             renderCollections();
         }
 
@@ -1031,7 +817,7 @@
 
             if (serverData.archive1) {
                 totalBytes += serverData.archive1.download_bytes || 0;
-                totalCollections += 1; // Internet Archive
+                totalCollections += 1;
             }
 
             if (serverData.archive2) {
@@ -1053,14 +839,13 @@
             }
 
             const data = serverData.archive1;
-            const totalBytes = 44511371905891; // IA total
+            const totalBytes = 44511371905891;
             const downloadedBytes = data.download_bytes || 0;
             const progress = Math.min((downloadedBytes / totalBytes * 100), 100);
 
             document.getElementById('status-archive1').textContent = 'Online';
             document.getElementById('indicator-archive1').classList.add('online');
 
-            // Single view
             document.getElementById('progress-bar-archive1-single').style.width = progress + '%';
             document.getElementById('downloaded-amount-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
             document.getElementById('total-amount-archive1').textContent = '40.48 TiB';
@@ -1068,13 +853,11 @@
             document.getElementById('files-archive1').textContent = (data.files_transferred || 0) + ' / ' + (data.files_total || 0);
             document.getElementById('speed-archive1').textContent = data.rclone_stats ? 'Active' : '-';
             
-            // Last updated
             if (data.timestamp) {
                 const lastUpdate = new Date(data.timestamp);
                 document.getElementById('last-updated-archive1').textContent = timeAgo(lastUpdate);
             }
 
-            // Combined view
             document.getElementById('progress-bar-archive1').style.width = progress + '%';
             document.getElementById('downloaded-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
             document.getElementById('percentage-archive1').textContent = progress.toFixed(2) + '%';
@@ -1094,7 +877,6 @@
             document.getElementById('status-archive2').textContent = 'Online';
             document.getElementById('indicator-archive2').classList.add('online');
 
-            // Calculate total target size
             const collectionSizes = {
                 'T-En Collection': 832446147181,
                 'Hardware Target Game Database': 490822207707,
@@ -1114,34 +896,25 @@
             const downloadedBytes = data.download_bytes || 0;
             const progress = totalTarget > 0 ? Math.min((downloadedBytes / totalTarget * 100), 100) : 0;
 
-            // Single view
             document.getElementById('progress-bar-archive2-single').style.width = progress + '%';
             document.getElementById('downloaded-amount-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
             document.getElementById('disk-used-archive2').textContent = data.disk_used || '-';
             document.getElementById('percentage-archive2-single').textContent = progress.toFixed(1) + '%';
             document.getElementById('collections-count-archive2').textContent = collections.length;
 
-            // Last updated
             if (data.timestamp) {
                 const lastUpdate = new Date(data.timestamp);
                 document.getElementById('last-updated-archive2').textContent = timeAgo(lastUpdate);
                 
-                // Next update (30 min after last)
                 const nextUpdate = new Date(lastUpdate);
                 nextUpdate.setMinutes(nextUpdate.getMinutes() + 30);
                 const minsUntil = Math.floor((nextUpdate - new Date()) / 60000);
                 document.getElementById('next-update-archive2').textContent = minsUntil > 0 ? minsUntil + ' min' : 'soon';
             }
 
-            // Combined view
             document.getElementById('progress-bar-archive2').style.width = Math.min(progress, 100) + '%';
             document.getElementById('downloaded-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
             document.getElementById('percentage-archive2').textContent = progress.toFixed(1) + '%';
-        }
-
-        // Update combined view
-        function updateCombinedView() {
-            // Already handled in individual updates
         }
 
         // Helper: Time ago
@@ -1167,7 +940,8 @@
                     size: '40.48 TiB',
                     files: (serverData.archive1.files_transferred || 0) + ' / ' + (serverData.archive1.files_total || 0) + ' files',
                     server: 'archive1',
-                    progress: ((serverData.archive1.download_bytes || 0) / 44511371905891 * 100)
+                    progress: ((serverData.archive1.download_bytes || 0) / 44511371905891 * 100),
+                    isActive: true  // IA is always "in progress" until complete
                 });
                 grid.appendChild(card);
             }
@@ -1175,13 +949,30 @@
             // Archive 2 collections
             if (serverData.archive2 && (currentFilter === 'all' || currentFilter === 'archive2')) {
                 const collections = serverData.archive2.collections || [];
+                const collectionSizes = {
+                    'T-En Collection': 832446147181,
+                    'Hardware Target Game Database': 490822207707,
+                    'TOSEC': 326081509387,
+                    'Total DOS Collection': 1116805583650,
+                    'HBMAME': 38357862790,
+                    'FinalBurn Neo': 30073971110,
+                    'bitsavers': 1807835033486,
+                    'TOSEC-PIX': 2477640936497
+                };
+                
                 collections.forEach(col => {
+                    const targetSize = collectionSizes[col.name] || 0;
+                    // Parse current size from human readable
+                    const currentSize = parseSize(col.size);
+                    const progress = targetSize > 0 ? (currentSize / targetSize * 100) : 0;
+                    
                     const card = createCollectionCard({
                         name: col.name,
-                        size: col.size,
-                        files: 'Downloading...',
+                        size: col.size || 'Calculating...',
+                        files: targetSize > 0 ? progress.toFixed(1) + '% of ' + formatBytes(targetSize) : 'Downloading...',
                         server: 'archive2',
-                        progress: 0
+                        progress: progress,
+                        isActive: true  // All archive2 collections are "in progress"
                     });
                     grid.appendChild(card);
                 });
@@ -1192,15 +983,40 @@
             }
         }
 
+        // Helper: Parse size string to bytes
+        function parseSize(sizeStr) {
+            if (!sizeStr) return 0;
+            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 
+                           'K': 1024, 'M': 1024**2, 'G': 1024**3, 'T': 1024**4 };
+            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|K|M|G|T)$/i);
+            if (!match) return 0;
+            return parseFloat(match[1]) * (units[match[2]] || 1);
+        }
+
         // Create collection card
         function createCollectionCard(data) {
             const card = document.createElement('div');
             card.className = `collection-card ${data.server}-card`;
             
-            const progress = Math.min(data.progress, 100);
-            const statusText = progress >= 100 ? 'Complete' : progress > 0 ? 'In Progress' : 'Pending';
-            const statusColor = progress >= 100 ? 'var(--accent-success)' : progress > 0 ? 'var(--accent-warning)' : 'var(--text-muted)';
-            const icon = progress >= 100 ? '✓' : progress > 0 ? '⏳' : '○';
+            const progress = Math.min(data.progress || 0, 100);
+            
+            // Determine status: if isActive is true, show "In Progress"
+            let statusText, statusColor, icon;
+            if (progress >= 100) {
+                statusText = 'Complete';
+                statusColor = 'var(--accent-success)';
+                icon = '✓';
+                card.classList.add('downloaded');
+            } else if (data.isActive || progress > 0) {
+                statusText = 'In Progress';
+                statusColor = 'var(--accent-warning)';
+                icon = '⏳';
+                card.classList.add('in-progress');
+            } else {
+                statusText = 'Pending';
+                statusColor = 'var(--text-muted)';
+                icon = '○';
+            }
 
             card.innerHTML = `
                 <div class="collection-header">
@@ -1233,12 +1049,10 @@
                 const server = tab.dataset.server;
                 currentView = server;
 
-                // Hide all views
                 document.getElementById('combined-view').style.display = 'none';
                 document.getElementById('view-archive1').classList.remove('active');
                 document.getElementById('view-archive2').classList.remove('active');
 
-                // Show selected view
                 if (server === 'combined') {
                     document.getElementById('combined-view').style.display = 'grid';
                 } else if (server === 'archive1') {
@@ -1262,7 +1076,6 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             loadServerData();
-            // Refresh every 5 minutes
             setInterval(loadServerData, 5 * 60 * 1000);
         });
     </script>
