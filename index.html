@@ -25,6 +25,8 @@
             --accent-warning: #d29922;
             --accent-info: #58a6ff;
             --accent-danger: #da3633;
+            --server1-color: #58a6ff;
+            --server2-color: #a371f7;
         }
 
         body {
@@ -142,6 +144,132 @@
             padding: 2rem;
         }
 
+        /* Server Tabs */
+        .server-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1px;
+        }
+
+        .server-tab {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .server-tab:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-tertiary);
+            border-radius: 6px 6px 0 0;
+        }
+
+        .server-tab.active {
+            color: var(--text-primary);
+            border-bottom-color: var(--accent-success);
+            font-weight: 500;
+        }
+
+        .server-tab.active.server1 {
+            border-bottom-color: var(--server1-color);
+        }
+
+        .server-tab.active.server2 {
+            border-bottom-color: var(--server2-color);
+        }
+
+        .server-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--text-muted);
+        }
+
+        .server-indicator.online {
+            background-color: var(--accent-success);
+            box-shadow: 0 0 0 2px var(--accent-success-bg);
+        }
+
+        .server-tab.server1 .server-indicator.online {
+            background-color: var(--server1-color);
+            box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3);
+        }
+
+        .server-tab.server2 .server-indicator.online {
+            background-color: var(--server2-color);
+            box-shadow: 0 0 0 2px rgba(163, 113, 247, 0.3);
+        }
+
+        /* Combined Progress Card */
+        .combined-progress {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .server-progress-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .server-progress-card.server1 {
+            border-left: 4px solid var(--server1-color);
+        }
+
+        .server-progress-card.server2 {
+            border-left: 4px solid var(--server2-color);
+        }
+
+        .server-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .server-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .server-title .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .server-title.server1 .indicator {
+            background-color: var(--server1-color);
+        }
+
+        .server-title.server2 .indicator {
+            background-color: var(--server2-color);
+        }
+
+        .server-status {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            padding: 0.25rem 0.5rem;
+            background-color: var(--bg-tertiary);
+            border-radius: 4px;
+        }
+
         /* Progress Overview Card */
         .overview-card {
             background-color: var(--bg-secondary);
@@ -149,8 +277,11 @@
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
+            display: none;
+        }
+
+        .overview-card.active {
+            display: block;
         }
 
         .overview-header {
@@ -185,9 +316,16 @@
 
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-success), var(--accent-info));
             border-radius: 999px;
             transition: width 0.3s ease;
+        }
+
+        .progress-bar-fill.server1-fill {
+            background: linear-gradient(90deg, var(--server1-color), var(--accent-info));
+        }
+
+        .progress-bar-fill.server2-fill {
+            background: linear-gradient(90deg, var(--server2-color), #d2a8ff);
         }
 
         .progress-stats {
@@ -203,6 +341,14 @@
         .progress-stats .highlight {
             color: var(--text-primary);
             font-weight: 600;
+        }
+
+        .progress-stats .highlight.server1-text {
+            color: var(--server1-color);
+        }
+
+        .progress-stats .highlight.server2-text {
+            color: var(--server2-color);
         }
 
         /* Legend */
@@ -241,12 +387,22 @@
             color: var(--accent-warning);
         }
 
+        /* Collections Section */
+        .collections-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
         /* Collection Cards Grid */
         .collections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1rem;
-            margin-top: 1rem;
         }
 
         .collection-card {
@@ -256,11 +412,20 @@
             padding: 1rem;
             transition: border-color 0.2s ease, transform 0.1s ease;
             cursor: pointer;
+            position: relative;
         }
 
         .collection-card:hover {
             border-color: var(--accent-info);
             transform: translateY(-1px);
+        }
+
+        .collection-card.server1-card {
+            border-left: 3px solid var(--server1-color);
+        }
+
+        .collection-card.server2-card {
+            border-left: 3px solid var(--server2-color);
         }
 
         .collection-card.downloaded {
@@ -282,6 +447,26 @@
             font-weight: 600;
             font-size: 0.9375rem;
             word-break: break-word;
+        }
+
+        .collection-server {
+            font-size: 0.625rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 3px;
+            background-color: var(--bg-tertiary);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .collection-server.server1 {
+            background-color: rgba(88, 166, 255, 0.2);
+            color: var(--server1-color);
+        }
+
+        .collection-server.server2 {
+            background-color: rgba(163, 113, 247, 0.2);
+            color: var(--server2-color);
         }
 
         .collection-files {
@@ -313,6 +498,11 @@
             border-radius: 12px;
             overflow: hidden;
             margin-top: 1rem;
+            display: none;
+        }
+
+        .file-browser.active {
+            display: block;
         }
 
         .browser-header {
@@ -504,11 +694,6 @@
             gap: 0.5rem;
         }
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
         .view-toggle {
             display: flex;
             gap: 0.5rem;
@@ -576,6 +761,15 @@
                 padding: 1rem;
             }
 
+            .server-tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .combined-progress {
+                grid-template-columns: 1fr;
+            }
+
             .collections-grid {
                 grid-template-columns: 1fr;
             }
@@ -606,44 +800,99 @@
             </a>
             <div class="stats-summary">
                 <div class="stat-item">
+                    <div class="stat-value" id="total-servers">2</div>
+                    <div class="stat-label">Servers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-downloaded">-</div>
+                    <div class="stat-label">Total Downloaded</div>
+                </div>
+                <div class="stat-item">
                     <div class="stat-value" id="total-collections">-</div>
                     <div class="stat-label">Collections</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="total-files">-</div>
-                    <div class="stat-label">Total Files</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="total-size">-</div>
-                    <div class="stat-label">Total Size</div>
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Overall Progress -->
-        <div class="overview-card">
-            <div class="overview-header">
-                <h2 class="overview-title" id="progress-title">Internet Archive Download Progress</h2>
-                <span class="last-updated">Updated: <span id="last-updated">-</span></span>
+        <!-- Server Tabs -->
+        <div class="server-tabs">
+            <button class="server-tab active server1" data-server="archive1">
+                <span class="server-indicator online" id="indicator-archive1"></span>
+                Archive 1
+            </button>
+            <button class="server-tab server2" data-server="archive2">
+                <span class="server-indicator online" id="indicator-archive2"></span>
+                Archive 2
+            </button>
+            <button class="server-tab" data-server="combined">
+                <span class="server-indicator online"></span>
+                Combined View
+            </button>
+        </div>
+
+        <!-- Combined Progress (for combined view) -->
+        <div class="combined-progress" id="combined-view" style="display: none;">
+            <div class="server-progress-card server1">
+                <div class="server-header">
+                    <div class="server-title server1">
+                        <span class="indicator"></span>
+                        Archive 1 (135.181.220.252)
+                    </div>
+                    <span class="server-status" id="status-archive1">Loading...</span>
+                </div>
+                <div class="overall-progress">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill server1-fill" id="progress-bar-archive1" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span><span class="highlight server1-text" id="downloaded-archive1">-</span> downloaded</span>
+                        <span><span class="highlight" id="percentage-archive1">-</span></span>
+                    </div>
+                </div>
             </div>
-            
+            <div class="server-progress-card server2">
+                <div class="server-header">
+                    <div class="server-title server2">
+                        <span class="indicator"></span>
+                        Archive 2 (65.21.35.118)
+                    </div>
+                    <span class="server-status" id="status-archive2">Loading...</span>
+                </div>
+                <div class="overall-progress">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill server2-fill" id="progress-bar-archive2" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span><span class="highlight server2-text" id="downloaded-archive2">-</span> downloaded</span>
+                        <span><span class="highlight" id="percentage-archive2">-</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Archive 1 View -->
+        <div class="overview-card active" id="view-archive1">
+            <div class="overview-header">
+                <h2 class="overview-title">📦 Archive 1 - Internet Archive Download</h2>
+                <span class="last-updated">Updated: <span id="last-updated-archive1">-</span></span>
+            </div>
             <div class="overall-progress">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="overall-progress-bar" style="width: 0%"></div>
+                    <div class="progress-bar-fill server1-fill" id="progress-bar-archive1-single" style="width: 0%"></div>
                 </div>
                 <div class="progress-stats">
-                    <span><span class="highlight" id="downloaded-amount">-</span> downloaded</span>
-                    <span><span class="highlight" id="total-amount">-</span> total</span>
-                    <span><span class="highlight" id="percentage">-</span></span>
+                    <span><span class="highlight server1-text" id="downloaded-amount-archive1">-</span> downloaded</span>
+                    <span><span class="highlight" id="total-amount-archive1">-</span> total</span>
+                    <span><span class="highlight" id="percentage-archive1-single">-</span></span>
                 </div>
                 <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
-                    <span style="color: var(--text-muted);">Last server update: <span id="server-last-update" style="color: var(--accent-info);">-</span></span>
-                    <span style="color: var(--text-muted);">Next update: <span id="next-update">-</span></span>
+                    <span style="color: var(--text-muted);">Files: <span id="files-archive1" style="color: var(--server1-color);">-</span></span>
+                    <span style="color: var(--text-muted);">Speed: <span id="speed-archive1" style="color: var(--server1-color);">-</span></span>
+                    <span style="color: var(--text-muted);">ETA: <span id="eta-archive1" style="color: var(--server1-color);">-</span></span>
                 </div>
             </div>
-
             <div class="legend">
                 <div class="legend-item">
                     <span class="legend-icon downloaded">✓</span>
@@ -660,159 +909,67 @@
             </div>
         </div>
 
-        <!-- Collections Grid -->
-        <div class="section-header">
-            <h2 class="section-title">Collections Overview</h2>
-            <div class="view-toggle">
-                <button class="toggle-btn active" data-filter="all">All</button>
-                <button class="toggle-btn" data-filter="in-progress">In Progress</button>
-                <button class="toggle-btn" data-filter="pending">Pending</button>
-            </div>
-        </div>
-        <div class="collections-grid" id="collections-grid">
-            <!-- Populated by JavaScript -->
-        </div>
-
-        <!-- Per-File Progress -->
-        <div class="overview-card" id="file-progress-card" style="display: none; margin-top: 2rem;">
+        <!-- Archive 2 View -->
+        <div class="overview-card" id="view-archive2">
             <div class="overview-header">
-                <h2 class="overview-title">📁 File Download Progress</h2>
+                <h2 class="overview-title">🎮 Archive 2 - Collections Download</h2>
+                <span class="last-updated">Updated: <span id="last-updated-archive2">-</span></span>
             </div>
-            <div class="overall-progress" style="margin-bottom: 1rem;">
+            <div class="overall-progress">
                 <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="files-progress-bar" style="width: 0%"></div>
+                    <div class="progress-bar-fill server2-fill" id="progress-bar-archive2-single" style="width: 0%"></div>
                 </div>
                 <div class="progress-stats">
-                    <span><span class="highlight" id="files-transferred">-</span> of <span class="highlight" id="files-total">-</span> files complete</span>
-                    <span><span class="highlight" id="files-percentage">-</span></span>
+                    <span><span class="highlight server2-text" id="downloaded-amount-archive2">-</span> downloaded</span>
+                    <span><span class="highlight" id="disk-used-archive2">-</span> used</span>
+                    <span><span class="highlight" id="percentage-archive2-single">-</span></span>
+                </div>
+                <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
+                    <span style="color: var(--text-muted);">Collections: <span id="collections-count-archive2" style="color: var(--server2-color);">-</span></span>
+                    <span style="color: var(--text-muted);">Next update: <span id="next-update-archive2">-</span></span>
                 </div>
             </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
-                <div>
-                    <h3 style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent-warning);">⏳</span> Currently Downloading
-                    </h3>
-                    <div id="currently-downloading" style="font-size: 0.8125rem; max-height: 200px; overflow-y: auto;">
-                        <div class="empty-state" style="padding: 1rem;">No active downloads</div>
-                    </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-icon downloaded">✓</span>
+                    <span>Complete</span>
                 </div>
-                
-                <div>
-                    <h3 style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                        <span style="color: var(--accent-success);">✓</span> Recently Completed
-                    </h3>
-                    <div id="recently-completed" style="font-size: 0.8125rem; max-height: 200px; overflow-y: auto;">
-                        <div class="empty-state" style="padding: 1rem;">No recent completions</div>
-                    </div>
+                <div class="legend-item">
+                    <span class="legend-icon in-progress">⏳</span>
+                    <span>Downloading</span>
                 </div>
             </div>
         </div>
 
-        <!-- Current Directory Browser -->
-        <div class="section-header">
-            <h2 class="section-title" id="browser-title">Directory Contents</h2>
-        </div>
-        <div class="file-browser">
-            <div class="browser-header">
-                <div class="breadcrumb" id="breadcrumb">
-                    <a data-path="">files</a>
+        <!-- Collections Section -->
+        <div class="collections-section" id="collections-section">
+            <div class="section-header">
+                <h2 class="section-title">Collections Overview</h2>
+                <div class="view-toggle">
+                    <button class="toggle-btn active" data-filter="all">All</button>
+                    <button class="toggle-btn" data-filter="archive1">Archive 1</button>
+                    <button class="toggle-btn" data-filter="archive2">Archive 2</button>
                 </div>
             </div>
-            <table class="file-table">
-                <thead>
-                    <tr>
-                        <th style="width: 40px;"></th>
-                        <th data-sort="name">Name</th>
-                        <th data-sort="files" style="width: 120px;">Files</th>
-                        <th data-sort="size" style="width: 120px;">Size</th>
-                        <th style="width: 120px;">Status</th>
-                    </tr>
-                </thead>
-                <tbody id="file-list">
-                    <!-- Populated by JavaScript -->
-                </tbody>
-            </table>
+            <div class="collections-grid" id="collections-grid">
+                <!-- Populated by JavaScript -->
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>Myrient Archive Mirror • Progress Tracker</p>
-        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Data updates automatically from JSON</p>
+        <p>Myrient Archive Mirror • Multi-Server Progress Tracker</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Data updates automatically from both servers</p>
     </footer>
 
     <script>
         // Global state
-        let collectionsData = null;
-        let folderData = null;
-        let currentPath = '';
-        let currentFilter = 'all';
-        let sortColumn = 'name';
-        let sortDirection = 'asc';
-
-        // Download status tracking
-        // Load from download_status.json if available
-        let downloadStatus = {
-            'Internet Archive': { status: 'downloading', progress: 1.8, downloadedBytes: 735 * 1024 * 1024 * 1024 },
+        let serverData = {
+            archive1: null,
+            archive2: null
         };
-
-        // Try to load real-time status from server
-        async function loadLiveStatus() {
-            try {
-                const response = await fetch('download_status.json?t=' + Date.now());
-                if (!response.ok) return;
-                const status = await response.json();
-                
-                // Update download status with live data
-                const totalBytes = 44511371905891; // IA total from estimate
-                const downloadedBytes = status.download_bytes || 0;
-                const progress = Math.min((downloadedBytes / totalBytes * 100), 100);
-                
-                downloadStatus['Internet Archive'] = {
-                    status: 'downloading',
-                    progress: progress,
-                    downloadedBytes: downloadedBytes,
-                    lastUpdated: status.timestamp
-                };
-                
-                // Update last update time display
-                if (status.timestamp) {
-                    const lastUpdate = new Date(status.timestamp);
-                    const now = new Date();
-                    const diffMinutes = Math.floor((now - lastUpdate) / 60000);
-                    
-                    let timeText;
-                    if (diffMinutes < 1) timeText = 'just now';
-                    else if (diffMinutes < 60) timeText = `${diffMinutes} min ago`;
-                    else {
-                        const diffHours = Math.floor(diffMinutes / 60);
-                        timeText = `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
-                    }
-                    
-                    document.getElementById('server-last-update').textContent = timeText;
-                    
-                    // Calculate next update (hourly on the hour)
-                    const nextUpdate = new Date(lastUpdate);
-                    nextUpdate.setHours(nextUpdate.getHours() + 1);
-                    nextUpdate.setMinutes(0);
-                    nextUpdate.setSeconds(0);
-                    
-                    const minsUntil = Math.floor((nextUpdate - now) / 60000);
-                    document.getElementById('next-update').textContent = minsUntil > 0 ? `${minsUntil} min` : 'soon';
-                }
-                
-                // Update per-file progress
-                updateFileProgress(status);
-                
-                // Refresh UI if data loaded
-                if (collectionsData) {
-                    updateOverview();
-                    renderCollections();
-                }
-            } catch (e) {
-                console.log('Live status not available:', e.message);
-            }
-        }
+        let currentView = 'archive1';
+        let currentFilter = 'all';
 
         // Helper: Format bytes to human readable
         function formatBytes(bytes) {
@@ -823,306 +980,276 @@
             return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
         }
 
-        // Helper: Extract collection name from URL
-        function getCollectionName(url) {
-            const match = url.match(/\/files\/([^/]+)\/?$/);
-            if (match) {
-                return decodeURIComponent(match[1]);
-            }
-            return url;
+        // Helper: Parse size string to bytes
+        function parseSize(sizeStr) {
+            if (!sizeStr) return 0;
+            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 'PiB': 1024**5 };
+            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|PiB)$/);
+            if (!match) return 0;
+            return parseFloat(match[1]) * (units[match[2]] || 1);
         }
 
-        // Helper: Get status for a collection
-        function getStatus(collectionName) {
-            // Check exact match
-            if (downloadStatus[collectionName]) {
-                return downloadStatus[collectionName];
-            }
-            // Check if any key partially matches
-            for (const [key, value] of Object.entries(downloadStatus)) {
-                if (collectionName.toLowerCase().includes(key.toLowerCase()) ||
-                    key.toLowerCase().includes(collectionName.toLowerCase())) {
-                    return value;
-                }
-            }
-            return { status: 'pending', progress: 0 };
-        }
-
-        // Load JSON data
-        async function loadData() {
+        // Load data from both servers
+        async function loadServerData() {
             try {
-                // Load both JSON files
-                const [estimateRes, breakdownRes] = await Promise.all([
-                    fetch('myrient_file_estimate_final.json'),
-                    fetch('myrient_folder_breakdown.json')
-                ]);
-
-                if (!estimateRes.ok || !breakdownRes.ok) {
-                    throw new Error('Failed to load JSON files');
+                // Load archive1 status
+                const response1 = await fetch('download_status.json?t=' + Date.now());
+                if (response1.ok) {
+                    serverData.archive1 = await response1.json();
                 }
-
-                collectionsData = await estimateRes.json();
-                folderData = await breakdownRes.json();
-
-                // Process and render
-                updateOverview();
-                renderCollections();
-                renderFileBrowser();
-
-                // Hide loading overlay
-                document.getElementById('loading-overlay').classList.add('hidden');
-            } catch (error) {
-                console.error('Error loading data:', error);
-                document.getElementById('loading-overlay').innerHTML = `
-                    <div class="error-state">
-                        <p>❌ Error loading data</p>
-                        <p style="margin-top: 0.5rem; font-size: 0.875rem;">${error.message}</p>
-                        <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-muted);">
-                            Make sure myrient_file_estimate_final.json and myrient_folder_breakdown.json exist
-                        </p>
-                    </div>
-                `;
+            } catch (e) {
+                console.log('Archive1 data not available:', e.message);
             }
+
+            try {
+                // Load archive2 status
+                const response2 = await fetch('download_status_archive2.json?t=' + Date.now());
+                if (response2.ok) {
+                    serverData.archive2 = await response2.json();
+                }
+            } catch (e) {
+                console.log('Archive2 data not available:', e.message);
+            }
+
+            updateUI();
+            document.getElementById('loading-overlay').classList.add('hidden');
         }
 
-        // Update overview stats
-        function updateOverview() {
-            if (!collectionsData) return;
+        // Update all UI elements
+        function updateUI() {
+            updateHeaderStats();
+            updateArchive1View();
+            updateArchive2View();
+            updateCombinedView();
+            renderCollections();
+        }
 
-            const collections = Object.keys(collectionsData.collections);
-            const totals = collectionsData.totals;
+        // Update header stats
+        function updateHeaderStats() {
+            let totalBytes = 0;
+            let totalCollections = 0;
 
-            // Update header stats
-            document.getElementById('total-collections').textContent = totals.collections;
-            document.getElementById('total-files').textContent = (totals.files_total / 1000000).toFixed(2) + 'M';
-            document.getElementById('total-size').textContent = totals.bytes_human;
-
-            // Update timestamp
-            document.getElementById('last-updated').textContent = new Date(collectionsData.timestamp_utc).toLocaleString();
-
-            // Find Internet Archive data for progress
-            let iaCollection = null;
-            for (const [url, data] of Object.entries(collectionsData.collections)) {
-                if (url.includes('Internet%20Archive')) {
-                    iaCollection = data;
-                    break;
-                }
+            if (serverData.archive1) {
+                totalBytes += serverData.archive1.download_bytes || 0;
+                totalCollections += 1; // Internet Archive
             }
 
-            if (iaCollection) {
-                const status = getStatus('Internet Archive');
-                const totalBytes = iaCollection.bytes_total;
-                const downloadedBytes = status.downloadedBytes || 0;
-                const progress = (downloadedBytes / totalBytes * 100).toFixed(1);
-
-                document.getElementById('progress-title').textContent = 'Internet Archive Download Progress';
-                document.getElementById('overall-progress-bar').style.width = progress + '%';
-                document.getElementById('downloaded-amount').textContent = formatBytes(downloadedBytes);
-                document.getElementById('total-amount').textContent = iaCollection.bytes_human;
-                document.getElementById('percentage').textContent = progress + '%';
+            if (serverData.archive2) {
+                totalBytes += serverData.archive2.download_bytes || 0;
+                const cols = serverData.archive2.collections || [];
+                totalCollections += cols.length;
             }
+
+            document.getElementById('total-downloaded').textContent = formatBytes(totalBytes);
+            document.getElementById('total-collections').textContent = totalCollections;
+        }
+
+        // Update Archive 1 view
+        function updateArchive1View() {
+            if (!serverData.archive1) {
+                document.getElementById('status-archive1').textContent = 'Offline';
+                document.getElementById('indicator-archive1').classList.remove('online');
+                return;
+            }
+
+            const data = serverData.archive1;
+            const totalBytes = 44511371905891; // IA total
+            const downloadedBytes = data.download_bytes || 0;
+            const progress = Math.min((downloadedBytes / totalBytes * 100), 100);
+
+            document.getElementById('status-archive1').textContent = 'Online';
+            document.getElementById('indicator-archive1').classList.add('online');
+
+            // Single view
+            document.getElementById('progress-bar-archive1-single').style.width = progress + '%';
+            document.getElementById('downloaded-amount-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
+            document.getElementById('total-amount-archive1').textContent = '40.48 TiB';
+            document.getElementById('percentage-archive1-single').textContent = progress.toFixed(2) + '%';
+            document.getElementById('files-archive1').textContent = (data.files_transferred || 0) + ' / ' + (data.files_total || 0);
+            document.getElementById('speed-archive1').textContent = data.rclone_stats ? 'Active' : '-';
+            
+            // Last updated
+            if (data.timestamp) {
+                const lastUpdate = new Date(data.timestamp);
+                document.getElementById('last-updated-archive1').textContent = timeAgo(lastUpdate);
+            }
+
+            // Combined view
+            document.getElementById('progress-bar-archive1').style.width = progress + '%';
+            document.getElementById('downloaded-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
+            document.getElementById('percentage-archive1').textContent = progress.toFixed(2) + '%';
+        }
+
+        // Update Archive 2 view
+        function updateArchive2View() {
+            if (!serverData.archive2) {
+                document.getElementById('status-archive2').textContent = 'Offline';
+                document.getElementById('indicator-archive2').classList.remove('online');
+                return;
+            }
+
+            const data = serverData.archive2;
+            const collections = data.collections || [];
+            
+            document.getElementById('status-archive2').textContent = 'Online';
+            document.getElementById('indicator-archive2').classList.add('online');
+
+            // Calculate total target size
+            const collectionSizes = {
+                'T-En Collection': 832446147181,
+                'Hardware Target Game Database': 490822207707,
+                'TOSEC': 326081509387,
+                'Total DOS Collection': 1116805583650,
+                'HBMAME': 38357862790,
+                'FinalBurn Neo': 30073971110,
+                'bitsavers': 1807835033486,
+                'TOSEC-PIX': 2477640936497
+            };
+            
+            let totalTarget = 0;
+            collections.forEach(col => {
+                totalTarget += collectionSizes[col.name] || 0;
+            });
+
+            const downloadedBytes = data.download_bytes || 0;
+            const progress = totalTarget > 0 ? Math.min((downloadedBytes / totalTarget * 100), 100) : 0;
+
+            // Single view
+            document.getElementById('progress-bar-archive2-single').style.width = progress + '%';
+            document.getElementById('downloaded-amount-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
+            document.getElementById('disk-used-archive2').textContent = data.disk_used || '-';
+            document.getElementById('percentage-archive2-single').textContent = progress.toFixed(1) + '%';
+            document.getElementById('collections-count-archive2').textContent = collections.length;
+
+            // Last updated
+            if (data.timestamp) {
+                const lastUpdate = new Date(data.timestamp);
+                document.getElementById('last-updated-archive2').textContent = timeAgo(lastUpdate);
+                
+                // Next update (30 min after last)
+                const nextUpdate = new Date(lastUpdate);
+                nextUpdate.setMinutes(nextUpdate.getMinutes() + 30);
+                const minsUntil = Math.floor((nextUpdate - new Date()) / 60000);
+                document.getElementById('next-update-archive2').textContent = minsUntil > 0 ? minsUntil + ' min' : 'soon';
+            }
+
+            // Combined view
+            document.getElementById('progress-bar-archive2').style.width = Math.min(progress, 100) + '%';
+            document.getElementById('downloaded-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
+            document.getElementById('percentage-archive2').textContent = progress.toFixed(1) + '%';
+        }
+
+        // Update combined view
+        function updateCombinedView() {
+            // Already handled in individual updates
+        }
+
+        // Helper: Time ago
+        function timeAgo(date) {
+            const now = new Date();
+            const diff = Math.floor((now - date) / 1000);
+            
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return Math.floor(diff / 60) + ' min ago';
+            if (diff < 86400) return Math.floor(diff / 3600) + ' hours ago';
+            return Math.floor(diff / 86400) + ' days ago';
         }
 
         // Render collections grid
         function renderCollections() {
-            if (!collectionsData) return;
-
             const grid = document.getElementById('collections-grid');
             grid.innerHTML = '';
 
-            const collections = Object.entries(collectionsData.collections);
-
-            collections.forEach(([url, data]) => {
-                const name = getCollectionName(url);
-                const status = getStatus(name);
-
-                // Filter
-                if (currentFilter === 'in-progress' && status.status !== 'downloading') return;
-                if (currentFilter === 'pending' && status.status !== 'pending') return;
-
-                const card = document.createElement('div');
-                card.className = `collection-card ${status.status === 'downloaded' ? 'downloaded' : ''} ${status.status === 'downloading' ? 'in-progress' : ''}`;
-                
-                const statusIcon = status.status === 'downloaded' ? '✓' : 
-                                  status.status === 'downloading' ? '⏳' : '○';
-                const statusColor = status.status === 'downloaded' ? 'var(--accent-success)' : 
-                                   status.status === 'downloading' ? 'var(--accent-warning)' : 'var(--text-muted)';
-                const statusText = status.status === 'downloaded' ? 'Downloaded' : 
-                                  status.status === 'downloading' ? 'In Progress' : 'Not Started';
-
-                card.innerHTML = `
-                    <div class="collection-header">
-                        <div>
-                            <div class="collection-name">${name}</div>
-                            <div class="collection-files">${data.files_total.toLocaleString()} files • ${data.dirs_processed} dirs</div>
-                        </div>
-                        <span class="collection-icon" style="color: ${statusColor}">${statusIcon}</span>
-                    </div>
-                    <div class="collection-progress">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: ${status.progress}%"></div>
-                        </div>
-                    </div>
-                    <div class="collection-stats">
-                        <span>${data.bytes_human}</span>
-                        <span style="color: ${statusColor}">${statusText}</span>
-                    </div>
-                `;
-
-                // Click to browse collection
-                card.addEventListener('click', () => {
-                    currentPath = name;
-                    renderFileBrowser();
-                    window.scrollTo({ top: document.querySelector('.file-browser').offsetTop - 100, behavior: 'smooth' });
+            // Archive 1 collections
+            if (serverData.archive1 && (currentFilter === 'all' || currentFilter === 'archive1')) {
+                const card = createCollectionCard({
+                    name: 'Internet Archive',
+                    size: '40.48 TiB',
+                    files: (serverData.archive1.files_transferred || 0) + ' / ' + (serverData.archive1.files_total || 0) + ' files',
+                    server: 'archive1',
+                    progress: ((serverData.archive1.download_bytes || 0) / 44511371905891 * 100)
                 });
-
                 grid.appendChild(card);
-            });
-        }
-
-        // Render file browser
-        function renderFileBrowser() {
-            if (!folderData) return;
-
-            const tbody = document.getElementById('file-list');
-            const breadcrumb = document.getElementById('breadcrumb');
-            tbody.innerHTML = '';
-
-            // Update breadcrumb
-            breadcrumb.innerHTML = '<a data-path="">files</a>';
-            if (currentPath) {
-                const parts = currentPath.split('/');
-                let pathSoFar = '';
-                parts.forEach((part, index) => {
-                    pathSoFar += (index > 0 ? '/' : '') + part;
-                    breadcrumb.innerHTML += `
-                        <span class="breadcrumb-separator">/</span>
-                        <a data-path="${pathSoFar}">${part}</a>
-                    `;
-                });
             }
 
-            // Add breadcrumb click handlers
-            breadcrumb.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    currentPath = e.target.dataset.path;
-                    renderFileBrowser();
-                });
-            });
-
-            // Filter rows based on current path
-            let rows = folderData.rows.filter(row => {
-                if (currentPath === '') {
-                    return row.depth === 1; // Top level collections
-                }
-                return row.path.startsWith(currentPath + '/') && row.depth === currentPath.split('/').length + 1;
-            });
-
-            // Sort rows
-            rows.sort((a, b) => {
-                let valA, valB;
-                switch (sortColumn) {
-                    case 'name':
-                        valA = a.path.toLowerCase();
-                        valB = b.path.toLowerCase();
-                        break;
-                    case 'files':
-                        valA = a.recursive_files;
-                        valB = b.recursive_files;
-                        break;
-                    case 'size':
-                        valA = a.recursive_bytes;
-                        valB = b.recursive_bytes;
-                        break;
-                    default:
-                        valA = a.path;
-                        valB = b.path;
-                }
-                if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
-                if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
-                return 0;
-            });
-
-            // Render rows
-            if (rows.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="5" class="empty-state">
-                            No items to display
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
-
-            rows.forEach(row => {
-                const name = row.path.split('/').pop();
-                const isDir = row.subdir_count > 0;
-                const status = getStatus(row.path);
-                const isDownloaded = status.status === 'downloaded';
-                const isDownloading = status.status === 'downloading';
-
-                const tr = document.createElement('tr');
-                tr.className = `file-row ${isDownloaded ? 'downloaded' : 'pending'}`;
-
-                const icon = isDownloaded ? '✓' : isDir ? '📁' : '📄';
-                const iconClass = isDownloaded ? 'checkmark' : isDir ? 'folder' : 'file';
-                const statusBadge = isDownloaded ? 
-                    '<span class="status-badge downloaded">✓ Downloaded</span>' :
-                    isDownloading ? 
-                    `<span class="status-badge in-progress">⏳ ${status.progress.toFixed(1)}%</span>` :
-                    '<span class="status-badge pending">○ Pending</span>';
-
-                tr.innerHTML = `
-                    <td><div class="file-icon ${iconClass}">${icon}</div></td>
-                    <td>
-                        <div class="file-cell">
-                            <span class="filename ${!isDownloaded ? 'pending' : ''}" data-path="${row.path}">${name}</span>
-                        </div>
-                    </td>
-                    <td class="files-cell">${row.recursive_files.toLocaleString()}</td>
-                    <td class="size-cell">${row.recursive_bytes_human}</td>
-                    <td>${statusBadge}</td>
-                `;
-
-                // Click to navigate into directory
-                if (isDir) {
-                    tr.querySelector('.filename').addEventListener('click', () => {
-                        currentPath = row.path;
-                        renderFileBrowser();
+            // Archive 2 collections
+            if (serverData.archive2 && (currentFilter === 'all' || currentFilter === 'archive2')) {
+                const collections = serverData.archive2.collections || [];
+                collections.forEach(col => {
+                    const card = createCollectionCard({
+                        name: col.name,
+                        size: col.size,
+                        files: 'Downloading...',
+                        server: 'archive2',
+                        progress: 0
                     });
-                }
+                    grid.appendChild(card);
+                });
+            }
 
-                tbody.appendChild(tr);
-            });
-
-            // Update browser title
-            document.getElementById('browser-title').textContent = currentPath ? 
-                `Contents of ${currentPath.split('/').pop()}` : 'Top Level Collections';
+            if (grid.innerHTML === '') {
+                grid.innerHTML = '<div class="empty-state">No collections to display</div>';
+            }
         }
 
-        // Setup sort handlers
-        document.querySelectorAll('.file-table th[data-sort]').forEach(th => {
-            th.addEventListener('click', () => {
-                const column = th.dataset.sort;
-                if (sortColumn === column) {
-                    sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-                } else {
-                    sortColumn = column;
-                    sortDirection = 'asc';
+        // Create collection card
+        function createCollectionCard(data) {
+            const card = document.createElement('div');
+            card.className = `collection-card ${data.server}-card`;
+            
+            const progress = Math.min(data.progress, 100);
+            const statusText = progress >= 100 ? 'Complete' : progress > 0 ? 'In Progress' : 'Pending';
+            const statusColor = progress >= 100 ? 'var(--accent-success)' : progress > 0 ? 'var(--accent-warning)' : 'var(--text-muted)';
+            const icon = progress >= 100 ? '✓' : progress > 0 ? '⏳' : '○';
+
+            card.innerHTML = `
+                <div class="collection-header">
+                    <div>
+                        <div class="collection-name">${data.name}</div>
+                        <div class="collection-files">${data.files}</div>
+                    </div>
+                    <span class="collection-server ${data.server}">${data.server}</span>
+                </div>
+                <div class="collection-progress">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill ${data.server}-fill" style="width: ${progress}%"></div>
+                    </div>
+                </div>
+                <div class="collection-stats">
+                    <span>${data.size}</span>
+                    <span style="color: ${statusColor};">${icon} ${statusText}</span>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Tab switching
+        document.querySelectorAll('.server-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.server-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                const server = tab.dataset.server;
+                currentView = server;
+
+                // Hide all views
+                document.getElementById('combined-view').style.display = 'none';
+                document.getElementById('view-archive1').classList.remove('active');
+                document.getElementById('view-archive2').classList.remove('active');
+
+                // Show selected view
+                if (server === 'combined') {
+                    document.getElementById('combined-view').style.display = 'grid';
+                } else if (server === 'archive1') {
+                    document.getElementById('view-archive1').classList.add('active');
+                } else if (server === 'archive2') {
+                    document.getElementById('view-archive2').classList.add('active');
                 }
-
-                // Update visual indicators
-                document.querySelectorAll('.file-table th').forEach(header => {
-                    header.classList.remove('sort-asc', 'sort-desc');
-                });
-                th.classList.add(sortDirection === 'asc' ? 'sort-asc' : 'sort-desc');
-
-                renderFileBrowser();
             });
         });
 
-        // Setup filter handlers
+        // Filter buttons
         document.querySelectorAll('.toggle-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
@@ -1132,86 +1259,11 @@
             });
         });
 
-        // Update per-file progress section
-        function updateFileProgress(status) {
-            const card = document.getElementById('file-progress-card');
-            
-            // Show card if we have file data
-            if (status.files_total > 0) {
-                card.style.display = 'block';
-                
-                // Update file count stats
-                const transferred = status.files_transferred || 0;
-                const total = status.files_total || 1;
-                const percent = ((transferred / total) * 100).toFixed(1);
-                
-                document.getElementById('files-transferred').textContent = transferred.toLocaleString();
-                document.getElementById('files-total').textContent = total.toLocaleString();
-                document.getElementById('files-percentage').textContent = percent + '%';
-                document.getElementById('files-progress-bar').style.width = percent + '%';
-                
-                // Update currently downloading
-                const downloadingDiv = document.getElementById('currently-downloading');
-                if (status.currently_downloading && status.currently_downloading.length > 0) {
-                    downloadingDiv.innerHTML = status.currently_downloading
-                        .filter(item => item.file && !item.file.includes('%')) // Filter out bad entries
-                        .map(item => {
-                            const progress = item.progress || '0%';
-                            const progressNum = parseInt(progress) || 0;
-                            return `
-                                <div style="margin-bottom: 0.5rem; padding: 0.5rem; background: var(--bg-tertiary); border-radius: 4px;">
-                                    <div style="color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 0.25rem;">
-                                        ${item.file.split('/').pop()}
-                                    </div>
-                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                        <div class="progress-bar-bg" style="flex: 1; height: 4px;">
-                                            <div class="progress-bar-fill" style="width: ${progressNum}%; height: 100%;"></div>
-                                        </div>
-                                        <span style="color: var(--accent-info); font-size: 0.75rem; min-width: 35px;">${progress}</span>
-                                    </div>
-                                </div>
-                            `;
-                        }).join('');
-                } else {
-                    downloadingDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No active downloads</div>';
-                }
-                
-                // Update recently completed
-                const completedDiv = document.getElementById('recently-completed');
-                if (status.recently_completed && status.recently_completed.length > 0) {
-                    // Filter out non-downloaded files (like log files, status files)
-                    const realFiles = status.recently_completed.filter(item => 
-                        item.file && 
-                        !item.file.endsWith('.log') && 
-                        !item.file.endsWith('.json') &&
-                        !item.file.includes('public/')
-                    );
-                    
-                    if (realFiles.length > 0) {
-                        completedDiv.innerHTML = realFiles.map(item => {
-                            const filename = item.file.split('/').pop();
-                            return `
-                                <div style="margin-bottom: 0.5rem; padding: 0.5rem; background: var(--accent-success-bg); border-radius: 4px; display: flex; justify-content: space-between; align-items: center;">
-                                    <span style="color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; margin-right: 0.5rem;">${filename}</span>
-                                    <span style="color: var(--accent-success); font-size: 0.75rem; flex-shrink: 0;">${item.size || ''}</span>
-                                </div>
-                            `;
-                        }).join('');
-                    } else {
-                        completedDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No recent completions</div>';
-                    }
-                } else {
-                    completedDiv.innerHTML = '<div class="empty-state" style="padding: 1rem;">No recent completions</div>';
-                }
-            }
-        }
-
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            loadData();
-            loadLiveStatus(); // Try to get live status
-            // Refresh live status every 5 minutes
-            setInterval(loadLiveStatus, 5 * 60 * 1000);
+            loadServerData();
+            // Refresh every 5 minutes
+            setInterval(loadServerData, 5 * 60 * 1000);
         });
     </script>
 </body>
