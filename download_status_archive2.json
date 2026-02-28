@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T20:32:01Z",
+  "timestamp": "2026-02-28T21:31:56Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1210386759985,
-  "download_human": "1.2T",
-  "disk_used": "1.2T",
+  "download_bytes": 1248581944638,
+  "download_human": "1.3T",
+  "disk_used": "1.3T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"121G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"305G"},{"name":"TOSEC-PIX","size":"418G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"123G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"437G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81].zip",
-    "size": "2.6Gi"
-  },
-  {
     "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter XX - Double Cross (Japan) [T-En by Dasding v5] [Add by Crosshex v2] [i].zip",
-    "size": "2.0Gi"
+    "size": "2.1Gi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
-    "size": "2.3Gi"
-  },
-  {
-    "file": "T-En Collection/Microsoft - XBOX [T-En] Collection/Metal Wolf Chaos (Japan) [T-En by NemsMole v1.0].zip",
-    "size": "1.4Gi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/OutRun (USA, Europe) (MD+) [Hack by Neodev] [Color hack by Tor Landeel v2.1].zip",
-    "size": "99Mi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/NewZealand Story, The (Japan) (MD+) [Hack by Infinest v1.0] [Extended] [Color hack by Fabio v1.0].zip",
-    "size": "77Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Strider (USA, Europe) (MD+) [Hack by Neodev].zip",
+    "size": "63Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MD+/Puyo Puyo (Japan) (MD+) [Hack by ArcadeTV v20230429].zip",
-    "size": "53Mi"
+    "size": "169Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Rainbow Islands Extra (Japan) (MD+) [Hack by ArcadeTV v20230416].zip",
-    "size": "5.0Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Shinobi III - Return of the Ninja Master (USA) (MD+) [Hack by Infinest v1.2].zip",
+    "size": "234Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Super Hang-On (Europe) (En,Ja) (Rev A) (MD+) [Hack by Jeroen Visser v1.0.0] [m PepilloPev].zip",
+    "size": "22Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MD+/Monster World IV (USA, Europe) (En,Ja) (Virtual Console) (MD+) [Hack by ArcadeTV v20230507].zip",
-    "size": "266Mi"
+    "size": "476Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MD+/Ghostbusters (USA, Europe) (MD+) [Hack by ArcadeTV v1.0] [Color hack by SCD v20220430] [m PepilloPev].zip",
-    "size": "247Mi"
+    "size": "364Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Golden Axe II (World) (MD+) [Hack by Jeroen Visser v1.0.1] [Color hack by Linkuei v1.0] [m PepilloPev].zip",
+    "size": "583Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Sagaia (USA) (MD+) [Hack by Infinest v1.0].zip",
+    "size": "181Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MD+/Streets of Rage 2 (USA) (MD+) [Hack by Infinest v2].zip",
+    "size": "166Mi"
   }
 ]
 }
