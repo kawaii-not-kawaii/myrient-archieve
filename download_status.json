@@ -1,28 +1,28 @@
 {
-  "timestamp": "2026-02-28T02:00:03Z",
-  "download_bytes": 1103122166251,
+  "timestamp": "2026-02-28T03:00:03Z",
+  "download_bytes": 1126582836148,
   "download_human": "1.1T",
   "disk_used": "1.1T",
   "disk_percent": "3%",
-  "files_transferred": 290,
-  "files_total": 10302,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…_2___DLC_BLES01702.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…ider_Man_BLES01547.rar","progress":"79%"},{"file":"PS3_ALVRO_PART…e_Bigs_2_BLUS30280.rar","progress":"58%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30780.rar","progress":"22%"},{"file":"6%","progress":null}],
+  "files_transferred": 294,
+  "files_total": 10306,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLUS30780.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…_Caspian_BLUS30138.rar","progress":"49%"},{"file":"PS3_ALVRO_PART…k_Athena_BLES00311.rar","progress":"20%"},{"file":"PS3_ALVRO_PART…The_Club_BLES00192.rar","progress":"6%"},{"file":"6%","progress":null}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Amazing_Spider_Man_BLES01547.rar",
-    "size": "7.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Chronicles_of_Narnia_Prince_Caspian_BLUS30138.rar",
+    "size": "3.7Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/Tekken_Tag_Tournament_2___DLC_BLES01702.rar",
-    "size": "20Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Chronicles_of_Riddick_Assault_on_Dark_Athena_BLES00311.rar",
+    "size": "1.9Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_10/The_Bigs_2_BLUS30280.rar",
-    "size": "4.3Gi"
+    "file": "aitus95/PS3_ALVRO_PART_10/The_Club_BLES00192.rar",
+    "size": "359Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_10/The_Bureau_XCOM_Declassified____All_DLC__BLUS30780.rar",
-    "size": "1.9Gi"
+    "size": "7.5Gi"
   }
 ]
 }
