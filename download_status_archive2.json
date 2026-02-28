@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T15:30:57Z",
+  "timestamp": "2026-02-28T16:31:09Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 933943711476,
-  "download_human": "952G",
-  "disk_used": "952G",
+  "download_bytes": 997327772585,
+  "download_human": "1008G",
+  "disk_used": "1008G",
   "disk_percent": "2%",
-  "collections": [{"name":"bitsavers","size":"98G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"242G"},{"name":"TOSEC-PIX","size":"300G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"104G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"260G"},{"name":"TOSEC-PIX","size":"322G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81] [DLC].zip",
+    "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81].zip",
     "size": "1.3Gi"
   },
   {
-    "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81].zip",
-    "size": "987Mi"
-  },
-  {
     "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter XX - Double Cross (Japan) [T-En by Dasding v5] [Add by Crosshex v2] [i].zip",
-    "size": "507Mi"
+    "size": "876Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Fire Emblem If - Anya Oukoku (Japan) [T-En by Team If v4.3].zip",
-    "size": "1.4Gi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yu-Gi-Oh! Duel Monsters - Saikyo Card Battle! (Japan) (eShop) [T-En by Clickclaxer01].zip",
+    "size": "189Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Taiko Drum Master - Mystery Adventure (Japan) [T-En by Team Full Combo! v1.1] [i] [n].zip",
-    "size": "91Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yo-Kai Watch Blasters 2 - Magnum (Japan) [T-En by InfiniteEnmaYW3 v1.2.0] [i] [n].zip",
+    "size": "598Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Puyo Puyo!! 20th Anniversary (Japan) [T-En by Precise Museum v2.1] [n].zip",
-    "size": "334Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yu-Gi-Oh! Duel Monsters - Saikyo Card Battle! (Japan) (eShop) [T-En by Clickclaxer01] [Add by DrgnMasterKota v20210930].zip",
+    "size": "195Mi"
   },
   {
     "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
-    "size": "913Mi"
+    "size": "1.1Gi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Taiko Drum Master - Adventures through Time and Space (Japan) [T-En by Team Full Combo! v1.1] [i] [n].zip",
-    "size": "108Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yo-Kai Watch Blasters 2 - Sword (Japan) [T-En by InfiniteEnmaYW3 v1.2.0] [i] [n].zip",
+    "size": "593Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Fire Emblem If - Special Edition (Japan) [T-En by Team If v4.3].zip",
-    "size": "1.6Gi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Time Travelers (Japan) [T-En by Fan Translators International v1.4] [h code.bin].zip",
+    "size": "505Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Touch Detective Rising 3 - Does Fungi Dream of Bananas (Japan) [T-En by Kekkyoku] [n].zip",
-    "size": "4.0Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter Stories (Japan) [T-En by Dasding v1.3] [i].zip",
+    "size": "774Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Fire Emblem If - Byakuya Oukoku (Japan) [T-En by Team If v4.3].zip",
+    "size": "1.4Gi"
   }
 ]
 }
