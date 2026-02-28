@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T22:31:56Z",
+  "timestamp": "2026-02-28T23:31:58Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1281527411052,
+  "download_bytes": 1317621400769,
   "download_human": "1.3T",
   "disk_used": "1.3T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"126G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"452G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"130G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"469G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Teenage Mutant Ninja Turtles - Shredder's Re-Revenge (USA) (MD+) [Hack by Infinest] [SOR2 hack by PPI_Akiko & Savok v1.01] [n].zip",
-    "size": "117Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Mushishi - Ame Furu Sato (Japan) [T-En by Anime Game Translations Team v1.0].zip",
+    "size": "29Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Strider (USA, Europe) (MD+) [Hack by Neodev].zip",
-    "size": "282Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Nora to Toki no Koubou - Kiri no Mori no Majo (Japan) [T-En by Nora Project v0.3d-1] [AP fix].zip",
+    "size": "63Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Thunder Force IV (Japan) (En) (Sega Ages) (MD+) [Hack by ArcadeTV v20230403].zip",
-    "size": "155Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Nora to Toki no Koubou - Kiri no Mori no Majo (Japan) [T-En by Nora Project v0.3d-1].zip",
+    "size": "25Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Ys III (USA) (MD+) [Hack by Neodev] [T-En by Plombo v1.1] [Relocalized].zip",
-    "size": "111Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Mugen no Frontier Exceed - Super Robot Taisen OG Saga (Japan) [T-En by Artema Translations v1.0].zip",
+    "size": "70Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Teenage Mutant Ninja Turtles of Rage - Re-Shelled (USA) (MD+) [Hack by Eskayelle v1.999.1] [n].zip",
-    "size": "84Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Ni No Kuni - The Jet Black Mage (Japan) [T-En by Anjiera v1.0] [n].zip",
+    "size": "37Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Vectorman (USA, Europe) (MD+) [Hack by ArcadeTV v20230505].zip",
-    "size": "110Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Prince of Tennis, The - Princes of Doubles - Girls, Be Gracious! (Japan) [T-En by AmuletCross v3] [n].zip",
+    "size": "15Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Streets of Rage 2 (USA) (MD+) [Hack by Infinest v2].zip",
-    "size": "367Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Puyo Puyo 7 (Japan) [T-En by Puyo Nexus v1.0].zip",
+    "size": "8.0Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Mr. Nutz (Europe) (MD+) [Hack by ArcadeTV v20230419].zip",
-    "size": "527Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Princess on Ice (Japan) [T-En by plasturion v0.93].zip",
+    "size": "9.0Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Teenage Mutant Ninja Turtles - The Hyperstone Heist (USA) (MD+) [Hack by ArcadeTV v0.2] [Color hack by Pyron v2.0] [m PepilloPev].zip",
-    "size": "74Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Love Plus (Japan) [T-En by Jjjewel v1.0n].zip",
+    "size": "95Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MD+/Streets of Rage 3 (USA) (MD+) [Hack by Infinest v1.0].zip",
-    "size": "407Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Puyo Puyo! - 15th Anniversary (Japan) (Rev 1) [T-En by Puyo Nexus v1.2] [n].zip",
+    "size": "5.0Mi"
   }
 ]
 }
