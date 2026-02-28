@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T12:30:32Z",
+  "timestamp": "2026-02-28T13:30:39Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 659857148972,
-  "download_human": "700G",
-  "disk_used": "700G",
+  "download_bytes": 764138277003,
+  "download_human": "805G",
+  "disk_used": "806G",
   "disk_percent": "2%",
-  "collections": [{"name":"bitsavers","size":"83G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"168G"},{"name":"TOSEC-PIX","size":"214G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"87G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"199G"},{"name":"TOSEC-PIX","size":"245G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
     "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81] [DLC].zip",
-    "size": "12Mi"
+    "size": "449Mi"
+  },
+  {
+    "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81].zip",
+    "size": "274Mi"
   },
   {
     "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Mobile Suit Gundam - Operation - Troy (Japan) [T-En by Yuvi & SnowyAria v1.0].zip",
-    "size": "11Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Lupin III - Lost Treasure Under the Sea (Japan) [T-En by DOL-Translations v1.0.1] [n].zip",
-    "size": "1.1Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Yu-Gi-Oh! - The Falsebound Kingdom (USA) [T-En by DrakeyC v2.0] [Retranslated].zip",
-    "size": "240Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Super Robot Wars GC (Japan) [T-En by Super Robot Wars GC Team v1.0.2] [n].zip",
-    "size": "662Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Zatch Bell! Go! Go! Mamodo Fight!! (Japan) [T-En by SuperrSonic & XZatchBellGamerX v1.0] [n].zip",
-    "size": "100Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/World Soccer Winning Eleven 6 - Final Evolution (Japan) [T-En by ADONF v0.3] [i].zip",
-    "size": "224Mi"
+    "size": "371Mi"
   },
   {
     "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Sonic Gems Collection (Japan) [T-En by Masaru v1.0] [i].zip",
-    "size": "504Mi"
+    "size": "987Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Mr. Driller - Drill Land (Japan) [T-En by Aldi_09 v0.9.0] [i].zip",
-    "size": "573Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Fire Emblem If - Anya Oukoku (Japan) [T-En by Team If v4.3].zip",
+    "size": "111Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - GameCube [T-En] Collection/Fire Emblem - Souen no Kiseki (Japan) [T-En by Shadowofchaos v0.1].zip",
-    "size": "916Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/FabStyle (Japan) [T-En by Rocket Robz & Sidier v2.0] [i].zip",
+    "size": "126Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Dragon Quest Monsters - Terry's Wonderland 3D (Japan) [T-En by Team TW3D v1.2] [n].zip",
+    "size": "301Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Digimon World Re-Digitize Decode (Japan) [T-En by Operation Decoded v1.0].zip",
+    "size": "207Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Beyond the Labyrinth (Japan) [T-En by Angular & Nagato & Vodka v1.1] [n].zip",
+    "size": "315Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Fire Emblem If (Japan) (DLC) [T-En by Team If v4.3].zip",
+    "size": "74Mi"
   }
 ]
 }
