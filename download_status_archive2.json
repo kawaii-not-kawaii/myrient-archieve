@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T17:31:18Z",
+  "timestamp": "2026-02-28T18:31:33Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1060145551809,
+  "download_bytes": 1109496815982,
   "download_human": "1.1T",
   "disk_used": "1.1T",
   "disk_percent": "2%",
-  "collections": [{"name":"bitsavers","size":"109G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"273G"},{"name":"TOSEC-PIX","size":"345G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"113G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"284G"},{"name":"TOSEC-PIX","size":"364G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
     "file": "T-En Collection/Microsoft - XBOX 360 [T-En] Collection/Otomedius Gorgeous! (Japan) [T-En by GameStone v1.81].zip",
-    "size": "1.6Gi"
+    "size": "2.0Gi"
   },
   {
     "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter XX - Double Cross (Japan) [T-En by Dasding v5] [Add by Crosshex v2] [i].zip",
-    "size": "1.2Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yo-Kai Watch Blasters 2 - Magnum (Japan) [T-En by InfiniteEnmaYW3 v1.2.0] [i] [n].zip",
-    "size": "986Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
     "size": "1.5Gi"
   },
   {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yo-Kai Watch Blasters 2 - Magnum (Japan) [T-En by InfiniteEnmaYW3 v1.2.0] [i] [n].zip",
+    "size": "1.3Gi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
+    "size": "1.7Gi"
+  },
+  {
     "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Yo-Kai Watch Blasters 2 - Sword (Japan) [T-En by InfiniteEnmaYW3 v1.2.0] [i] [n].zip",
-    "size": "959Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Time Travelers (Japan) [T-En by Fan Translators International v1.4] [h code.bin].zip",
-    "size": "1.1Gi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter Stories (Japan) [T-En by Dasding v1.3] [i].zip",
     "size": "1.2Gi"
   },
   {
-    "file": "T-En Collection/Microsoft - XBOX [T-En] Collection/Drihoo (Japan) [T-En by ShawnS v1.1].zip",
-    "size": "581Mi"
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Time Travelers (Japan) [T-En by Fan Translators International v1.4] [h code.bin].zip",
+    "size": "1.5Gi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo 3DS [T-En] Collection/Monster Hunter Stories (Japan) [T-En by Dasding v1.3] [i].zip",
+    "size": "1.6Gi"
   },
   {
     "file": "T-En Collection/Microsoft - XBOX [T-En] Collection/Metal Wolf Chaos (Japan) [T-En by NemsMole v1.0].zip",
-    "size": "532Mi"
+    "size": "889Mi"
   },
   {
     "file": "T-En Collection/Microsoft - XBOX [T-En] Collection/Thousand Land (Japan) [T-En by MrRichard999 v0.992b].zip",
-    "size": "475Mi"
+    "size": "768Mi"
+  },
+  {
+    "file": "T-En Collection/Microsoft - XBOX [T-En] Collection/OutRun 2 (Japan) [T-En by Justin Gibbins v1.0].zip",
+    "size": "785Mi"
   }
 ]
 }
