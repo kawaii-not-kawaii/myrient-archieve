@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T10:00:03Z",
-  "download_bytes": 1531164347488,
-  "download_human": "1.8T",
-  "disk_used": "1.8T",
+  "timestamp": "2026-02-28T11:00:03Z",
+  "download_bytes": 1660276626620,
+  "download_human": "2.0T",
+  "disk_used": "2.0T",
   "disk_percent": "5%",
-  "files_transferred": 741,
-  "files_total": 10777,
-  "currently_downloading": [{"file":"RedumpNintendo…ent Assassin (USA).zip","progress":"84%"},{"file":"PS3_ALVRO_PART…perstars_BCES00598.rar","progress":"36%"},{"file":"PS3_ALVRO_PART…Zill_Oll_BLUS30503.rar","progress":"7%"},{"file":"PS3_ALVRO_PART…Universe_BLES00971.rar","progress":"29%"}],
+  "files_transferred": 753,
+  "files_total": 10789,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…Zill_Oll_BLUS30503.rar","progress":"69%"},{"file":"PS3_ALVRO_PART…_Reprise_BLJS10017.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…_Edition_BCUS98106.rar","progress":"63%"},{"file":"PS3_ALVRO_PART…URO_2008_BLES00227.rar","progress":"88%"}],
   "recently_completed": [
   {
-    "file": "Unknown/RedumpNintendoGameCubeAmericaPart2/Hitman 2 - Silent Assassin (USA).zip",
-    "size": "1.2Gi"
-  },
-  {
     "file": "aitus95/PS3_ALVRO_PART_11/Twisted_Metal_Limited_Edition_BCUS98106.rar",
-    "size": "502Mi"
+    "size": "7.8Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Trinity_Universe_BLUS30535.rar",
-    "size": "945Mi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Ukiyo_no_Shishi_BLJS10301.rar",
+    "size": "4.6Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/UEFA_Euro_2016_Winning_Eleven_2016_BLJM61339.rar",
+    "size": "6.7Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Trusty_Bell_Chopin_no_Yume_Reprise_BLJS10017.rar",
-    "size": "1.1Gi"
+    "size": "9.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Truck_Racer_BLES01798.rar",
-    "size": "1.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/UFC_Personal_Trainer_The_Ultimate_Fitness_System_BLES01170.rar",
+    "size": "5.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/TV_Superstars_BCES00598.rar",
+    "file": "aitus95/PS3_ALVRO_PART_11/Ultra_Street_Fighter_4_BLUS31218.rar",
+    "size": "3.6Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_Game_of_the_Year_Edition_BCES00509.rar",
     "size": "1.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Trinity_Souls_of_Zill_Oll_BLUS30503.rar",
-    "size": "1.7Gi"
+    "size": "15Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/UEFA_EURO_2008_BLES00227.rar",
-    "size": "389Mi"
+    "size": "8.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Two_Worlds_2_BLES00845.rar",
-    "size": "540Mi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Turbo_Super_Stunt_Squad_BLUS31171.rar",
-    "size": "702Mi"
+    "file": "aitus95/PS3_ALVRO_PART_11/UFC_2009_Undisputed_BLES00539.rar",
+    "size": "6.1Gi"
   }
 ]
 }
