@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T18:00:03Z",
-  "download_bytes": 2187734975308,
+  "timestamp": "2026-02-28T19:00:03Z",
+  "download_bytes": 2234783539966,
   "download_human": "2.4T",
   "disk_used": "2.4T",
   "disk_percent": "6%",
-  "files_transferred": 813,
-  "files_total": 10849,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLES02190.rar","progress":"95%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS31565.rar","progress":"82%"},{"file":"PS3_ALVRO_PART…_of_Fate_BLUS30275.rar","progress":"78%"},{"file":"PS3_ALVRO_PART…e_Marine_BLES01347.rar","progress":"76%"}],
+  "files_transferred": 818,
+  "files_total": 10854,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLUS31565.rar","progress":"92%"},{"file":"PS3_ALVRO_PART…_Of_Troy_BLES01183.rar","progress":"67%"},{"file":"PS3_ALVRO_PART…Orochi_3_BLES01588.rar","progress":"97%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES01854.rar","progress":"42%"}],
   "recently_completed": [
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Wheelman_BLES00480.rar",
-    "size": "2.2Gi"
+    "size": "4.9Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Wanted_Weapons_of_Fate_BLUS30275.rar",
-    "size": "5.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Winning_Eleven_2017_BLJM61345.rar",
+    "size": "1.1Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Warriors_Legends_Of_Troy_BLES01183.rar",
-    "size": "6.8Gi"
+    "size": "9.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BCES01085.rar",
-    "size": "1.8Gi"
+    "size": "5.6Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLUS31565.rar",
-    "size": "16Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Way_of_the_Samurai_4_BLES01682.rar",
-    "size": "3.1Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/WWE_2K16____All_DLC__BLES02190.rar",
     "size": "18Gi"
   },
   {
+    "file": "aitus95/PS3_ALVRO_PART_11/Winter_Sports_2011_Go_For_God_BLES01061.rar",
+    "size": "493Mi"
+  },
+  {
     "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BLUS30784.rar",
-    "size": "1.2Gi"
+    "size": "3.5Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Winning_Eleven_2016_BLJM61301.rar",
+    "size": "1.9Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Watch_Dogs___All_DLC__BLES01854.rar",
-    "size": "4.2Gi"
+    "size": "8.0Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Where_the_Wild_Things_Are_BLUS30441.rar",
-    "size": "3.2Gi"
+    "size": "6.4Gi"
   }
 ]
 }
