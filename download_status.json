@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T21:00:03Z",
-  "download_bytes": 2316507006332,
-  "download_human": "2.5T",
-  "disk_used": "2.5T",
+  "timestamp": "2026-02-28T22:00:03Z",
+  "download_bytes": 2360883173786,
+  "download_human": "2.6T",
+  "disk_used": "2.6T",
   "disk_percent": "7%",
-  "files_transferred": 832,
-  "files_total": 10868,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLES01854.rar","progress":"67%"},{"file":"PS3_ALVRO_PART…nicles_2_BCES01085.rar","progress":"56%"},{"file":"PS3_ALVRO_PART…nicles_2_BLUS30784.rar","progress":"42%"},{"file":"PS3_ALVRO_PART…ronicles_BCES00225.rar","progress":"83%"}],
+  "files_transferred": 838,
+  "files_total": 10874,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…All_DLC__BLES01854.rar","progress":"81%"},{"file":"PS3_ALVRO_PART…nicles_2_BCES01085.rar","progress":"71%"},{"file":"PS3_ALVRO_PART…nicles_2_BLUS30784.rar","progress":"52%"},{"file":"PS3_ALVRO_PART…t_8_2015_BLJM61262.rar","progress":"91%"}],
   "recently_completed": [
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Wolfenstein_BLES00564.rar",
-    "size": "3.6Gi"
+    "size": "6.6Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/World_Soccer_Winning_Eleven_2015_BLJM61237.rar",
-    "size": "737Mi"
+    "size": "2.8Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/XBlaze_Lost_Memories_BLUS31523.rar",
+    "size": "442Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Wonderbook_Walking_With_Dinosaurs_BCES01806.rar",
-    "size": "2.1Gi"
+    "size": "4.9Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Winning_Eleven_2017_BLJM61345.rar",
-    "size": "5.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/XBlaze_Code_Embryo_BLUS3167.rar",
+    "size": "1.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BCES01085.rar",
-    "size": "11Gi"
+    "size": "14Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/World_Snooker_Championship_2007_BLES00041.rar",
-    "size": "920Mi"
+    "file": "aitus95/PS3_ALVRO_PART_11/XCOM_Enemy_Unknown_BLES01711.rar",
+    "size": "107Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BLUS30784.rar",
-    "size": "7.5Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Worms_Collection_BLES01610.rar",
-    "size": "522Mi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Winning_Eleven_2016_BLJM61301.rar",
-    "size": "6.4Gi"
+    "size": "9.2Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Watch_Dogs___All_DLC__BLES01854.rar",
-    "size": "13Gi"
+    "size": "16Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/X-Men_Destiny_USA_BLUS30746.rar",
+    "size": "2.5Gi"
   }
 ]
 }
