@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T11:00:03Z",
-  "download_bytes": 1660276626620,
-  "download_human": "2.0T",
-  "disk_used": "2.0T",
+  "timestamp": "2026-02-28T12:00:03Z",
+  "download_bytes": 1795708536439,
+  "download_human": "2.1T",
+  "disk_used": "2.1T",
   "disk_percent": "5%",
-  "files_transferred": 753,
-  "files_total": 10789,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…Zill_Oll_BLUS30503.rar","progress":"69%"},{"file":"PS3_ALVRO_PART…_Reprise_BLJS10017.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…_Edition_BCUS98106.rar","progress":"63%"},{"file":"PS3_ALVRO_PART…URO_2008_BLES00227.rar","progress":"88%"}],
+  "files_transferred": 769,
+  "files_total": 10805,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…disputed_BLUS30299.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…sputed_3_BLES01231.rar","progress":"47%"},{"file":"PS3_ALVRO_PART…ighter_4_BLUS31218.rar","progress":"58%"},{"file":"PS3_ALVRO_PART…_Thieves_BCUS98123.rar","progress":"42%"}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Twisted_Metal_Limited_Edition_BCUS98106.rar",
-    "size": "7.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Virtua_Fighter_BLES00029.rar",
+    "size": "1.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Ukiyo_no_Shishi_BLJS10301.rar",
-    "size": "4.6Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Utawarerumono_Itsuwari_no_Kamen_BLJM61288.rar",
+    "size": "3.7Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/UEFA_Euro_2016_Winning_Eleven_2016_BLJM61339.rar",
-    "size": "6.7Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Trusty_Bell_Chopin_no_Yume_Reprise_BLJS10017.rar",
-    "size": "9.1Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/UFC_Personal_Trainer_The_Ultimate_Fitness_System_BLES01170.rar",
-    "size": "5.6Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Vanquish____All_DLC__BLUS30543.rar",
+    "size": "3.3Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Ultra_Street_Fighter_4_BLUS31218.rar",
-    "size": "3.6Gi"
+    "size": "11Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_Game_of_the_Year_Edition_BCES00509.rar",
-    "size": "1.4Gi"
+    "size": "6.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Trinity_Souls_of_Zill_Oll_BLUS30503.rar",
-    "size": "15Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Untold_Legends_Dark_Kingdom_BLUS30002.rar",
+    "size": "5.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/UEFA_EURO_2008_BLES00227.rar",
-    "size": "8.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Vanquish____All_DLC__BLES00927.rar",
+    "size": "4.3Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/UFC_2009_Undisputed_BLES00539.rar",
-    "size": "6.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_Drakes_Fortune_BCUS98103.rar",
+    "size": "4.7Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Venetica_BLES00776.rar",
+    "size": "4.0Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Uncharted_2_Among_Thieves_BCUS98123.rar",
+    "size": "8.8Gi"
   }
 ]
 }
