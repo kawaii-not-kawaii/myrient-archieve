@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-02-28T04:00:02Z",
-  "download_bytes": 1158365473017,
-  "download_human": "1.3T",
-  "disk_used": "1.3T",
+  "timestamp": "2026-02-28T05:00:03Z",
+  "download_bytes": 1218682757753,
+  "download_human": "1.5T",
+  "disk_used": "1.5T",
   "disk_percent": "4%",
-  "files_transferred": 77,
-  "files_total": 10105,
-  "currently_downloading": [{"file":"miyoo-mini-tiny…ini-TinyBestSet-CD.zip","progress":"24%"},{"file":"miyoo-mini-tiny…ini-TinyBestSet-PS.zip","progress":"4%"},{"file":"ibm3700-3709.zip","progress":"86%"},{"file":"miyoo-mini-tiny…o-Mini-TinyBestSet.zip","progress":"24%"}],
+  "files_transferred": 88,
+  "files_total": 10116,
+  "currently_downloading": [{"file":"miyoo-mini-tiny…ini-TinyBestSet-PS.zip","progress":"16%"},{"file":"retro-roms-best…EC - TurboGrafx CD.zip","progress":"94%"},{"file":"retro-roms-best…o - GameCube (A-M).zip","progress":"15%"},{"file":"retro-roms-best…o - GameCube (N-Z).zip","progress":"16%"}],
   "recently_completed": [
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Gear - EverDrive GG 2020-12-21.zip",
-    "size": "65Mi"
+    "file": "EBZero/miyoo-mini-tiny-best-set-ps/Miyoo-Mini-TinyBestSet-PS.zip",
+    "size": "7.0Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Genesis - MegaSD Mega EverDrive Game Series Collections 2024-01-03.zip",
-    "size": "84Mi"
+    "file": "EBZero/retro-roms-best-set/Sony - PS1 (Update 1).zip",
+    "size": "689Mi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA Game Series Collections Add-On 2022-08-08.zip",
-    "size": "223Mi"
+    "file": "EBZero/retro-roms-best-set/Sega - Dreamcast.zip",
+    "size": "5.4Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Genesis - MegaSD Mega EverDrive 2024-01-03.zip",
-    "size": "155Mi"
+    "file": "EBZero/retro-roms-best-set/Sony - PSP (A-G).zip",
+    "size": "556Mi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Boy SMDB 2022-05-20.zip",
-    "size": "167Mi"
+    "file": "EBZero/retro-roms-best-set/NEC - TurboGrafx CD.zip",
+    "size": "7.1Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Boy - EverDrive GB 2020-12-22.zip",
-    "size": "137Mi"
+    "file": "EBZero/retro-roms-best-set/Sony - PSP (H-P).zip",
+    "size": "177Mi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Game Boy Color SMDB 2022-05-12.zip",
-    "size": "146Mi"
+    "file": "EBZero/retro-roms-best-set/Sega - Sega CD.zip",
+    "size": "4.9Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@MiSTer Pack 2023-06-09.7z",
-    "size": "201Mi"
+    "file": "EBZero/retro-roms-best-set/Nintendo - GameCube (A-M).zip",
+    "size": "6.7Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@Master System - Master EverDrive 2022-05-04.zip",
-    "size": "60Mi"
+    "file": "EBZero/retro-roms-best-set/Sony - PS1 (A-L).zip",
+    "size": "2.9Gi"
   },
   {
-    "file": "the_last_collector/htgdb-gamepacks/@GBA - EverDrive GBA 2022-08-08.zip",
-    "size": "229Mi"
+    "file": "EBZero/retro-roms-best-set/Sony - PS1 (L-Z).zip",
+    "size": "3.1Gi"
   }
 ]
 }
