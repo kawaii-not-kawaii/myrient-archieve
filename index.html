@@ -636,7 +636,7 @@
                 <div class="server-header">
                     <div class="server-title server1">
                         <span class="indicator"></span>
-                        Archive 1 (135.181.220.252)
+                        Archive 1
                     </div>
                     <span class="server-status" id="status-archive1">Loading...</span>
                 </div>
@@ -654,7 +654,7 @@
                 <div class="server-header">
                     <div class="server-title server2">
                         <span class="indicator"></span>
-                        Archive 2 (65.21.35.118)
+                        Archive 2
                     </div>
                     <span class="server-status" id="status-archive2">Loading...</span>
                 </div>
@@ -941,7 +941,7 @@
                     files: (serverData.archive1.files_transferred || 0) + ' / ' + (serverData.archive1.files_total || 0) + ' files',
                     server: 'archive1',
                     progress: ((serverData.archive1.download_bytes || 0) / 44511371905891 * 100),
-                    isActive: true  // IA is always "in progress" until complete
+                    isActive: true
                 });
                 grid.appendChild(card);
             }
@@ -962,7 +962,6 @@
                 
                 collections.forEach(col => {
                     const targetSize = collectionSizes[col.name] || 0;
-                    // Parse current size from human readable
                     const currentSize = parseSize(col.size);
                     const progress = targetSize > 0 ? (currentSize / targetSize * 100) : 0;
                     
@@ -972,7 +971,7 @@
                         files: targetSize > 0 ? progress.toFixed(1) + '% of ' + formatBytes(targetSize) : 'Downloading...',
                         server: 'archive2',
                         progress: progress,
-                        isActive: true  // All archive2 collections are "in progress"
+                        isActive: true
                     });
                     grid.appendChild(card);
                 });
@@ -1000,7 +999,6 @@
             
             const progress = Math.min(data.progress || 0, 100);
             
-            // Determine status: if isActive is true, show "In Progress"
             let statusText, statusColor, icon;
             if (progress >= 100) {
                 statusText = 'Complete';
