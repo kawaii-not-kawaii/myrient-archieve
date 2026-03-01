@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T06:00:03Z",
-  "download_bytes": 2749694077243,
+  "timestamp": "2026-03-01T07:00:03Z",
+  "download_bytes": 2810350672519,
   "download_human": "3.0T",
   "disk_used": "3.0T",
   "disk_percent": "8%",
-  "files_transferred": 970,
-  "files_total": 11006,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"94%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"79%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"93%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30826.rar","progress":"92%"}],
+  "files_transferred": 986,
+  "files_total": 11022,
+  "currently_downloading": [{"file":"FP41Data.zip","progress":"61%"},{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"28%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"33%"},{"file":"PS3_ALVRO_PART…PS3-JPN_Caravan_JB.rar","progress":"79%"}],
   "recently_completed": [
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "14Gi"
+    "size": "16Gi"
   },
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "9.7Gi"
+    "size": "12Gi"
   },
   {
     "file": "bluemaxima/FP41Data/FP41Data.zip",
-    "size": "15Gi"
+    "size": "20Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/428_Fuusa_Sareta_Shibuya_de_PS3-JPN_Caravan_JB.rar",
-    "size": "7.9Gi"
+    "size": "12Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Accel_World_Ginyoku_no_Kakusei_JP_PS3_BLJS10174.rar",
+    "file": "aitus95/PS3_ALVRO_PART_1/Akibas_Trip_2_PS3-JPN_Caravan.rar",
     "size": "1.3Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Absolute_Supercars_BLES01500.rar",
-    "size": "2.9Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Air_Conflicts_Secret_Wars_BLES01316.rar",
+    "size": "1.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/50_Cent_Blood_On_The_Sand_-_BLUS30256.rar",
-    "size": "4.4Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Alice__Madness_Returns_PS3-EU_BG_BLES01265.rar",
+    "size": "237Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/50_Cent_Blood_on_the_Sand_PS3-JP_Caravan_BLJS10056.rar",
-    "size": "4.5Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Aliens_Colonial_Marines_BLES01455.rar",
+    "size": "46Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Accel_World_Kasoku_no_Chouten_BLJS10176.rar",
-    "size": "888Mi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Akatsuki_no_Goei_Trinity_PS3-JPN_HR_BLJM60521.rar",
+    "size": "1.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Ace_Combat_Assault_Horizon_BLES01392.rar",
-    "size": "466Mi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Alice_Madness_Returns_USA_PS3-CHARGED_BLUS30607.rar",
+    "size": "356Mi"
   }
 ]
 }
