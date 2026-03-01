@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T03:00:03Z",
-  "download_bytes": 2577298165028,
+  "timestamp": "2026-03-01T04:00:03Z",
+  "download_bytes": 2630225434982,
   "download_human": "2.9T",
   "disk_used": "2.9T",
   "disk_percent": "7%",
-  "files_transferred": 955,
-  "files_total": 10991,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"43%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"37%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"36%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30826.rar","progress":"39%"}],
+  "files_transferred": 959,
+  "files_total": 10995,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"61%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"44%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"54%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30826.rar","progress":"55%"}],
   "recently_completed": [
   {
-    "file": "EBZero/tiny-best-set-go/tiny-best-set-go-games.zip",
-    "size": "1.7Gi"
-  },
-  {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "2.2Gi"
+    "size": "6.7Gi"
   },
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "1.4Gi"
+    "size": "3.3Gi"
   },
   {
     "file": "bluemaxima/FP41Data/FP41Data.zip",
-    "size": "3.7Gi"
+    "size": "7.2Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/428_Fuusa_Sareta_Shibuya_de_PS3-JPN_Caravan_JB.rar",
+    "size": "703Mi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/2010_Fifa_World_Cup_South_Africa_BLUS30474.rar",
+    "size": "3.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/007_Legends_EUR_PS3-iNSOMNi_BLES01614.rar",
-    "size": "42Mi"
+    "size": "2.9Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/3D_Dot_Game_Heroes_BLES00875.rar",
+    "size": "1.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/2010_Fifa_World_Cup_South_Africa_BLES00796.rar",
-    "size": "16Mi"
+    "size": "2.5Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/2014_FIFA_World_Cup_Brazil_BLUS31389.rar",
+    "size": "2.8Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_Dead_Souls_BLES01399.rar",
-    "size": "7.3Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Yoostar_2_PS3-EU_BLES01080.rar",
-    "size": "6.6Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Zone_of_the_Enders_HD_Collection_BLUS30937.rar",
-    "size": "3.7Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Zumba_Fitness_PS3-USA_BLUS30587.rar",
-    "size": "3.3Gi"
+    "size": "11Gi"
   }
 ]
 }
