@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T00:00:03Z",
-  "download_bytes": 2447238812000,
+  "timestamp": "2026-03-01T01:00:03Z",
+  "download_bytes": 2489244717732,
   "download_human": "2.7T",
   "disk_used": "2.7T",
   "disk_percent": "7%",
-  "files_transferred": 848,
-  "files_total": 10884,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…nicles_2_BCES01085.rar","progress":"95%"},{"file":"PS3_ALVRO_PART…nicles_2_BLUS30784.rar","progress":"80%"},{"file":"PS3_ALVRO_PART…ew_Order_BLES01909.rar","progress":"58%"},{"file":"PS3_ALVRO_PART…_Chousen_BLJM61176.rar","progress":"65%"}],
+  "files_transferred": 855,
+  "files_total": 10891,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…nicles_2_BLUS30784.rar","progress":"96%"},{"file":"PS3_ALVRO_PART…ew_Order_BLES01909.rar","progress":"71%"},{"file":"PS3_ALVRO_PART…_Chousen_BLJM61176.rar","progress":"90%"},{"file":"PS3_ALVRO_PART…_Unknown_BLES01711.rar","progress":"89%"}],
   "recently_completed": [
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yaiba_Ninja_Gaiden_Z____DLC__BLUS31203.rar",
-    "size": "2.1Gi"
+    "size": "5.0Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/World_Soccer_Winning_Eleven_2015_BLJM61237.rar",
-    "size": "6.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/You_Dont_Know_Jack_BLUS30569.rar",
+    "size": "60Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/XBlaze_Lost_Memories_BLUS31523.rar",
-    "size": "5.7Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Young_Justice_Legacy____DLC__BLUS31170.rar",
+    "size": "26Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_Dead_Souls_BLES01399.rar",
-    "size": "170Mi"
+    "size": "2.8Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BCES01085.rar",
-    "size": "19Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/X_Men_Origins_Wolverine_Uncaged_Edition_BLES00150.rar",
-    "size": "4.0Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Yoostar_2_PS3-EU_BLES01080.rar",
+    "size": "954Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/XCOM_Enemy_Unknown_BLES01711.rar",
-    "size": "5.4Gi"
+    "size": "7.1Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BLUS30784.rar",
-    "size": "15Gi"
+    "size": "17Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/X_Men_Destiny_BLUS30746.rar",
-    "size": "4.7Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Yoostar_2_BLUS30596.rar",
+    "size": "1.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Yaiba_Ninja_Gaiden_Z_BLES01892.rar",
-    "size": "3.2Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Yoru_no_Nai_Kuni_BLJM61264.rar",
+    "size": "526Mi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_3____All_DLC__BLUS30494.rar",
+    "size": "2.7Gi"
   }
 ]
 }
