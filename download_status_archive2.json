@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-03-01T10:31:58Z",
+  "timestamp": "2026-03-01T11:31:56Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1693559831743,
+  "download_bytes": 1734805764834,
   "download_human": "1.8T",
   "disk_used": "1.8T",
   "disk_percent": "4%",
-  "collections": [{"name":"bitsavers","size":"165G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"666G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"169G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"691G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Catherine (USA) [Undub by NKS subs].zip",
-    "size": "745Mi"
+    "size": "953Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Oneechanbara Z - Kagura with NoNoNo! (Japan) [T-En by froid_san v0.985] [i].zip",
-    "size": "8.0Mi"
+    "size": "161Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
-    "size": "634Mi"
+    "size": "728Mi"
+  },
+  {
+    "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Puyo Puyo Tetris (Japan) [T-En by skweed0869 v1.0] [i].zip",
+    "size": "73Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Like a Dragon - Ishin! (Japan, Asia) [T-En by majDima v20250203] [n].zip",
-    "size": "650Mi"
+    "size": "854Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Dynasty Warriors - Strikeforce (Europe) (En,Fr,De) [Undub by Swosho v1.0].zip",
-    "size": "393Mi"
+    "size": "542Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Dengeki Bunko - Fighting Climax Ignition (Japan) [T-En by Tsukimori v1.03].zip",
-    "size": "848Mi"
+    "size": "1.1Gi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Natsuiro High School - Seishun Hakusho (Japan) [T-En by froid_san v0.5a] [i].zip",
-    "size": "512Mi"
-  },
-  {
-    "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Dragon Quest Builders (Japan) [T-En by froid_san v0.9] [n].zip",
-    "size": "739Mi"
+    "size": "707Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/NieR Replicant (Japan) [T-En by Project RepliCAN v1.0.5].zip",
-    "size": "196Mi"
+    "size": "399Mi"
   },
   {
     "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Hajime no Ippo - The Fighting! (Japan) [T-En by froid_san] [i].zip",
-    "size": "547Mi"
+    "size": "779Mi"
   }
 ]
 }
