@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-03-01T06:31:56Z",
+  "timestamp": "2026-03-01T07:31:58Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1550821733426,
-  "download_human": "1.5T",
-  "disk_used": "1.5T",
+  "download_bytes": 1585061067631,
+  "download_human": "1.6T",
+  "disk_used": "1.6T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"154G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"582G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"156G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"601G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Nintendo - Nintendo 64 [T-En] Collection/Heiwa Pachinko World 64 (Japan) [T-En by Zoinkity v1.0].zip",
-    "size": "3.0Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 64 [T-En] Collection/J.League Live 64 (Japan) [T-En by Zoinkity v1.0].zip",
-    "size": "4.8Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 64 [T-En] Collection/F-Zero X - Expansion Kit (Japan) (64DD) [Hack by Zoinkity v2] [T-En by LuigiBlood v2].zip",
-    "size": "6.0Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo 64 [T-En] Collection/Last Legion UX (Japan) [T-En by Zoinkity v1.0].zip",
-    "size": "4.0Mi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Warsong (USA) (MSU-MD) [T-En by D v20010219] [Add by Jon Najar v1.0] [Hack by ArcadeTV v0.1].zip",
-    "size": "167Mi"
-  },
-  {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Wonder Boy in Monster World (USA, Europe) (MSU-MD) [Hack by ArcadeTV v0.4] [Add by Michele Di Somma v1.0].zip",
-    "size": "105Mi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Langrisser II (Japan) (Rev B) (MSU-MD) [T-En by M.I.J.E.T. v110701] [Hack by ArcadeTV v0.4].zip",
-    "size": "719Mi"
+    "size": "372Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Rocket Knight Adventures (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
-    "size": "703Mi"
+    "size": "821Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Terminator - Remastered Edition, The (USA) (MSU-MD) [Hack by ArcadeTV v0.1] [Hack by Linkuei & Dustin M. O'Dell v1.0].zip",
-    "size": "257Mi"
+    "size": "485Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Wonder Boy III - Monster Lair (Japan, Europe) (MSU-MD) [Hack by ArcadeTV v0.3] [Color hack by Fabio v1.0].zip",
-    "size": "92Mi"
+    "size": "315Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Zero Wing (Europe) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "295Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Ys III (USA) (MSU-MD) [Hack by Neodev] [m Krikzz] [T-En by Plombo v1.0] [Relocalized].zip",
+    "size": "350Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Teenage Mutant Ninja Turtles of Rage - Re-Shelled (USA) (MSU-MD) [Hack by Eskayelle v1.999.1] [n].zip",
+    "size": "542Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Teenage Mutant Ninja Turtles - The Hyperstone Heist (USA) (MSU-MD) [Hack by ArcadeTV v0.2] [Color hack by Pyron v2.0].zip",
+    "size": "600Mi"
+  },
+  {
+    "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/Catherine (USA) [Undub by NKS subs].zip",
+    "size": "167Mi"
+  },
+  {
+    "file": "T-En Collection/Sony - PlayStation 3 [T-En] Collection/E.X. Troopers (Japan) [T-En by Fan Translators International v1.0.2].zip",
+    "size": "17Mi"
   }
 ]
 }
