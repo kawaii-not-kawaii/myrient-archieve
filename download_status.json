@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T01:00:03Z",
-  "download_bytes": 2489244717732,
-  "download_human": "2.7T",
-  "disk_used": "2.7T",
+  "timestamp": "2026-03-01T02:00:03Z",
+  "download_bytes": 2533558970853,
+  "download_human": "2.8T",
+  "disk_used": "2.8T",
   "disk_percent": "7%",
-  "files_transferred": 855,
-  "files_total": 10891,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…nicles_2_BLUS30784.rar","progress":"96%"},{"file":"PS3_ALVRO_PART…ew_Order_BLES01909.rar","progress":"71%"},{"file":"PS3_ALVRO_PART…_Chousen_BLJM61176.rar","progress":"90%"},{"file":"PS3_ALVRO_PART…_Unknown_BLES01711.rar","progress":"89%"}],
+  "files_transferred": 878,
+  "files_total": 10914,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…ew_Order_BLES01909.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"32%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"29%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"22%"}],
   "recently_completed": [
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Yaiba_Ninja_Gaiden_Z____DLC__BLUS31203.rar",
-    "size": "5.0Gi"
+    "file": "bluemaxima/FP41Data/FP41Data.zip",
+    "size": "728Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/You_Dont_Know_Jack_BLUS30569.rar",
-    "size": "60Mi"
+    "size": "1.9Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Young_Justice_Legacy____DLC__BLUS31170.rar",
-    "size": "26Mi"
+    "size": "1.8Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_Dead_Souls_BLES01399.rar",
-    "size": "2.8Gi"
+    "size": "4.6Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yoostar_2_PS3-EU_BLES01080.rar",
-    "size": "954Mi"
+    "size": "4.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/XCOM_Enemy_Unknown_BLES01711.rar",
-    "size": "7.1Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Zone_of_the_Enders_HD_Collection_BLUS30937.rar",
+    "size": "1.1Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/White_Knight_Chronicles_2_BLUS30784.rar",
-    "size": "17Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Zumba_Fitness_PS3-USA_BLUS30587.rar",
+    "size": "580Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yoostar_2_BLUS30596.rar",
-    "size": "1.6Gi"
+    "size": "3.6Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_11/Yoru_no_Nai_Kuni_BLJM61264.rar",
-    "size": "526Mi"
+    "size": "3.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_3____All_DLC__BLUS30494.rar",
-    "size": "2.7Gi"
+    "file": "aitus95/PS3_ALVRO_PART_11/Zone_of_the_Enders_HD_Collection_BLES01756.rar",
+    "size": "1.6Gi"
   }
 ]
 }
