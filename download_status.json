@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T09:00:03Z",
-  "download_bytes": 2939909571108,
-  "download_human": "3.1T",
-  "disk_used": "3.1T",
+  "timestamp": "2026-03-01T10:00:03Z",
+  "download_bytes": 3002039978649,
+  "download_human": "3.2T",
+  "disk_used": "3.2T",
   "disk_percent": "8%",
-  "files_transferred": 1008,
-  "files_total": 11044,
-  "currently_downloading": [{"file":"FP41Data.zip","progress":"95%"},{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"40%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"47%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES01697.rar","progress":"77%"}],
+  "files_transferred": 1016,
+  "files_total": 11052,
+  "currently_downloading": [{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"46%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"55%"},{"file":"PS3_ALVRO_PART…U_STRiKE_BLES01232.rar","progress":"70%"},{"file":"PS3_ALVRO_PART…orn_Star_BLUS31478.rar","progress":"46%"}],
   "recently_completed": [
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "23Gi"
+    "size": "27Gi"
   },
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "17Gi"
-  },
-  {
-    "file": "bluemaxima/FP41Data/FP41Data.zip",
-    "size": "31Gi"
+    "size": "19Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/Anarchy_Reigns_PS3-EU_STRiKE_BLES01232.rar",
-    "size": "3.7Gi"
+    "size": "8.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/AquaPazza_AquaPlus_Dream_Match_BLUS31321.rar",
-    "size": "2.5Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Army_of_Two_The_40th_Day_BLES00659.rar",
+    "size": "1.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Arcana_Heart_3_EUR_PS3-AGENCY.rar",
-    "size": "1.6Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Army_of_Two_The_Devils_Cartel_BLES01763.rar",
+    "size": "1.7Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_4_BLUS30027.rar",
-    "size": "700Mi"
+    "size": "4.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Arcana_Heart_3_Love_Max______PS3-JPN.rar",
-    "size": "733Mi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_1/Ape_Escape_on_the_Move.rar",
-    "size": "1.8Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_Verdict_Day_PS3_BLUS31194.rar",
+    "size": "4.5Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_V_BLES01440.rar",
-    "size": "347Mi"
+    "size": "3.1Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/Army_of_Two_The_40th_Day_BLUS30408.rar",
+    "size": "2.0Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_V_BLUS30516.rar",
+    "size": "3.6Gi"
   }
 ]
 }
