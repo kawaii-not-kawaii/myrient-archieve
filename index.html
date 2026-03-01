@@ -570,6 +570,98 @@
             border-bottom: none;
         }
 
+        .vault-expand {
+            display: inline-block;
+            width: 16px;
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: transform 0.15s;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .vault-expand.open {
+            transform: rotate(90deg);
+        }
+
+        .vault-row { cursor: pointer; }
+        .vault-row:hover td { background: rgba(35, 134, 54, 0.06); }
+
+        .vault-contents-cell {
+            padding: 0 !important;
+        }
+
+        .vault-tree {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .vault-entry {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            padding: 0.4375rem 1.25rem 0.4375rem 2.5rem;
+            font-size: 0.8125rem;
+            border-bottom: 1px solid rgba(48, 54, 61, 0.4);
+        }
+
+        .vault-entry:last-child { border-bottom: none; }
+
+        .vault-entry:hover { background: rgba(48, 54, 61, 0.3); }
+
+        .vault-entry-icon {
+            color: var(--accent-warning);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            width: 14px;
+            text-align: center;
+        }
+
+        .vault-entry-name {
+            flex: 1;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+        }
+
+        .vault-entry-bar {
+            width: 80px;
+            height: 4px;
+            background: var(--bg-tertiary);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .vault-entry-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            background: var(--accent-success);
+            opacity: 0.6;
+        }
+
+        .vault-entry-size {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .vault-tree-empty {
+            padding: 1rem 2.5rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            font-style: italic;
+        }
+
         @media (max-width: 640px) {
             .vault-table th:nth-child(3),
             .vault-table td:nth-child(3) {
@@ -578,6 +670,8 @@
             .vault-table th, .vault-table td {
                 padding: 0.5rem 0.75rem;
             }
+            .vault-entry { padding-left: 1.5rem; }
+            .vault-entry-bar { display: none; }
         }
 
         /* Footer */
@@ -752,6 +846,7 @@ const DATA_FILES = {
 
 // ── State ──
 let serverData = { archive1: null, archive2: null, archive3: null };
+let manifests = { archive1: null, archive2: null, archive3: null };
 let assignments = null;
 let activeFilter = 'all';
 
@@ -821,6 +916,14 @@ async function loadData() {
         const r = await fetch('server_assignments.json?t=' + Date.now());
         if (r.ok) assignments = await r.json();
     } catch (_) { /* ok */ }
+
+    // Load manifests
+    for (var mKey of ['archive1', 'archive2', 'archive3']) {
+        try {
+            var mr = await fetch('manifests/' + mKey + '.json?t=' + Date.now());
+            if (mr.ok) manifests[mKey] = await mr.json();
+        } catch (_) { /* ok */ }
+    }
 
     await Promise.all(fetches);
     render();
@@ -1054,10 +1157,70 @@ function escapeHtml(s) {
 }
 
 // ── Vault (Completed Items) ──
+
+// Map a collection name + server to manifest entries
+function lookupManifest(colName, serverKey) {
+    var m = manifests[serverKey];
+    if (!m || !m.collections) return null;
+
+    // Direct match: "TOSEC" -> manifest.collections["TOSEC"]
+    if (m.collections[colName]) return m.collections[colName];
+
+    // Redump mapping: "Redump - Sony - PlayStation" -> manifest.collections["Redump/Sony - PlayStation"]
+    if (colName.startsWith('Redump - ')) {
+        var redumpKey = 'Redump/' + colName.substring(9);
+        if (m.collections[redumpKey]) return m.collections[redumpKey];
+    }
+
+    // No-Intro grouped: "No-Intro - Nintendo (all subcollections)" -> aggregate all "No-Intro/Nintendo -*"
+    if (colName.indexOf('No-Intro - ') === 0) {
+        var groupMatch = colName.match(/No-Intro - (\w+)/);
+        if (groupMatch) {
+            var prefix = 'No-Intro/' + groupMatch[1] + ' -';
+            var merged = { total_size: 0, entries: [] };
+            for (var key in m.collections) {
+                if (key.indexOf(prefix) === 0 || key === 'No-Intro/' + groupMatch[1]) {
+                    var sub = m.collections[key];
+                    var shortName = key.replace('No-Intro/', '');
+                    merged.total_size += sub.total_size || 0;
+                    // Add the subcollection itself as an entry
+                    merged.entries.push({ name: shortName, size: sub.total_size || 0 });
+                }
+            }
+            if (merged.entries.length > 0) {
+                merged.entries.sort(function(a, b) { return b.size - a.size; });
+                return merged;
+            }
+        }
+    }
+
+    // No-Intro Classic: aggregate everything except Nintendo/Sony
+    if (colName.indexOf('Classic Retro') !== -1) {
+        var classicMerged = { total_size: 0, entries: [] };
+        for (var cKey in m.collections) {
+            if (cKey.indexOf('No-Intro/') === 0 &&
+                cKey.indexOf('No-Intro/Nintendo') !== 0 &&
+                cKey.indexOf('No-Intro/Sony') !== 0) {
+                var cSub = m.collections[cKey];
+                classicMerged.total_size += cSub.total_size || 0;
+                classicMerged.entries.push({
+                    name: cKey.replace('No-Intro/', ''),
+                    size: cSub.total_size || 0
+                });
+            }
+        }
+        if (classicMerged.entries.length > 0) {
+            classicMerged.entries.sort(function(a, b) { return b.size - a.size; });
+            return classicMerged;
+        }
+    }
+
+    return null;
+}
+
 function renderVault() {
     var completed = [];
 
-    // Gather from live status data
     for (var serverKey in SERVER_META) {
         var d = serverData[serverKey];
         if (!d || !d.collections) continue;
@@ -1077,7 +1240,6 @@ function renderVault() {
         }
     }
 
-    // Also check assignments for any marked complete not in live data
     if (assignments && assignments.servers) {
         var seenNames = {};
         for (var j = 0; j < completed.length; j++) seenNames[completed[j].name] = true;
@@ -1101,7 +1263,6 @@ function renderVault() {
         }
     }
 
-    // Sort by size descending
     completed.sort(function(a, b) {
         var sa = a.targetTib || (a.bytes / (1024*1024*1024*1024));
         var sb = b.targetTib || (b.bytes / (1024*1024*1024*1024));
@@ -1112,7 +1273,7 @@ function renderVault() {
     var body = document.getElementById('vault-body');
 
     if (completed.length === 0) {
-        body.innerHTML = '<div class="vault-empty">No completed collections yet — check back soon</div>';
+        body.innerHTML = '<div class="vault-empty">No completed collections yet -- check back soon</div>';
         return;
     }
 
@@ -1124,11 +1285,25 @@ function renderVault() {
         var sizeDisplay = c.bytes > 0 ? formatBytes(c.bytes) : (c.targetTib > 0 ? c.targetTib.toFixed(2) + ' TiB' : '--');
         totalBytes += c.bytes > 0 ? c.bytes : (c.targetTib * 1024*1024*1024*1024);
 
+        var manifest = lookupManifest(c.name, c.server);
+        var hasContent = manifest && manifest.entries && manifest.entries.length > 0;
+        var entryCount = hasContent ? manifest.entries.length : 0;
+
         rows +=
-            '<tr>' +
-                '<td><div class="vault-name-cell"><span class="vault-check">&#10003;</span><span class="vault-col-name">' + escapeHtml(c.name) + '</span></div></td>' +
+            '<tr class="vault-row" data-idx="' + n + '">' +
+                '<td><div class="vault-name-cell">' +
+                    (hasContent ? '<span class="vault-expand" data-idx="' + n + '">&#9654;</span>' : '<span style="width:16px;display:inline-block"></span>') +
+                    '<span class="vault-check">&#10003;</span>' +
+                    '<span class="vault-col-name">' + escapeHtml(c.name) + '</span>' +
+                    (entryCount > 0 ? ' <span style="color:var(--text-muted);font-size:0.6875rem">(' + entryCount + ' items)</span>' : '') +
+                '</div></td>' +
                 '<td><span class="vault-server-badge ' + sClass + '">' + SERVER_META[c.server].name + '</span></td>' +
                 '<td class="vault-size">' + sizeDisplay + '</td>' +
+            '</tr>' +
+            '<tr class="vault-contents-row" id="vault-contents-' + n + '" style="display:none">' +
+                '<td colspan="3" class="vault-contents-cell">' +
+                    renderVaultTree(manifest) +
+                '</td>' +
             '</tr>';
     }
 
@@ -1141,9 +1316,50 @@ function renderVault() {
         '</table>';
 }
 
+function renderVaultTree(manifest) {
+    if (!manifest || !manifest.entries || manifest.entries.length === 0) {
+        return '<div class="vault-tree"><div class="vault-tree-empty">Manifest data not yet available -- will populate on next workflow run</div></div>';
+    }
+
+    var entries = manifest.entries;
+    var maxSize = entries.length > 0 ? entries[0].size : 1;
+
+    var html = '<div class="vault-tree">';
+    for (var i = 0; i < entries.length; i++) {
+        var e = entries[i];
+        var barPct = maxSize > 0 ? Math.max((e.size / maxSize) * 100, 1) : 0;
+        html +=
+            '<div class="vault-entry">' +
+                '<span class="vault-entry-icon">&#128193;</span>' +
+                '<span class="vault-entry-name" title="' + escapeHtml(e.name) + '">' + escapeHtml(e.name) + '</span>' +
+                '<span class="vault-entry-bar"><span class="vault-entry-bar-fill" style="width:' + barPct.toFixed(1) + '%"></span></span>' +
+                '<span class="vault-entry-size">' + formatBytes(e.size) + '</span>' +
+            '</div>';
+    }
+    html += '</div>';
+    return html;
+}
+
+// Vault toggle (open/close panel)
 document.getElementById('vault-toggle').addEventListener('click', function() {
     this.classList.toggle('open');
     document.getElementById('vault-body').classList.toggle('open');
+});
+
+// Vault row expand/collapse (delegated)
+document.getElementById('vault-body').addEventListener('click', function(e) {
+    var row = e.target.closest('.vault-row');
+    if (!row) return;
+    var idx = row.getAttribute('data-idx');
+    if (idx === null) return;
+
+    var contentsRow = document.getElementById('vault-contents-' + idx);
+    var chevron = row.querySelector('.vault-expand');
+    if (!contentsRow) return;
+
+    var isOpen = contentsRow.style.display !== 'none';
+    contentsRow.style.display = isOpen ? 'none' : 'table-row';
+    if (chevron) chevron.classList.toggle('open', !isOpen);
 });
 
 // ── Filter Buttons ──

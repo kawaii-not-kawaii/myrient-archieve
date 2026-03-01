@@ -456,12 +456,107 @@ jobs:
         echo "All status files generated:"
         ls -la download_status*.json
 
+    - name: Generate file manifests
+      continue-on-error: true
+      run: |
+        mkdir -p manifests
+
+        # Write the scan script once, reuse for all servers
+        cat > /tmp/manifest_scan.py << 'SCANPY'
+        import os, subprocess, json, sys
+        from datetime import datetime, timezone
+
+        base = '/mnt/storage/myrient_downloads'
+        KNOWN_PARENTS = {'No-Intro', 'Redump'}
+
+        def scan_dir(path):
+            try:
+                result = subprocess.run(
+                    ['du', '-sb', '--max-depth=1', path],
+                    capture_output=True, text=True, timeout=120
+                )
+            except Exception:
+                return [], 0
+            entries = []
+            total = 0
+            for line in result.stdout.strip().split('\n'):
+                parts = line.split('\t', 1)
+                if len(parts) != 2:
+                    continue
+                size = int(parts[0])
+                p = parts[1]
+                if p.rstrip('/') == path.rstrip('/'):
+                    total = size
+                else:
+                    name = os.path.basename(p)
+                    if name.startswith('.') or name.startswith('rclone_'):
+                        continue
+                    entries.append({'name': name, 'size': size})
+            entries.sort(key=lambda x: -x['size'])
+            return entries, total
+
+        collections = {}
+
+        if not os.path.isdir(base):
+            json.dump({'generated': '', 'collections': {}}, sys.stdout)
+            sys.exit(0)
+
+        for name in sorted(os.listdir(base)):
+            full = os.path.join(base, name)
+            if not os.path.isdir(full):
+                continue
+            if name.startswith('.') or name.startswith('rclone_'):
+                continue
+
+            if name in KNOWN_PARENTS:
+                for sub in sorted(os.listdir(full)):
+                    sub_full = os.path.join(full, sub)
+                    if not os.path.isdir(sub_full):
+                        continue
+                    entries, total = scan_dir(sub_full)
+                    key = name + '/' + sub
+                    collections[key] = {
+                        'total_size': total,
+                        'entries': entries[:200]
+                    }
+            else:
+                entries, total = scan_dir(full)
+                collections[name] = {
+                    'total_size': total,
+                    'entries': entries[:200]
+                }
+
+        manifest = {
+            'generated': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+            'collections': collections
+        }
+        json.dump(manifest, sys.stdout)
+        SCANPY
+
+        echo "Scanning Archive1..."
+        ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no root@135.181.220.252 \
+          python3 - < /tmp/manifest_scan.py > manifests/archive1.json 2>/dev/null \
+          || echo '{"generated":"","collections":{}}' > manifests/archive1.json
+        echo "Archive1 manifest: $(wc -c < manifests/archive1.json) bytes"
+
+        echo "Scanning Archive2..."
+        ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no root@65.21.35.118 \
+          python3 - < /tmp/manifest_scan.py > manifests/archive2.json 2>/dev/null \
+          || echo '{"generated":"","collections":{}}' > manifests/archive2.json
+        echo "Archive2 manifest: $(wc -c < manifests/archive2.json) bytes"
+
+        echo "Scanning Archive3..."
+        ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no root@184.107.132.106 \
+          python3 - < /tmp/manifest_scan.py > manifests/archive3.json 2>/dev/null \
+          || echo '{"generated":"","collections":{}}' > manifests/archive3.json
+        echo "Archive3 manifest: $(wc -c < manifests/archive3.json) bytes"
+
     - name: Commit and push
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
 
-        git add download_status.json download_status_archive2.json download_status_archive3.json
+        git add download_status.json download_status_archive2.json download_status_archive3.json manifests/
 
         if git diff --staged --quiet; then
           echo "No changes to commit"
