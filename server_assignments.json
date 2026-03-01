@@ -372,7 +372,7 @@
         {
           "name": "No-Intro - Classic Retro (30+ manufacturers)",
           "source": "Myrient:No-Intro/ (filtered: Sega, NEC, SNK, Bandai, Commodore, Atari, etc.)",
-          "size_tib": 0.025,
+          "size_tib": 0.05,
           "priority": "critical",
           "status": "downloading",
           "tmux_window": "ni-classic",

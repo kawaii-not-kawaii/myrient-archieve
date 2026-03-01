@@ -46,13 +46,12 @@ jobs:
         echo "DISK_PCT=$DISK_PCT"
         echo "DISK_USED_BYTES=$DISK_USED_BYTES"
 
-        # Per-collection sizes (run in parallel)
+        # Per-collection sizes
         BASE="/mnt/storage/myrient_downloads"
 
-        ia_bytes=$(du -sb "$BASE/Internet Archive" 2>/dev/null | cut -f1) &
-        xbox_bytes=$(du -sb "$BASE/No-Intro/Microsoft - Xbox 360 (Digital)" 2>/dev/null | cut -f1) &
-        src_bytes=$(du -sb "$BASE/No-Intro/Source Code - Various" 2>/dev/null | cut -f1) &
-        wait
+        ia_bytes=$(du -sb "$BASE/Internet Archive" 2>/dev/null | cut -f1 || echo 0)
+        xbox_bytes=$(du -sb "$BASE/No-Intro/Microsoft - Xbox 360 (Digital)" 2>/dev/null | cut -f1 || echo 0)
+        src_bytes=$(du -sb "$BASE/No-Intro/Source Code - Various" 2>/dev/null | cut -f1 || echo 0)
 
         ia_bytes=${ia_bytes:-0}
         xbox_bytes=${xbox_bytes:-0}
@@ -62,9 +61,9 @@ jobs:
         echo "COL_XBOX360=$xbox_bytes"
         echo "COL_SRCCODE=$src_bytes"
 
-        # Rclone stats from tmux
+        # Rclone stats from tmux (byte-transfer line contains "iB")
         for win in internet-archive ni-xbox360 ni-sourcecode; do
-          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:.*iB" | tail -1 || echo "")
           echo "RCLONE_${win}=$line"
         done
         REMOTE
@@ -98,23 +97,39 @@ jobs:
         python3 -c "
         import os, subprocess, json
         base = '$BASE'
+        SKIP = {'logs', '.cache', 'rclone_cache'}
+        PARENTS = {'Redump', 'No-Intro'}
         cols = {}
         for name in sorted(os.listdir(base)):
             path = os.path.join(base, name)
             if not os.path.isdir(path):
                 continue
-            try:
-                result = subprocess.run(['du', '-sb', path], capture_output=True, text=True, timeout=120)
-                size = int(result.stdout.split()[0]) if result.stdout.strip() else 0
-            except:
-                size = 0
-            cols[name] = size
+            if name.startswith('.') or name.startswith('rclone_') or name in SKIP:
+                continue
+            if name in PARENTS:
+                for sub in sorted(os.listdir(path)):
+                    sub_path = os.path.join(path, sub)
+                    if not os.path.isdir(sub_path):
+                        continue
+                    try:
+                        result = subprocess.run(['du', '-sb', sub_path], capture_output=True, text=True, timeout=120)
+                        size = int(result.stdout.split()[0]) if result.stdout.strip() else 0
+                    except:
+                        size = 0
+                    cols[name + '/' + sub] = size
+            else:
+                try:
+                    result = subprocess.run(['du', '-sb', path], capture_output=True, text=True, timeout=120)
+                    size = int(result.stdout.split()[0]) if result.stdout.strip() else 0
+                except:
+                    size = 0
+                cols[name] = size
         print('A2_COLS=' + json.dumps(cols))
         "
 
-        # Rclone from tmux windows
+        # Rclone from tmux windows (byte-transfer line contains "iB")
         for win in bitsavers htgdb t-en tosec-pix dos mame tosec-iso misc laserdisc retro-lost-touhou eggman exo-tekno redump-big redump-small wii-redump wiiu-redump; do
-          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:.*iB" | tail -1 || echo "")
           echo "A2_RCLONE_${win}=$line"
         done
         REMOTE
@@ -157,9 +172,9 @@ jobs:
           -exec du -sb {} + 2>/dev/null | awk '{s+=$1}END{print s+0}')
         echo "A3_CLASSIC=$classic_bytes"
 
-        # Rclone from tmux
+        # Rclone from tmux (byte-transfer line contains "iB")
         for win in ni-nintendo ni-sony ni-classic; do
-          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:.*iB" | tail -1 || echo "")
           echo "A3_RCLONE_${win}=$line"
         done
         REMOTE
@@ -222,13 +237,18 @@ jobs:
             return m.group(1).strip() if m else '--'
 
         # ── Archive 1 ──
+        def calc_pct(downloaded, target_tib):
+            if downloaded <= 0 or target_tib <= 0:
+                return 0
+            return min(round(downloaded / (target_tib * 1024**4) * 100, 2), 100)
+
         a1_collections = [
             {
                 'name': 'Internet Archive',
                 'downloaded_bytes': env_int('COL_IA'),
                 'downloaded_human': human_bytes(env_int('COL_IA')),
                 'target_tib': 40.48,
-                'percent': round(env_int('COL_IA') / (40.48 * 1024**4) * 100, 2) if env_int('COL_IA') > 0 else 0,
+                'percent': calc_pct(env_int('COL_IA'), 40.48),
                 'speed': parse_rclone_speed(env('RCLONE_internet-archive')),
                 'eta': parse_rclone_eta(env('RCLONE_internet-archive')),
                 'status': 'downloading'
@@ -238,7 +258,7 @@ jobs:
                 'downloaded_bytes': env_int('COL_XBOX360'),
                 'downloaded_human': human_bytes(env_int('COL_XBOX360')),
                 'target_tib': 1.19,
-                'percent': round(env_int('COL_XBOX360') / (1.19 * 1024**4) * 100, 2) if env_int('COL_XBOX360') > 0 else 0,
+                'percent': calc_pct(env_int('COL_XBOX360'), 1.19),
                 'speed': parse_rclone_speed(env('RCLONE_ni-xbox360')),
                 'eta': parse_rclone_eta(env('RCLONE_ni-xbox360')),
                 'status': 'downloading'
@@ -248,7 +268,7 @@ jobs:
                 'downloaded_bytes': env_int('COL_SRCCODE'),
                 'downloaded_human': human_bytes(env_int('COL_SRCCODE')),
                 'target_tib': 1.00,
-                'percent': round(env_int('COL_SRCCODE') / (1.00 * 1024**4) * 100, 2) if env_int('COL_SRCCODE') > 0 else 0,
+                'percent': calc_pct(env_int('COL_SRCCODE'), 1.00),
                 'speed': parse_rclone_speed(env('RCLONE_ni-sourcecode')),
                 'eta': parse_rclone_eta(env('RCLONE_ni-sourcecode')),
                 'status': 'downloading'
@@ -333,17 +353,14 @@ jobs:
                 pass
 
         # Map directory names to collection names
-        # Simple approach: directory name == collection name for most
-        # For Redump dirs, they're in Redump/ subdir
+        # Direct match for most, "Redump/X" -> "Redump - X" for Redump subdirs
         a2_dir_to_col = {}
         for col_name in a2_targets:
-            # Direct match on dir name
             a2_dir_to_col[col_name] = col_name
-            # Redump subdirs
             if col_name.startswith('Redump - '):
-                # The actual dir would be under Redump/
-                short = col_name.replace('Redump - ', '')
-                a2_dir_to_col[short] = col_name
+                # Map "Redump/Sony - PlayStation" -> "Redump - Sony - PlayStation"
+                redump_key = 'Redump/' + col_name[9:]
+                a2_dir_to_col[redump_key] = col_name
 
         a2_collections = []
         seen_collections = set()
@@ -411,7 +428,7 @@ jobs:
                 'downloaded_bytes': nintendo_bytes,
                 'downloaded_human': human_bytes(nintendo_bytes),
                 'target_tib': 18.04,
-                'percent': round(nintendo_bytes / (18.04 * 1024**4) * 100, 2) if nintendo_bytes > 0 else 0,
+                'percent': calc_pct(nintendo_bytes, 18.04),
                 'speed': parse_rclone_speed(env('A3_RCLONE_ni-nintendo')),
                 'eta': parse_rclone_eta(env('A3_RCLONE_ni-nintendo')),
                 'status': 'downloading'
@@ -421,7 +438,7 @@ jobs:
                 'downloaded_bytes': sony_bytes,
                 'downloaded_human': human_bytes(sony_bytes),
                 'target_tib': 24.78,
-                'percent': round(sony_bytes / (24.78 * 1024**4) * 100, 2) if sony_bytes > 0 else 0,
+                'percent': calc_pct(sony_bytes, 24.78),
                 'speed': parse_rclone_speed(env('A3_RCLONE_ni-sony')),
                 'eta': parse_rclone_eta(env('A3_RCLONE_ni-sony')),
                 'status': 'downloading'
@@ -430,8 +447,8 @@ jobs:
                 'name': 'No-Intro - Classic Retro (30+ manufacturers)',
                 'downloaded_bytes': classic_bytes,
                 'downloaded_human': human_bytes(classic_bytes),
-                'target_tib': 0.025,
-                'percent': round(classic_bytes / (0.025 * 1024**4) * 100, 2) if classic_bytes > 0 else 0,
+                'target_tib': 0.05,
+                'percent': calc_pct(classic_bytes, 0.05),
                 'speed': parse_rclone_speed(env('A3_RCLONE_ni-classic')),
                 'eta': parse_rclone_eta(env('A3_RCLONE_ni-classic')),
                 'status': 'downloading'
@@ -505,7 +522,7 @@ jobs:
             full = os.path.join(base, name)
             if not os.path.isdir(full):
                 continue
-            if name.startswith('.') or name.startswith('rclone_'):
+            if name.startswith('.') or name.startswith('rclone_') or name == 'logs':
                 continue
 
             if name in KNOWN_PARENTS:
