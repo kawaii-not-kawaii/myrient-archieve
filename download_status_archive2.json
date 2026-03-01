@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-02-28T23:31:58Z",
+  "timestamp": "2026-03-01T00:31:56Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1317621400769,
-  "download_human": "1.3T",
-  "disk_used": "1.3T",
+  "download_bytes": 1353347037375,
+  "download_human": "1.4T",
+  "disk_used": "1.4T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"130G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"469G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"135G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"486G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Mushishi - Ame Furu Sato (Japan) [T-En by Anime Game Translations Team v1.0].zip",
-    "size": "29Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/_Nintendo DS [T-En] Docs.zip",
+    "size": "42Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Nora to Toki no Koubou - Kiri no Mori no Majo (Japan) [T-En by Nora Project v0.3d-1] [AP fix].zip",
-    "size": "63Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Spice & Wolf - The Wind that spans the Sea (Japan) [T-En by Anime Game Translations Team v1.0] [n].zip",
+    "size": "134Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 1st Love Plus (Japan) [T-En by TMGS1 Translation Team v1.0].zip",
+    "size": "89Mi"
   },
   {
     "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Nora to Toki no Koubou - Kiri no Mori no Majo (Japan) [T-En by Nora Project v0.3d-1].zip",
-    "size": "25Mi"
+    "size": "201Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Mugen no Frontier Exceed - Super Robot Taisen OG Saga (Japan) [T-En by Artema Translations v1.0].zip",
-    "size": "70Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tales of Innocence (Japan) [T-En by Absolute Zero v1.0].zip",
+    "size": "72Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 3rd Story (Japan) [T-En by Jjjewel v2.00].zip",
+    "size": "79Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Summon Night X - Tears Crown (Japan) [T-En by Englishsubs4all v0.951] [i].zip",
+    "size": "153Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 2nd Season (Japan) [T-En by Gokusaishiki v6].zip",
+    "size": "74Mi"
+  },
+  {
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Vampire Knight DS (Japan) [T-En by Anime Game Translations Team v1.0].zip",
+    "size": "113Mi"
   },
   {
     "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Ni No Kuni - The Jet Black Mage (Japan) [T-En by Anjiera v1.0] [n].zip",
-    "size": "37Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Prince of Tennis, The - Princes of Doubles - Girls, Be Gracious! (Japan) [T-En by AmuletCross v3] [n].zip",
-    "size": "15Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Puyo Puyo 7 (Japan) [T-En by Puyo Nexus v1.0].zip",
-    "size": "8.0Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Princess on Ice (Japan) [T-En by plasturion v0.93].zip",
-    "size": "9.0Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Love Plus (Japan) [T-En by Jjjewel v1.0n].zip",
-    "size": "95Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Puyo Puyo! - 15th Anniversary (Japan) (Rev 1) [T-En by Puyo Nexus v1.2] [n].zip",
-    "size": "5.0Mi"
+    "size": "268Mi"
   }
 ]
 }
