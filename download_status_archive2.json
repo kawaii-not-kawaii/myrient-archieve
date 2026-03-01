@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-03-01T00:31:56Z",
+  "timestamp": "2026-03-01T01:31:54Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1353347037375,
+  "download_bytes": 1383255077641,
   "download_human": "1.4T",
   "disk_used": "1.4T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"135G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"486G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"137G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"500G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/_Nintendo DS [T-En] Docs.zip",
-    "size": "42Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Spice & Wolf - The Wind that spans the Sea (Japan) [T-En by Anime Game Translations Team v1.0] [n].zip",
-    "size": "134Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 1st Love Plus (Japan) [T-En by TMGS1 Translation Team v1.0].zip",
-    "size": "89Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Nora to Toki no Koubou - Kiri no Mori no Majo (Japan) [T-En by Nora Project v0.3d-1].zip",
-    "size": "201Mi"
-  },
-  {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tales of Innocence (Japan) [T-En by Absolute Zero v1.0].zip",
-    "size": "72Mi"
-  },
-  {
     "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 3rd Story (Japan) [T-En by Jjjewel v2.00].zip",
-    "size": "79Mi"
+    "size": "373Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Summon Night X - Tears Crown (Japan) [T-En by Englishsubs4all v0.951] [i].zip",
-    "size": "153Mi"
+    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tennis no Ouji-sama - Motto Gakuensai no Ouji-sama - More Sweet Edition (Japan) [T-En by jjjewel Otome Game Translations & AmuletCross v1.1].zip",
+    "size": "169Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Tokimeki Memorial Girl's Side - 2nd Season (Japan) [T-En by Gokusaishiki v6].zip",
-    "size": "74Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Daisenpuu ~ Twin Hawk (Japan, Europe) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "84Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Vampire Knight DS (Japan) [T-En by Anime Game Translations Team v1.0].zip",
-    "size": "113Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Fatal Fury 2 (USA, Korea) (MSU-MD) [Hack by ArcadeTV v0.3] [Color hack by Pyron v4.0].zip",
+    "size": "28Mi"
   },
   {
-    "file": "T-En Collection/Nintendo - Nintendo DS [T-En] Collection/Ni No Kuni - The Jet Black Mage (Japan) [T-En by Anjiera v1.0] [n].zip",
-    "size": "268Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Castle of Illusion Starring Mickey Mouse (USA, Europe) (MSU-MD) [Hack by ArcadeTV v1.1].zip",
+    "size": "242Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Fire Shark (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "19Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/After Burner II (USA, Europe) (MSU-MD) [Hack by ArcadeTV v1.0].zip",
+    "size": "198Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Chiki Chiki Boys (USA, Europe) (MSU-MD) [Hack by ArcadeTV v1.1] [Color hack by Pyron v1.0].zip",
+    "size": "284Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Dynamite Headdy (USA, Europe) (MSU-MD) [Hack by ArcadeTV v20230312].zip",
+    "size": "125Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Animaniacs (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "190Mi"
   }
 ]
 }
