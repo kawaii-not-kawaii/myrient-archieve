@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T04:00:03Z",
-  "download_bytes": 2630225434982,
+  "timestamp": "2026-03-01T05:00:03Z",
+  "download_bytes": 2688950202808,
   "download_human": "2.9T",
   "disk_used": "2.9T",
-  "disk_percent": "7%",
-  "files_transferred": 959,
-  "files_total": 10995,
-  "currently_downloading": [{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"61%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"44%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"54%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30826.rar","progress":"55%"}],
+  "disk_percent": "8%",
+  "files_transferred": 963,
+  "files_total": 10999,
+  "currently_downloading": [{"file":"PS3_ALVRO_PART…Yakuza_3_BLES00834.rar","progress":"80%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30494.rar","progress":"59%"},{"file":"PS3_ALVRO_PART…ad_Souls_BLES01399.rar","progress":"73%"},{"file":"PS3_ALVRO_PART…All_DLC__BLUS30826.rar","progress":"75%"}],
   "recently_completed": [
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "6.7Gi"
+    "size": "9.8Gi"
   },
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "3.3Gi"
+    "size": "7.3Gi"
   },
   {
     "file": "bluemaxima/FP41Data/FP41Data.zip",
-    "size": "7.2Gi"
+    "size": "11Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/428_Fuusa_Sareta_Shibuya_de_PS3-JPN_Caravan_JB.rar",
-    "size": "703Mi"
+    "size": "3.9Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/2010_Fifa_World_Cup_South_Africa_BLUS30474.rar",
-    "size": "3.5Gi"
+    "size": "6.4Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/007_Legends_EUR_PS3-iNSOMNi_BLES01614.rar",
-    "size": "2.9Gi"
+    "size": "6.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/3D_Dot_Game_Heroes_BLES00875.rar",
-    "size": "1.5Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/50_Cent_Blood_On_The_Sand_-_BLUS30256.rar",
+    "size": "1.7Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/50_Cent_Blood_on_the_Sand_PS3-JP_Caravan_BLJS10056.rar",
+    "size": "794Mi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/2010_Fifa_World_Cup_South_Africa_BLES00796.rar",
-    "size": "2.5Gi"
+    "size": "5.8Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/2014_FIFA_World_Cup_Brazil_BLUS31389.rar",
-    "size": "2.8Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_11/Yakuza_Dead_Souls_BLES01399.rar",
-    "size": "11Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/50_Cent_Blood_on_the_Sand_EUR.JB.PS3-AGENCY_BLES00472.rar",
+    "size": "1.3Gi"
   }
 ]
 }
