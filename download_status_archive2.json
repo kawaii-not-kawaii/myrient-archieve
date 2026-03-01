@@ -1,53 +1,53 @@
 {
-  "timestamp": "2026-03-01T02:31:58Z",
+  "timestamp": "2026-03-01T03:31:55Z",
   "server": "archive2",
   "host": "65.21.35.118",
-  "download_bytes": 1417498901455,
+  "download_bytes": 1450661453158,
   "download_human": "1.4T",
   "disk_used": "1.4T",
   "disk_percent": "3%",
-  "collections": [{"name":"bitsavers","size":"141G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"515G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
+  "collections": [{"name":"bitsavers","size":"144G"},{"name":"FinalBurn","size":""},{"name":"Neo","size":""},{"name":"Hardware","size":""},{"name":"Target","size":""},{"name":"Game","size":""},{"name":"Database","size":""},{"name":"HBMAME","size":"36G"},{"name":"rclone_bitsavers.log","size":"4.0K"},{"name":"rclone_dos.log","size":"4.0K"},{"name":"rclone_fbneo.log","size":"4.0K"},{"name":"rclone_hbmame.log","size":"4.0K"},{"name":"rclone_htgdb.log","size":"4.0K"},{"name":"rclone_.log","size":"4.0K"},{"name":"rclone_ten.log","size":"4.0K"},{"name":"rclone_tosec.log","size":"4.0K"},{"name":"rclone_tosecpix.log","size":"4.0K"},{"name":"T-En","size":""},{"name":"Collection","size":""},{"name":"TOSEC","size":"306G"},{"name":"TOSEC-PIX","size":"533G"},{"name":"Total","size":""},{"name":"DOS","size":""},{"name":"Collection","size":""}],
   "currently_downloading": [],
   "recently_completed": [
   {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Fatal Fury 2 (USA, Korea) (MSU-MD) [Hack by ArcadeTV v0.3] [Color hack by Pyron v4.0].zip",
-    "size": "253Mi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Castle of Illusion Starring Mickey Mouse (USA, Europe) (MSU-MD) [Hack by ArcadeTV v1.1].zip",
-    "size": "613Mi"
-  },
-  {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Golden Axe (World) (MSU-MD) [Hack by Neodev] [m Krikzz] [Color hack by Pyron v1.0].zip",
-    "size": "184Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Mortal Kombat II Unlimited (World) (MSU-MD) [Hack by Jeroen Visser v1.0.4] [Hack by Smoke v1.0] [Color hack by Pyron v1.0] [n].zip",
+    "size": "137Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Langrisser II (Japan) (Rev B) (MSU-MD) [T-En by M.I.J.E.T. v110701] [Hack by ArcadeTV v0.4].zip",
-    "size": "52Mi"
+    "size": "241Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Dynamite Headdy (USA, Europe) (MSU-MD) [Hack by ArcadeTV v20230312].zip",
-    "size": "482Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Rocket Knight Adventures (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "18Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Ghostbusters (USA, Europe) (MSU-MD) [Hack by ArcadeTV v1.0] [Color hack by SCD v20220430].zip",
-    "size": "158Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Road Rash II (USA, Europe) (MSU-MD) [Hack by Dustin M. O'Dell].zip",
+    "size": "85Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Grind Stormer (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
-    "size": "95Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Puyo Puyo (Japan) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
+    "size": "41Mi"
   },
   {
-    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Animaniacs (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
-    "size": "362Mi"
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/OutRun (USA, Europe) (MSU-MD) [Hack by Neodev] [m Krikzz] [Color hack by Tor Landeel v2.1].zip",
+    "size": "107Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Mega Bomberman (USA) (MSU-MD) [Hack by ArcadeTV v0.2].zip",
+    "size": "196Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Golden Axe II (World) (MSU-MD) [Hack by Jeroen Visser v1.0.1] [Color hack by Linkuei v1.0].zip",
-    "size": "70Mi"
+    "size": "396Mi"
+  },
+  {
+    "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Sonic The Hedgehog 2 (World) (MSU-MD) [Hack by ArcadeTV v0.9].zip",
+    "size": "8.0Mi"
   },
   {
     "file": "T-En Collection/Sega - Mega Drive - MSU-MD/Lemmings (USA) (MSU-MD) [Hack by ArcadeTV v0.1].zip",
-    "size": "24Mi"
+    "size": "155Mi"
   }
 ]
 }
