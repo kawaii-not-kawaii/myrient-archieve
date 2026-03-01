@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T11:00:03Z",
-  "download_bytes": 3067106835637,
-  "download_human": "3.2T",
-  "disk_used": "3.2T",
-  "disk_percent": "8%",
-  "files_transferred": 1024,
-  "files_total": 11060,
-  "currently_downloading": [{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"53%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"64%"},{"file":"PS3_ALVRO_PART…orn_Star_BLUS31478.rar","progress":"80%"},{"file":"PS3_ALVRO_PART…ete_Tale_BLES01783.rar","progress":"96%"}],
+  "timestamp": "2026-03-01T12:00:04Z",
+  "download_bytes": 3331888550251,
+  "download_human": "3.5T",
+  "disk_used": "3.5T",
+  "disk_percent": "9%",
+  "files_transferred": 1031,
+  "files_total": 11067,
+  "currently_downloading": [{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"58%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"68%"},{"file":"PS3_ALVRO_PART…orn_Star_BLUS31478.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…d_Core_4_BLUS30027.rar","progress":"78%"}],
   "recently_completed": [
   {
-    "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "31Gi"
+    "file": "Internet Archive/EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
+    "size": "33Gi"
   },
   {
-    "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "22Gi"
+    "file": "Internet Archive/EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
+    "size": "24Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Arthur_And_The_Revenge_Of_Maltazard_BLES00772.rar",
-    "size": "1.8Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/LEGO® DIMENSIONS™ [0005000C10194200] [DLC].7z",
+    "size": "3.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Assassins_Creed_3_Liberation_HD_PSN_NPEB01386.rar",
-    "size": "1.7Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/LEGO® DIMENSIONS™ [0005000C10195D00] [DLC].7z",
+    "size": "4.4Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Army_of_Two_The_40th_Day_BLES00659.rar",
-    "size": "3.7Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/LEGO® DIMENSIONS™ [0005000E10194200] [UPDATE v320].7z",
+    "size": "5.2Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Assassins_Creed_4_Black_Flag_BLES01882.rar",
-    "size": "1.1Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-retail-game-disc-nus-usa/LEGO® DIMENSIONS™ [0005000E10195D00] [UPDATE v352].7z",
+    "size": "5.7Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_4_BLUS30027.rar",
-    "size": "8.6Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Mario Strikers Charged Football [00050000101BDD00][EUR].7z",
+    "size": "1.5Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Arslan_Senki_x_Musou_BLJM61308.rar",
-    "size": "2.3Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Kirby's Epic Yarn [00050000101B1800][EUR].7z",
+    "size": "3.5Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Assassins_Creed_BLUS3008.rar",
-    "size": "437Mi"
+    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Donkey Kong Country Returns [000500001019CF00][USA].7z",
+    "size": "2.9Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Ar_Nosurge_Ode_To_An_Unborn_Star_BLUS31478.rar",
-    "size": "11Gi"
+    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Kirby's Epic Yarn [00050000101B1700][USA].7z",
+    "size": "3.2Gi"
   }
 ]
 }
