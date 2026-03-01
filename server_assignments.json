@@ -254,7 +254,7 @@
           "started": "2026-03-01"
         },
         {
-          "name": "Redump - Nintendo - GameCube NKit RVZ",
+          "name": "Redump - Nintendo - GameCube - NKit RVZ [zstd-19-128k]",
           "source": "Myrient:Redump/Nintendo - GameCube - NKit RVZ [zstd-19-128k]/",
           "size_tib": 1.48,
           "files": 2016,
@@ -314,7 +314,7 @@
           "started": "2026-03-01"
         },
         {
-          "name": "Redump - Nintendo - Wii NKit RVZ",
+          "name": "Redump - Nintendo - Wii - NKit RVZ [zstd-19-128k]",
           "source": "Myrient:Redump/Nintendo - Wii - NKit RVZ [zstd-19-128k]/",
           "size_tib": 5.87,
           "files": 3778,
@@ -324,7 +324,7 @@
           "started": "2026-03-01"
         },
         {
-          "name": "Redump - Nintendo - Wii U WUX",
+          "name": "Redump - Nintendo - Wii U - WUX",
           "source": "Myrient:Redump/Nintendo - Wii U - WUX/",
           "size_tib": 3.90,
           "files": 537,

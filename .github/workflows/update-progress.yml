@@ -233,7 +233,7 @@ jobs:
             """Extract ETA from rclone Transferred line."""
             if not line:
                 return '--'
-            m = re.search(r'ETA\s+([\dhms ]+)', line)
+            m = re.search(r'ETA\s+([\dwdhms ]+)', line)
             return m.group(1).strip() if m else '--'
 
         # ── Archive 1 ──
@@ -301,14 +301,14 @@ jobs:
             'TeknoParrot': 1.60, 'Touhou Project Collection': 0.42,
             'Lost Level': 0.28,
             'Redump - Sony - PlayStation': 2.99,
-            'Redump - Nintendo - GameCube NKit RVZ': 1.48,
+            'Redump - Nintendo - GameCube - NKit RVZ [zstd-19-128k]': 1.48,
             'Redump - Sega - Saturn': 0.77,
             'Redump - Sega - Dreamcast': 0.75,
             'Redump - NEC - PC Engine CD & TurboGrafx CD': 0.19,
             'Redump - Sega - Mega CD & Sega CD': 0.17,
             'Redump - SNK - Neo Geo CD': 0.05,
-            'Redump - Nintendo - Wii NKit RVZ': 5.87,
-            'Redump - Nintendo - Wii U WUX': 3.90,
+            'Redump - Nintendo - Wii - NKit RVZ [zstd-19-128k]': 5.87,
+            'Redump - Nintendo - Wii U - WUX': 3.90,
         }
 
         # Completed collections
@@ -328,12 +328,12 @@ jobs:
             'retro-lost-touhou': ['RetroAchievements', 'Lost Level', 'Touhou Project Collection'],
             'eggman': ["Eggman's Arcade Repository"],
             'exo-tekno': ['eXo', 'TeknoParrot'],
-            'redump-big': ['Redump - Sony - PlayStation', 'Redump - Nintendo - GameCube NKit RVZ'],
+            'redump-big': ['Redump - Sony - PlayStation', 'Redump - Nintendo - GameCube - NKit RVZ [zstd-19-128k]'],
             'redump-small': ['Redump - Sega - Saturn', 'Redump - Sega - Dreamcast',
                             'Redump - NEC - PC Engine CD & TurboGrafx CD',
                             'Redump - Sega - Mega CD & Sega CD', 'Redump - SNK - Neo Geo CD'],
-            'wii-redump': ['Redump - Nintendo - Wii NKit RVZ'],
-            'wiiu-redump': ['Redump - Nintendo - Wii U WUX'],
+            'wii-redump': ['Redump - Nintendo - Wii - NKit RVZ [zstd-19-128k]'],
+            'wiiu-redump': ['Redump - Nintendo - Wii U - WUX'],
         }
 
         # Build rclone speed/eta lookup by collection name
@@ -374,7 +374,7 @@ jobs:
             target = a2_targets.get(col_name, 0)
             pct_val = round(size_bytes / (target * 1024**4) * 100, 2) if target > 0 and size_bytes > 0 else 0
             status = 'complete' if col_name in a2_complete else 'downloading'
-            rclone_line = a2_rclone.get(col_name, '')
+            rclone_line = a2_rclone.get(col_name, '') if size_bytes > 0 else ''
 
             a2_collections.append({
                 'name': col_name,
@@ -382,24 +382,23 @@ jobs:
                 'downloaded_human': human_bytes(size_bytes),
                 'target_tib': target,
                 'percent': min(pct_val, 100),
-                'speed': parse_rclone_speed(rclone_line),
-                'eta': parse_rclone_eta(rclone_line),
+                'speed': parse_rclone_speed(rclone_line) if size_bytes > 0 else '--',
+                'eta': parse_rclone_eta(rclone_line) if size_bytes > 0 else '--',
                 'status': status
             })
 
-        # Add any assigned collections not seen in du output
+        # Add any assigned collections not seen in du output (not yet started)
         for col_name, target in a2_targets.items():
             if col_name not in seen_collections:
-                status = 'complete' if col_name in a2_complete else 'downloading'
-                rclone_line = a2_rclone.get(col_name, '')
+                status = 'complete' if col_name in a2_complete else 'queued'
                 a2_collections.append({
                     'name': col_name,
                     'downloaded_bytes': 0,
                     'downloaded_human': '0 B',
                     'target_tib': target,
                     'percent': 0,
-                    'speed': parse_rclone_speed(rclone_line),
-                    'eta': parse_rclone_eta(rclone_line),
+                    'speed': '--',
+                    'eta': '--',
                     'status': status
                 })
 
