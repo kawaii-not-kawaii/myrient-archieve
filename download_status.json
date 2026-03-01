@@ -1,52 +1,40 @@
 {
-  "timestamp": "2026-03-01T15:00:03Z",
-  "download_bytes": 4767279984974,
-  "download_human": "5.0T",
-  "disk_used": "5.0T",
-  "disk_percent": "13%",
-  "files_transferred": 1031,
-  "files_total": 11067,
-  "currently_downloading": [{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"58%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"68%"},{"file":"PS3_ALVRO_PART…orn_Star_BLUS31478.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…d_Core_4_BLUS30027.rar","progress":"78%"}],
-  "recently_completed": [
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sniper_Elite_V2_Game_of_the_Year_Edition_BLES01812.rar",
-    "size": "4.3Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Skylanders_Spyros_Adventure_BLES01272.rar",
-    "size": "8.8Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sonic_And_All_Stars_Racing_Transformed_BLES01646.rar",
-    "size": "4.4Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Skylanders_SWAP_Force_BLUS31076.rar",
-    "size": "9.6Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sleeping_Dogs_BLES01662.rar",
-    "size": "6.9Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sniper_Ghost_Warrior_BLES01286.rar",
-    "size": "3.8Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Skate_3_BLES00760.rar",
-    "size": "6.5Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sniper_Ghost_Warrior_2_BLES01527.rar",
-    "size": "3.8Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/Sly_Cooper_Thieves_in_Time_BCUS98247.rar",
-    "size": "13Gi"
-  },
-  {
-    "file": "Internet Archive/aitus95/PS3_ALVRO_PART_9/SOCOM_4_US_Navy_SEALs_BCUS98135.rar",
-    "size": "18Gi"
-  }
-]
+  "timestamp": "2026-03-01T15:10:38Z",
+  "server": "archive1",
+  "disk_total": "44T",
+  "disk_used": "5.1T",
+  "disk_used_bytes": 5530649518080,
+  "disk_percent": 13.0,
+  "collections": [
+    {
+      "name": "Internet Archive",
+      "downloaded_bytes": 3926861171808,
+      "downloaded_human": "3.57 TiB",
+      "target_tib": 40.48,
+      "percent": 8.82,
+      "speed": "51.499 MiB/s",
+      "eta": "4d21h26m49s",
+      "status": "downloading"
+    },
+    {
+      "name": "No-Intro - Microsoft Xbox 360 (Digital)",
+      "downloaded_bytes": 56280797371,
+      "downloaded_human": "52.42 GiB",
+      "target_tib": 1.19,
+      "percent": 4.3,
+      "speed": "6.160 MiB/s",
+      "eta": "1d19h57m7s",
+      "status": "downloading"
+    },
+    {
+      "name": "No-Intro - Source Code - Various",
+      "downloaded_bytes": 821089769602,
+      "downloaded_human": "764.70 GiB",
+      "target_tib": 1.0,
+      "percent": 74.68,
+      "speed": "2.985 MiB/s",
+      "eta": "3d19h12m48s",
+      "status": "downloading"
+    }
+  ]
 }
