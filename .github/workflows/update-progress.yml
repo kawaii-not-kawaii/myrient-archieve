@@ -489,7 +489,7 @@ jobs:
         def scan_dir(path):
             try:
                 result = subprocess.run(
-                    ['du', '-sb', '--max-depth=1', path],
+                    ['du', '-b', '--max-depth=1', path],
                     capture_output=True, text=True, timeout=120
                 )
             except Exception:
