@@ -1,0 +1,312 @@
+{
+  "last_updated": "2026-03-01",
+  "myrient_shutdown": "2026-03-31",
+  "myrient_total_size": "351.49 TiB",
+  "myrient_total_files": 2908844,
+  "myrient_total_collections": 21,
+  "servers": {
+    "archive1": {
+      "hostname": "archive",
+      "ip": "135.181.220.252",
+      "user": "lunar",
+      "storage_total": "44T",
+      "storage_target": "42T",
+      "download_path": "/mnt/storage/myrient_downloads/",
+      "rclone_params": "--transfers 24 --checkers 32 --buffer-size 1G --multi-thread-streams 4",
+      "tmux_session": "myrient",
+      "collections": [
+        {
+          "name": "Internet Archive",
+          "source": "Myrient:Internet Archive/",
+          "dest": "/mnt/storage/myrient_downloads/Internet Archive/",
+          "note": "Originally downloaded to root of myrient_downloads/. Moved into Internet Archive/ subdir on 2026-03-01 for consistency.",
+          "size_tib": 40.48,
+          "files": 234616,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "internet-archive",
+          "started": "2026-02-28",
+          "restarted_in_tmux": "2026-03-01"
+        }
+      ],
+      "total_allocated_tib": 40.48
+    },
+    "archive2": {
+      "hostname": "archive2",
+      "ip": "65.21.35.118",
+      "user": "lunar",
+      "storage_total": "57T",
+      "storage_target": "46T",
+      "download_path": "/mnt/storage/myrient_downloads/",
+      "rclone_params": "--transfers 20 --checkers 32 --buffer-size 256M --multi-thread-streams 4",
+      "tmux_session": "myrient",
+      "collections": [
+        {
+          "name": "bitsavers",
+          "source": "Myrient:bitsavers/",
+          "size_tib": 1.64,
+          "files": 186964,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "bitsavers",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "FinalBurn Neo",
+          "source": "Myrient:FinalBurn Neo/",
+          "size_tib": 0.027,
+          "files": 24333,
+          "priority": "high",
+          "status": "complete",
+          "tmux_window": "small-done",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "HBMAME",
+          "source": "Myrient:HBMAME/",
+          "size_tib": 0.035,
+          "files": 10500,
+          "priority": "high",
+          "status": "complete",
+          "tmux_window": "small-done",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "Hardware Target Game Database",
+          "source": "Myrient:Hardware Target Game Database/",
+          "size_tib": 0.446,
+          "files": 7227,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "htgdb",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "T-En Collection",
+          "source": "Myrient:T-En Collection/",
+          "size_tib": 0.757,
+          "files": 4465,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "t-en",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "TOSEC",
+          "source": "Myrient:TOSEC/",
+          "size_tib": 0.296,
+          "files": 1009504,
+          "priority": "high",
+          "status": "complete",
+          "tmux_window": "small-done",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "TOSEC-PIX",
+          "source": "Myrient:TOSEC-PIX/",
+          "size_tib": 2.25,
+          "files": 39056,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "tosec-pix",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "Total DOS Collection",
+          "source": "Myrient:Total DOS Collection/",
+          "size_tib": 1.02,
+          "files": 42306,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "dos",
+          "started": "2026-02-28"
+        },
+        {
+          "name": "MAME",
+          "source": "Myrient:MAME/",
+          "size_tib": 5.96,
+          "files": 750984,
+          "priority": "critical",
+          "status": "downloading",
+          "tmux_window": "mame",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "TOSEC-ISO",
+          "source": "Myrient:TOSEC-ISO/",
+          "size_tib": 6.05,
+          "files": 12064,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "tosec-iso",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Miscellaneous",
+          "source": "Myrient:Miscellaneous/",
+          "size_tib": 6.52,
+          "files": 61907,
+          "priority": "medium",
+          "status": "downloading",
+          "tmux_window": "misc",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Laserdisc Collection",
+          "source": "Myrient:Laserdisc Collection/",
+          "size_tib": 4.37,
+          "files": 39600,
+          "priority": "medium",
+          "status": "downloading",
+          "tmux_window": "laserdisc",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "RetroAchievements",
+          "source": "Myrient:RetroAchievements/",
+          "size_tib": 2.84,
+          "files": 15805,
+          "priority": "medium",
+          "status": "downloading",
+          "tmux_window": "retro-lost-touhou",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Eggman's Arcade Repository",
+          "source": "Myrient:Eggman's Arcade Repository/",
+          "size_tib": 2.79,
+          "files": 3635,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "eggman",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "eXo",
+          "source": "Myrient:eXo/",
+          "size_tib": 2.19,
+          "files": 22001,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "exo-tekno",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "TeknoParrot",
+          "source": "Myrient:TeknoParrot/",
+          "size_tib": 1.60,
+          "files": 519,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "exo-tekno",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Touhou Project Collection",
+          "source": "Myrient:Touhou Project Collection/",
+          "size_tib": 0.42,
+          "files": 850,
+          "priority": "low",
+          "status": "downloading",
+          "tmux_window": "retro-lost-touhou",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Lost Level",
+          "source": "Myrient:Lost Level/",
+          "size_tib": 0.28,
+          "files": 3884,
+          "priority": "medium",
+          "status": "downloading",
+          "tmux_window": "retro-lost-touhou",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Sony - PlayStation",
+          "source": "Myrient:Redump/Sony - PlayStation/",
+          "size_tib": 2.99,
+          "files": 10886,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-big",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Nintendo - GameCube NKit RVZ",
+          "source": "Myrient:Redump/Nintendo - GameCube - NKit RVZ [zstd-19-128k]/",
+          "size_tib": 1.48,
+          "files": 2016,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-big",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Sega - Saturn",
+          "source": "Myrient:Redump/Sega - Saturn/",
+          "size_tib": 0.77,
+          "files": 2397,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-small",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Sega - Dreamcast",
+          "source": "Myrient:Redump/Sega - Dreamcast/",
+          "size_tib": 0.75,
+          "files": 1506,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-small",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - NEC - PC Engine CD & TurboGrafx CD",
+          "source": "Myrient:Redump/NEC - PC Engine CD & TurboGrafx CD/",
+          "size_tib": 0.19,
+          "files": 551,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-small",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Sega - Mega CD & Sega CD",
+          "source": "Myrient:Redump/Sega - Mega CD & Sega CD/",
+          "size_tib": 0.17,
+          "files": 545,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-small",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - SNK - Neo Geo CD",
+          "source": "Myrient:Redump/SNK - Neo Geo CD/",
+          "size_tib": 0.05,
+          "files": 111,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "redump-small",
+          "started": "2026-03-01"
+        }
+      ],
+      "total_allocated_tib": 45.89
+    }
+  },
+  "unassigned_collections": [
+    {
+      "name": "No-Intro",
+      "size_tib": 83.46,
+      "files": 306890,
+      "note": "Too large for current servers. Needs dedicated storage or 3rd server."
+    },
+    {
+      "name": "Redump (remaining)",
+      "size_tib": 181.65,
+      "files": 171359,
+      "note": "Only selective subcollections assigned. Bulk requires 3rd server."
+    }
+  ]
+}
