@@ -404,6 +404,182 @@
             margin-top: 0.375rem;
         }
 
+        /* Vault Section */
+        .vault {
+            margin-top: 2.5rem;
+        }
+
+        .vault-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1.25rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .vault-toggle:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--text-muted);
+        }
+
+        .vault-toggle.open {
+            border-radius: 10px 10px 0 0;
+            border-bottom-color: transparent;
+        }
+
+        .vault-toggle-left {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        .vault-icon {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-success-bg);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: var(--accent-success);
+        }
+
+        .vault-count {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-success);
+            background: var(--accent-success-bg);
+            padding: 0.125rem 0.5rem;
+            border-radius: 10px;
+            margin-left: 0.25rem;
+        }
+
+        .vault-chevron {
+            color: var(--text-muted);
+            transition: transform 0.2s;
+            font-size: 0.75rem;
+        }
+
+        .vault-toggle.open .vault-chevron {
+            transform: rotate(180deg);
+        }
+
+        .vault-body {
+            display: none;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            overflow: hidden;
+        }
+
+        .vault-body.open {
+            display: block;
+        }
+
+        .vault-empty {
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .vault-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .vault-table th {
+            text-align: left;
+            padding: 0.625rem 1.25rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .vault-table td {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.8125rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .vault-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .vault-table tr:hover td {
+            background: rgba(35, 134, 54, 0.04);
+        }
+
+        .vault-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .vault-check {
+            color: var(--accent-success);
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+
+        .vault-col-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .vault-size {
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .vault-server-badge {
+            font-size: 0.625rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .vault-server-badge.s1 { background: var(--server1-bg); color: var(--server1); }
+        .vault-server-badge.s2 { background: var(--server2-bg); color: var(--server2); }
+        .vault-server-badge.s3 { background: var(--server3-bg); color: var(--server3); }
+
+        .vault-total-row td {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            color: var(--accent-success);
+            border-bottom: none;
+        }
+
+        @media (max-width: 640px) {
+            .vault-table th:nth-child(3),
+            .vault-table td:nth-child(3) {
+                display: none;
+            }
+            .vault-table th, .vault-table td {
+                padding: 0.5rem 0.75rem;
+            }
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -533,6 +709,21 @@
         </div>
     </div>
     <div class="collections-grid" id="collections-grid"></div>
+
+    <!-- Archive Vault -->
+    <div class="vault" id="vault">
+        <button class="vault-toggle" id="vault-toggle">
+            <span class="vault-toggle-left">
+                <span class="vault-icon">&#10003;</span>
+                Backed Up
+                <span class="vault-count" id="vault-count">0</span>
+            </span>
+            <span class="vault-chevron">&#9660;</span>
+        </button>
+        <div class="vault-body" id="vault-body">
+            <div class="vault-empty">No completed collections yet</div>
+        </div>
+    </div>
 </main>
 
 <footer>
@@ -641,6 +832,7 @@ function render() {
     renderHeader();
     renderServerCards();
     renderCollections();
+    renderVault();
 }
 
 function renderHeader() {
@@ -860,6 +1052,99 @@ function escapeHtml(s) {
     d.textContent = s;
     return d.innerHTML;
 }
+
+// ── Vault (Completed Items) ──
+function renderVault() {
+    var completed = [];
+
+    // Gather from live status data
+    for (var serverKey in SERVER_META) {
+        var d = serverData[serverKey];
+        if (!d || !d.collections) continue;
+        var meta = SERVER_META[serverKey];
+        for (var i = 0; i < d.collections.length; i++) {
+            var col = d.collections[i];
+            if (col.status === 'complete') {
+                completed.push({
+                    name: col.name,
+                    server: serverKey,
+                    serverColor: meta.color,
+                    bytes: col.downloaded_bytes || 0,
+                    human: col.downloaded_human || '--',
+                    targetTib: col.target_tib || 0
+                });
+            }
+        }
+    }
+
+    // Also check assignments for any marked complete not in live data
+    if (assignments && assignments.servers) {
+        var seenNames = {};
+        for (var j = 0; j < completed.length; j++) seenNames[completed[j].name] = true;
+        for (var sKey in assignments.servers) {
+            var srv = assignments.servers[sKey];
+            var sMeta = SERVER_META[sKey];
+            if (!srv || !srv.collections || !sMeta) continue;
+            for (var k = 0; k < srv.collections.length; k++) {
+                var ac = srv.collections[k];
+                if (ac.status === 'complete' && !seenNames[ac.name]) {
+                    completed.push({
+                        name: ac.name,
+                        server: sKey,
+                        serverColor: sMeta.color,
+                        bytes: 0,
+                        human: '--',
+                        targetTib: ac.size_tib || 0
+                    });
+                }
+            }
+        }
+    }
+
+    // Sort by size descending
+    completed.sort(function(a, b) {
+        var sa = a.targetTib || (a.bytes / (1024*1024*1024*1024));
+        var sb = b.targetTib || (b.bytes / (1024*1024*1024*1024));
+        return sb - sa;
+    });
+
+    document.getElementById('vault-count').textContent = completed.length;
+    var body = document.getElementById('vault-body');
+
+    if (completed.length === 0) {
+        body.innerHTML = '<div class="vault-empty">No completed collections yet — check back soon</div>';
+        return;
+    }
+
+    var totalBytes = 0;
+    var rows = '';
+    for (var n = 0; n < completed.length; n++) {
+        var c = completed[n];
+        var sClass = c.serverColor.replace('server', 's');
+        var sizeDisplay = c.bytes > 0 ? formatBytes(c.bytes) : (c.targetTib > 0 ? c.targetTib.toFixed(2) + ' TiB' : '--');
+        totalBytes += c.bytes > 0 ? c.bytes : (c.targetTib * 1024*1024*1024*1024);
+
+        rows +=
+            '<tr>' +
+                '<td><div class="vault-name-cell"><span class="vault-check">&#10003;</span><span class="vault-col-name">' + escapeHtml(c.name) + '</span></div></td>' +
+                '<td><span class="vault-server-badge ' + sClass + '">' + SERVER_META[c.server].name + '</span></td>' +
+                '<td class="vault-size">' + sizeDisplay + '</td>' +
+            '</tr>';
+    }
+
+    body.innerHTML =
+        '<table class="vault-table">' +
+            '<thead><tr><th>Collection</th><th>Server</th><th>Size</th></tr></thead>' +
+            '<tbody>' + rows +
+                '<tr class="vault-total-row"><td>Total Backed Up</td><td></td><td>' + formatBytes(totalBytes) + '</td></tr>' +
+            '</tbody>' +
+        '</table>';
+}
+
+document.getElementById('vault-toggle').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('vault-body').classList.toggle('open');
+});
 
 // ── Filter Buttons ──
 document.getElementById('filter-bar').addEventListener('click', function(e) {
