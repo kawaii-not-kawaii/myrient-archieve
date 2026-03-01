@@ -446,13 +446,13 @@
         .vault-icon {
             width: 28px;
             height: 28px;
-            background: var(--accent-success-bg);
+            background: rgba(88, 166, 255, 0.12);
             border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.875rem;
-            color: var(--accent-success);
+            color: var(--accent-info);
         }
 
         .vault-count {
@@ -570,6 +570,52 @@
             border-bottom: none;
         }
 
+        .vault-progress {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-width: 100px;
+        }
+
+        .vault-progress-bar {
+            flex: 1;
+            height: 5px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+            min-width: 50px;
+        }
+
+        .vault-progress-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        .vault-progress-fill.complete { background: var(--accent-success); }
+        .vault-progress-fill.downloading { background: var(--accent-warning); }
+        .vault-progress-fill.queued { background: var(--text-muted); }
+
+        .vault-pct {
+            font-size: 0.6875rem;
+            font-variant-numeric: tabular-nums;
+            min-width: 35px;
+            text-align: right;
+        }
+
+        .vault-pct.complete { color: var(--accent-success); }
+        .vault-pct.downloading { color: var(--accent-warning); }
+        .vault-pct.queued { color: var(--text-muted); }
+
+        .vault-status-icon {
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .vault-status-icon.complete { color: var(--accent-success); }
+        .vault-status-icon.downloading { color: var(--accent-warning); }
+        .vault-status-icon.queued { color: var(--text-muted); }
+
         .vault-expand {
             display: inline-block;
             width: 16px;
@@ -664,7 +710,9 @@
 
         @media (max-width: 640px) {
             .vault-table th:nth-child(3),
-            .vault-table td:nth-child(3) {
+            .vault-table td:nth-child(3),
+            .vault-table th:nth-child(4),
+            .vault-table td:nth-child(4) {
                 display: none;
             }
             .vault-table th, .vault-table td {
@@ -804,18 +852,18 @@
     </div>
     <div class="collections-grid" id="collections-grid"></div>
 
-    <!-- Archive Vault -->
+    <!-- Archive Inventory -->
     <div class="vault" id="vault">
         <button class="vault-toggle" id="vault-toggle">
             <span class="vault-toggle-left">
-                <span class="vault-icon">&#10003;</span>
-                Backed Up
+                <span class="vault-icon">&#9776;</span>
+                Archive Inventory
                 <span class="vault-count" id="vault-count">0</span>
             </span>
             <span class="vault-chevron">&#9660;</span>
         </button>
         <div class="vault-body" id="vault-body">
-            <div class="vault-empty">No completed collections yet</div>
+            <div class="vault-empty">No collections yet</div>
         </div>
     </div>
 </main>
@@ -1219,89 +1267,115 @@ function lookupManifest(colName, serverKey) {
 }
 
 function renderVault() {
-    var completed = [];
+    var items = [];
 
+    // Collect ALL items from live status data
     for (var serverKey in SERVER_META) {
         var d = serverData[serverKey];
         if (!d || !d.collections) continue;
         var meta = SERVER_META[serverKey];
         for (var i = 0; i < d.collections.length; i++) {
             var col = d.collections[i];
-            if (col.status === 'complete') {
-                completed.push({
-                    name: col.name,
-                    server: serverKey,
-                    serverColor: meta.color,
-                    bytes: col.downloaded_bytes || 0,
-                    human: col.downloaded_human || '--',
-                    targetTib: col.target_tib || 0
-                });
-            }
+            items.push({
+                name: col.name,
+                server: serverKey,
+                serverColor: meta.color,
+                bytes: col.downloaded_bytes || 0,
+                human: col.downloaded_human || '--',
+                targetTib: col.target_tib || 0,
+                percent: col.percent || 0,
+                status: col.status || 'downloading',
+                speed: col.speed || '--',
+                eta: col.eta || '--'
+            });
         }
     }
 
+    // Add any from assignments not already in live data
     if (assignments && assignments.servers) {
         var seenNames = {};
-        for (var j = 0; j < completed.length; j++) seenNames[completed[j].name] = true;
+        for (var j = 0; j < items.length; j++) seenNames[items[j].name] = true;
         for (var sKey in assignments.servers) {
             var srv = assignments.servers[sKey];
             var sMeta = SERVER_META[sKey];
             if (!srv || !srv.collections || !sMeta) continue;
             for (var k = 0; k < srv.collections.length; k++) {
                 var ac = srv.collections[k];
-                if (ac.status === 'complete' && !seenNames[ac.name]) {
-                    completed.push({
+                if (!seenNames[ac.name]) {
+                    items.push({
                         name: ac.name,
                         server: sKey,
                         serverColor: sMeta.color,
                         bytes: 0,
                         human: '--',
-                        targetTib: ac.size_tib || 0
+                        targetTib: ac.size_tib || 0,
+                        percent: 0,
+                        status: ac.status || 'queued',
+                        speed: '--',
+                        eta: '--'
                     });
                 }
             }
         }
     }
 
-    completed.sort(function(a, b) {
-        var sa = a.targetTib || (a.bytes / (1024*1024*1024*1024));
-        var sb = b.targetTib || (b.bytes / (1024*1024*1024*1024));
-        return sb - sa;
+    // Sort: complete first (by size desc), then downloading (by percent desc), then queued
+    var statusOrder = { complete: 0, downloading: 1, queued: 2 };
+    items.sort(function(a, b) {
+        var sa = statusOrder[a.status] !== undefined ? statusOrder[a.status] : 1;
+        var sb = statusOrder[b.status] !== undefined ? statusOrder[b.status] : 1;
+        if (sa !== sb) return sa - sb;
+        if (sa === 0) {
+            var sza = a.bytes || (a.targetTib * 1024*1024*1024*1024);
+            var szb = b.bytes || (b.targetTib * 1024*1024*1024*1024);
+            return szb - sza;
+        }
+        return b.percent - a.percent;
     });
 
-    document.getElementById('vault-count').textContent = completed.length;
+    var completeCount = items.filter(function(x) { return x.status === 'complete'; }).length;
+    document.getElementById('vault-count').textContent = items.length;
     var body = document.getElementById('vault-body');
 
-    if (completed.length === 0) {
-        body.innerHTML = '<div class="vault-empty">No completed collections yet -- check back soon</div>';
+    if (items.length === 0) {
+        body.innerHTML = '<div class="vault-empty">No collections yet</div>';
         return;
     }
 
     var totalBytes = 0;
     var rows = '';
-    for (var n = 0; n < completed.length; n++) {
-        var c = completed[n];
+    for (var n = 0; n < items.length; n++) {
+        var c = items[n];
         var sClass = c.serverColor.replace('server', 's');
         var sizeDisplay = c.bytes > 0 ? formatBytes(c.bytes) : (c.targetTib > 0 ? c.targetTib.toFixed(2) + ' TiB' : '--');
-        totalBytes += c.bytes > 0 ? c.bytes : (c.targetTib * 1024*1024*1024*1024);
+        totalBytes += c.bytes > 0 ? c.bytes : 0;
 
         var manifest = lookupManifest(c.name, c.server);
         var hasContent = manifest && manifest.entries && manifest.entries.length > 0;
         var entryCount = hasContent ? manifest.entries.length : 0;
 
+        var isComplete = c.status === 'complete';
+        var statusIcon = isComplete ? '&#10003;' : c.status === 'downloading' ? '&#9660;' : '&#9675;';
+        var statusClass = isComplete ? 'complete' : c.status === 'downloading' ? 'downloading' : 'queued';
+        var pctDisplay = isComplete ? '100%' : c.percent > 0 ? c.percent.toFixed(1) + '%' : '0%';
+
         rows +=
             '<tr class="vault-row" data-idx="' + n + '">' +
                 '<td><div class="vault-name-cell">' +
                     (hasContent ? '<span class="vault-expand" data-idx="' + n + '">&#9654;</span>' : '<span style="width:16px;display:inline-block"></span>') +
-                    '<span class="vault-check">&#10003;</span>' +
+                    '<span class="vault-status-icon ' + statusClass + '">' + statusIcon + '</span>' +
                     '<span class="vault-col-name">' + escapeHtml(c.name) + '</span>' +
                     (entryCount > 0 ? ' <span style="color:var(--text-muted);font-size:0.6875rem">(' + entryCount + ' items)</span>' : '') +
                 '</div></td>' +
                 '<td><span class="vault-server-badge ' + sClass + '">' + SERVER_META[c.server].name + '</span></td>' +
                 '<td class="vault-size">' + sizeDisplay + '</td>' +
+                '<td><div class="vault-progress">' +
+                    '<div class="vault-progress-bar"><div class="vault-progress-fill ' + statusClass + '" style="width:' + Math.min(isComplete ? 100 : c.percent, 100) + '%"></div></div>' +
+                    '<span class="vault-pct ' + statusClass + '">' + pctDisplay + '</span>' +
+                '</div></td>' +
             '</tr>' +
             '<tr class="vault-contents-row" id="vault-contents-' + n + '" style="display:none">' +
-                '<td colspan="3" class="vault-contents-cell">' +
+                '<td colspan="4" class="vault-contents-cell">' +
                     renderVaultTree(manifest) +
                 '</td>' +
             '</tr>';
@@ -1309,9 +1383,9 @@ function renderVault() {
 
     body.innerHTML =
         '<table class="vault-table">' +
-            '<thead><tr><th>Collection</th><th>Server</th><th>Size</th></tr></thead>' +
+            '<thead><tr><th>Collection</th><th>Server</th><th>Downloaded</th><th>Progress</th></tr></thead>' +
             '<tbody>' + rows +
-                '<tr class="vault-total-row"><td>Total Backed Up</td><td></td><td>' + formatBytes(totalBytes) + '</td></tr>' +
+                '<tr class="vault-total-row"><td>Total on Disk (' + completeCount + ' complete, ' + (items.length - completeCount) + ' in progress)</td><td></td><td>' + formatBytes(totalBytes) + '</td><td></td></tr>' +
             '</tbody>' +
         '</table>';
 }
