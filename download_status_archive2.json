@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-03-01T13:34:48Z",
+  "timestamp": "2026-03-01T13:57:18Z",
   "server": "archive2",
   "disk_total": "57T",
-  "disk_used": "2.9T",
-  "disk_used_bytes": 3124193759232,
+  "disk_used": "3.1T",
+  "disk_used_bytes": 3300615110656,
   "disk_percent": 6.0,
   "collections": [
     {
@@ -28,48 +28,48 @@
     },
     {
       "name": "Hardware Target Game Database",
-      "downloaded_bytes": 165986493109,
-      "downloaded_human": "154.59 GiB",
+      "downloaded_bytes": 168187148530,
+      "downloaded_human": "156.64 GiB",
       "target_tib": 0.446,
-      "percent": 33.85,
-      "speed": "--",
-      "eta": "--",
+      "percent": 34.3,
+      "speed": "1.623 MiB/s",
+      "eta": "2",
       "status": "downloading"
     },
     {
       "name": "Laserdisc Collection",
-      "downloaded_bytes": 80401974606,
-      "downloaded_human": "74.88 GiB",
+      "downloaded_bytes": 84167310576,
+      "downloaded_human": "78.39 GiB",
       "target_tib": 4.37,
-      "percent": 1.67,
-      "speed": "--",
-      "eta": "--",
+      "percent": 1.75,
+      "speed": "2.420 MiB/s",
+      "eta": "2",
       "status": "downloading"
     },
     {
       "name": "MAME",
-      "downloaded_bytes": 22318101870,
-      "downloaded_human": "20.79 GiB",
+      "downloaded_bytes": 23520135482,
+      "downloaded_human": "21.90 GiB",
       "target_tib": 5.96,
-      "percent": 0.34,
-      "speed": "--",
-      "eta": "--",
+      "percent": 0.36,
+      "speed": "1.328 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
       "name": "Miscellaneous",
-      "downloaded_bytes": 279308484733,
-      "downloaded_human": "260.13 GiB",
+      "downloaded_bytes": 314638525794,
+      "downloaded_human": "293.03 GiB",
       "target_tib": 6.52,
-      "percent": 3.9,
-      "speed": "--",
-      "eta": "--",
+      "percent": 4.39,
+      "speed": "29.895 MiB/s",
+      "eta": "2",
       "status": "downloading"
     },
     {
-      "name": "Redump",
-      "downloaded_bytes": 297634698504,
-      "downloaded_human": "277.19 GiB",
+      "name": "Redump/Nintendo - Wii - NKit RVZ [zstd-19-128k]",
+      "downloaded_bytes": 91569878530,
+      "downloaded_human": "85.28 GiB",
       "target_tib": 0,
       "percent": 0,
       "speed": "--",
@@ -77,23 +77,53 @@
       "status": "downloading"
     },
     {
+      "name": "Redump/Nintendo - Wii U - WUX",
+      "downloaded_bytes": 174249891038,
+      "downloaded_human": "162.28 GiB",
+      "target_tib": 0,
+      "percent": 0,
+      "speed": "--",
+      "eta": "--",
+      "status": "downloading"
+    },
+    {
+      "name": "Redump - Sega - Saturn",
+      "downloaded_bytes": 60911868418,
+      "downloaded_human": "56.73 GiB",
+      "target_tib": 0.77,
+      "percent": 7.19,
+      "speed": "5.901 MiB/s",
+      "eta": "1",
+      "status": "downloading"
+    },
+    {
+      "name": "Redump - Sony - PlayStation",
+      "downloaded_bytes": 37379745713,
+      "downloaded_human": "34.81 GiB",
+      "target_tib": 2.99,
+      "percent": 1.14,
+      "speed": "3.679 MiB/s",
+      "eta": "1",
+      "status": "downloading"
+    },
+    {
       "name": "RetroAchievements",
-      "downloaded_bytes": 27113042864,
-      "downloaded_human": "25.25 GiB",
+      "downloaded_bytes": 31050430271,
+      "downloaded_human": "28.92 GiB",
       "target_tib": 2.84,
-      "percent": 0.87,
+      "percent": 0.99,
       "speed": "--",
       "eta": "--",
       "status": "downloading"
     },
     {
       "name": "T-En Collection",
-      "downloaded_bytes": 166765884327,
-      "downloaded_human": "155.31 GiB",
+      "downloaded_bytes": 170256942977,
+      "downloaded_human": "158.56 GiB",
       "target_tib": 0.757,
-      "percent": 20.04,
-      "speed": "--",
-      "eta": "--",
+      "percent": 20.46,
+      "speed": "1.372 MiB/s",
+      "eta": "5",
       "status": "downloading"
     },
     {
@@ -108,62 +138,52 @@
     },
     {
       "name": "TOSEC-ISO",
-      "downloaded_bytes": 139629760838,
-      "downloaded_human": "130.04 GiB",
+      "downloaded_bytes": 171091924801,
+      "downloaded_human": "159.34 GiB",
       "target_tib": 6.05,
-      "percent": 2.1,
-      "speed": "--",
-      "eta": "--",
+      "percent": 2.57,
+      "speed": "24.260 MiB/s",
+      "eta": "2",
       "status": "downloading"
     },
     {
       "name": "TOSEC-PIX",
-      "downloaded_bytes": 811497351890,
-      "downloaded_human": "755.77 GiB",
+      "downloaded_bytes": 828353932641,
+      "downloaded_human": "771.46 GiB",
       "target_tib": 2.25,
-      "percent": 32.8,
-      "speed": "--",
-      "eta": "--",
+      "percent": 33.48,
+      "speed": "12.492 MiB/s",
+      "eta": "17h34m46s",
       "status": "downloading"
     },
     {
       "name": "Total DOS Collection",
-      "downloaded_bytes": 167688990134,
-      "downloaded_human": "156.17 GiB",
+      "downloaded_bytes": 169976285926,
+      "downloaded_human": "158.30 GiB",
       "target_tib": 1.02,
-      "percent": 14.95,
-      "speed": "--",
-      "eta": "--",
+      "percent": 15.16,
+      "speed": "1.277 MiB/s",
+      "eta": "4",
       "status": "downloading"
     },
     {
       "name": "bitsavers",
-      "downloaded_bytes": 171345783108,
-      "downloaded_human": "159.58 GiB",
+      "downloaded_bytes": 172248979228,
+      "downloaded_human": "160.42 GiB",
       "target_tib": 1.64,
-      "percent": 9.5,
-      "speed": "--",
-      "eta": "--",
+      "percent": 9.55,
+      "speed": "822.228 KiB/s",
+      "eta": "2",
       "status": "downloading"
     },
     {
       "name": "eXo",
-      "downloaded_bytes": 112286173036,
-      "downloaded_human": "104.57 GiB",
+      "downloaded_bytes": 118166990283,
+      "downloaded_human": "110.05 GiB",
       "target_tib": 2.19,
-      "percent": 4.66,
-      "speed": "--",
-      "eta": "--",
-      "status": "downloading"
-    },
-    {
-      "name": "logs",
-      "downloaded_bytes": 3344956166,
-      "downloaded_human": "3.12 GiB",
-      "target_tib": 0,
-      "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "percent": 4.91,
+      "speed": "2.420 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -182,8 +202,8 @@
       "downloaded_human": "0 B",
       "target_tib": 1.6,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "2.420 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -207,33 +227,13 @@
       "status": "downloading"
     },
     {
-      "name": "Redump - Sony - PlayStation",
-      "downloaded_bytes": 0,
-      "downloaded_human": "0 B",
-      "target_tib": 2.99,
-      "percent": 0,
-      "speed": "--",
-      "eta": "--",
-      "status": "downloading"
-    },
-    {
       "name": "Redump - Nintendo - GameCube NKit RVZ",
       "downloaded_bytes": 0,
       "downloaded_human": "0 B",
       "target_tib": 1.48,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
-      "status": "downloading"
-    },
-    {
-      "name": "Redump - Sega - Saturn",
-      "downloaded_bytes": 0,
-      "downloaded_human": "0 B",
-      "target_tib": 0.77,
-      "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "3.679 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -242,8 +242,8 @@
       "downloaded_human": "0 B",
       "target_tib": 0.75,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "5.901 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -252,8 +252,8 @@
       "downloaded_human": "0 B",
       "target_tib": 0.19,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "5.901 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -262,8 +262,8 @@
       "downloaded_human": "0 B",
       "target_tib": 0.17,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "5.901 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -272,8 +272,8 @@
       "downloaded_human": "0 B",
       "target_tib": 0.05,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "5.901 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -282,8 +282,8 @@
       "downloaded_human": "0 B",
       "target_tib": 5.87,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "10.028 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
@@ -292,8 +292,8 @@
       "downloaded_human": "0 B",
       "target_tib": 3.9,
       "percent": 0,
-      "speed": "--",
-      "eta": "--",
+      "speed": "10.995 MiB/s",
+      "eta": "4",
       "status": "downloading"
     }
   ]

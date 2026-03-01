@@ -1,39 +1,39 @@
 {
-  "timestamp": "2026-03-01T13:34:48Z",
+  "timestamp": "2026-03-01T13:57:18Z",
   "server": "archive3",
   "disk_total": "44T",
   "disk_used": "1.3T",
-  "disk_used_bytes": 1344022880256,
+  "disk_used_bytes": 1352934531072,
   "disk_percent": 3.0,
   "collections": [
     {
       "name": "No-Intro - Nintendo (all subcollections)",
-      "downloaded_bytes": 78902446626,
-      "downloaded_human": "73.48 GiB",
+      "downloaded_bytes": 95117993584,
+      "downloaded_human": "88.59 GiB",
       "target_tib": 18.04,
-      "percent": 0.4,
-      "speed": "--",
-      "eta": "--",
+      "percent": 0.48,
+      "speed": "6.810 MiB/s",
+      "eta": "1",
       "status": "downloading"
     },
     {
       "name": "No-Intro - Sony (all subcollections)",
-      "downloaded_bytes": 16281672337,
-      "downloaded_human": "15.16 GiB",
+      "downloaded_bytes": 22797907156,
+      "downloaded_human": "21.23 GiB",
       "target_tib": 24.78,
-      "percent": 0.06,
-      "speed": "--",
-      "eta": "--",
+      "percent": 0.08,
+      "speed": "4.400 MiB/s",
+      "eta": "4",
       "status": "downloading"
     },
     {
       "name": "No-Intro - Classic Retro (30+ manufacturers)",
       "downloaded_bytes": 50383568955,
       "downloaded_human": "46.92 GiB",
-      "target_tib": 0.025,
-      "percent": 183.29,
-      "speed": "--",
-      "eta": "--",
+      "target_tib": 0.05,
+      "percent": 91.65,
+      "speed": "1.457 MiB/s",
+      "eta": "0s",
       "status": "downloading"
     }
   ]
