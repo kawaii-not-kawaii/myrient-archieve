@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive Status - Myrient Mirror Progress</title>
+    <title>Myrient Archive - Download Progress</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-primary: #0d1117;
@@ -21,12 +17,15 @@
             --border-color: #30363d;
             --accent-success: #238636;
             --accent-success-bg: rgba(35, 134, 54, 0.15);
-            --accent-success-dim: rgba(35, 134, 54, 0.3);
             --accent-warning: #d29922;
-            --accent-info: #58a6ff;
             --accent-danger: #da3633;
-            --server1-color: #58a6ff;
-            --server2-color: #a371f7;
+            --accent-info: #58a6ff;
+            --server1: #58a6ff;
+            --server2: #a371f7;
+            --server3: #f0883e;
+            --server1-bg: rgba(88, 166, 255, 0.12);
+            --server2-bg: rgba(163, 113, 247, 0.12);
+            --server3-bg: rgba(240, 136, 62, 0.12);
         }
 
         body {
@@ -37,47 +36,51 @@
             min-height: 100vh;
         }
 
-        .loading-overlay {
-            position: fixed;
+        /* Countdown Banner */
+        .countdown-banner {
+            background: linear-gradient(90deg, rgba(218, 54, 51, 0.15), rgba(210, 153, 34, 0.15));
+            border-bottom: 1px solid rgba(218, 54, 51, 0.3);
+            padding: 0.5rem 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--bg-primary);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 200;
+            backdrop-filter: blur(8px);
         }
 
-        .loading-overlay.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+        .countdown-banner.urgent {
+            background: linear-gradient(90deg, rgba(218, 54, 51, 0.3), rgba(218, 54, 51, 0.15));
+            animation: pulse-bg 2s ease-in-out infinite;
         }
 
-        .spinner {
-            width: 48px;
-            height: 48px;
-            border: 4px solid var(--bg-tertiary);
-            border-top-color: var(--accent-success);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .countdown-text {
+            color: var(--text-primary);
         }
 
+        .countdown-timer {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--accent-danger);
+            margin-left: 0.5rem;
+        }
+
+        .countdown-banner.urgent .countdown-timer {
+            color: #ff6b6b;
+        }
+
+        /* Header */
         header {
             background-color: var(--bg-secondary);
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             position: sticky;
-            top: 0;
+            top: 33px;
             z-index: 100;
         }
 
@@ -105,529 +108,303 @@
             width: 32px;
             height: 32px;
             background: linear-gradient(135deg, var(--accent-success), var(--accent-info));
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
         }
 
-        .stats-summary {
+        .header-stats {
             display: flex;
-            gap: 2rem;
-            font-size: 0.875rem;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        .stat-item {
+        .header-stat {
             text-align: center;
         }
 
-        .stat-value {
+        .header-stat-value {
             font-size: 1.25rem;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--accent-success);
+            font-variant-numeric: tabular-nums;
         }
 
-        .stat-label {
+        .header-stat-label {
+            font-size: 0.6875rem;
             color: var(--text-secondary);
-            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
+        /* Main */
         main {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1.5rem 2rem 2rem;
         }
 
-        .server-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 1px;
-        }
-
-        .server-tab {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.9375rem;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .server-tab:hover {
-            color: var(--text-primary);
-            background-color: var(--bg-tertiary);
-            border-radius: 6px 6px 0 0;
-        }
-
-        .server-tab.active {
-            color: var(--text-primary);
-            border-bottom-color: var(--accent-success);
-            font-weight: 500;
-        }
-
-        .server-tab.active.server1 {
-            border-bottom-color: var(--server1-color);
-        }
-
-        .server-tab.active.server2 {
-            border-bottom-color: var(--server2-color);
-        }
-
-        .server-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--text-muted);
-        }
-
-        .server-indicator.online {
-            background-color: var(--accent-success);
-            box-shadow: 0 0 0 2px var(--accent-success-bg);
-        }
-
-        .server-tab.server1 .server-indicator.online {
-            background-color: var(--server1-color);
-            box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3);
-        }
-
-        .server-tab.server2 .server-indicator.online {
-            background-color: var(--server2-color);
-            box-shadow: 0 0 0 2px rgba(163, 113, 247, 0.3);
-        }
-
-        .combined-progress {
+        /* Server Cards Grid */
+        .server-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
             margin-bottom: 2rem;
         }
 
-        .server-progress-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            position: relative;
-        }
-
-        .server-progress-card.server1 {
-            border-left: 4px solid var(--server1-color);
-        }
-
-        .server-progress-card.server2 {
-            border-left: 4px solid var(--server2-color);
-        }
-
-        .server-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .server-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .server-title .indicator {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-
-        .server-title.server1 .indicator {
-            background-color: var(--server1-color);
-        }
-
-        .server-title.server2 .indicator {
-            background-color: var(--server2-color);
-        }
-
-        .server-status {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            padding: 0.25rem 0.5rem;
-            background-color: var(--bg-tertiary);
-            border-radius: 4px;
-        }
-
-        .overview-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            display: none;
-        }
-
-        .overview-card.active {
-            display: block;
-        }
-
-        .overview-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .overview-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .last-updated {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-
-        .overall-progress {
-            margin-bottom: 1.5rem;
-        }
-
-        .progress-bar-bg {
-            background-color: var(--bg-tertiary);
-            border-radius: 999px;
-            height: 8px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            border-radius: 999px;
-            transition: width 0.3s ease;
-        }
-
-        .progress-bar-fill.server1-fill {
-            background: linear-gradient(90deg, var(--server1-color), var(--accent-info));
-        }
-
-        .progress-bar-fill.server2-fill {
-            background: linear-gradient(90deg, var(--server2-color), #d2a8ff);
-        }
-
-        .progress-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 0.5rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .progress-stats .highlight {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .progress-stats .highlight.server1-text {
-            color: var(--server1-color);
-        }
-
-        .progress-stats .highlight.server2-text {
-            color: var(--server2-color);
-        }
-
-        .legend {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.875rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-            flex-wrap: wrap;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .legend-icon {
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .legend-icon.downloaded {
-            color: var(--accent-success);
-        }
-
-        .legend-icon.pending {
-            color: var(--text-muted);
-        }
-
-        .legend-icon.in-progress {
-            color: var(--accent-warning);
-        }
-
-        /* File Activity Section */
-        .file-activity {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .activity-card {
+        .server-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 1.25rem;
+            border-top: 3px solid var(--border-color);
+            transition: border-color 0.2s;
         }
 
-        .activity-card.server1 {
-            border-left: 3px solid var(--server1-color);
+        .server-card:hover {
+            border-color: var(--text-muted);
         }
 
-        .activity-card.server2 {
-            border-left: 3px solid var(--server2-color);
-        }
+        .server-card.server1 { border-top-color: var(--server1); }
+        .server-card.server2 { border-top-color: var(--server2); }
+        .server-card.server3 { border-top-color: var(--server3); }
 
-        .activity-header {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .activity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.625rem;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.625rem 0.75rem;
-            background-color: var(--bg-tertiary);
-            border-radius: 6px;
-            font-size: 0.8125rem;
-        }
-
-        .activity-item .file-icon {
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .activity-item .file-icon.downloading {
-            color: var(--accent-warning);
-        }
-
-        .activity-item .file-icon.completed {
-            color: var(--accent-success);
-        }
-
-        .activity-item .file-name {
-            flex: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: var(--text-primary);
-        }
-
-        .activity-item .file-meta {
-            color: var(--text-secondary);
-            font-size: 0.75rem;
-            flex-shrink: 0;
-        }
-
-        .activity-item .progress-bar {
-            width: 50px;
-            height: 4px;
-            background-color: var(--bg-primary);
-            border-radius: 2px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .activity-item .progress-fill {
-            height: 100%;
-            background-color: var(--accent-warning);
-            border-radius: 2px;
-        }
-
-        .activity-empty {
-            color: var(--text-muted);
-            font-size: 0.8125rem;
-            font-style: italic;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .collections-section {
-            margin-top: 2rem;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .collections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1rem;
-        }
-
-        .collection-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            transition: border-color 0.2s ease, transform 0.1s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .collection-card:hover {
-            border-color: var(--accent-info);
-            transform: translateY(-1px);
-        }
-
-        .collection-card.server1-card {
-            border-left: 3px solid var(--server1-color);
-        }
-
-        .collection-card.server2-card {
-            border-left: 3px solid var(--server2-color);
-        }
-
-        .collection-card.downloaded {
-            border-color: var(--accent-success-dim);
-        }
-
-        .collection-card.in-progress {
-            border-color: var(--accent-warning);
-        }
-
-        .collection-header {
+        .server-card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
-        .collection-name {
+        .server-name {
+            font-size: 1rem;
             font-weight: 600;
-            font-size: 0.9375rem;
-            word-break: break-word;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .collection-server {
-            font-size: 0.625rem;
-            padding: 0.125rem 0.375rem;
+        .server-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .server-dot.server1 { background: var(--server1); }
+        .server-dot.server2 { background: var(--server2); }
+        .server-dot.server3 { background: var(--server3); }
+
+        .server-location {
+            font-size: 0.6875rem;
+            padding: 0.125rem 0.5rem;
             border-radius: 3px;
             background-color: var(--bg-tertiary);
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        .collection-server.server1 {
-            background-color: rgba(88, 166, 255, 0.2);
-            color: var(--server1-color);
+        .server-disk {
+            margin-bottom: 0.75rem;
         }
 
-        .collection-server.server2 {
-            background-color: rgba(163, 113, 247, 0.2);
-            color: var(--server2-color);
-        }
-
-        .collection-files {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        .collection-progress {
-            margin-bottom: 0.5rem;
-        }
-
-        .collection-stats {
+        .disk-label {
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
             color: var(--text-secondary);
+            margin-bottom: 0.375rem;
         }
 
-        .section-header {
+        .disk-bar-bg {
+            background-color: var(--bg-tertiary);
+            border-radius: 6px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .disk-bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .disk-bar-fill.server1 { background: linear-gradient(90deg, var(--server1), #79bbff); }
+        .disk-bar-fill.server2 { background: linear-gradient(90deg, var(--server2), #c9a5ff); }
+        .disk-bar-fill.server3 { background: linear-gradient(90deg, var(--server3), #f5a962); }
+
+        .server-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .server-meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            font-size: 0.6875rem;
+        }
+
+        .meta-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .meta-value.speed { color: var(--accent-success); }
+
+        /* Collection Section */
+        .collections-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 2rem 0 1rem;
+            margin-bottom: 1rem;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
-        .view-toggle {
+        .collections-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .filter-bar {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.375rem;
         }
 
-        .toggle-btn {
-            background-color: var(--bg-tertiary);
+        .filter-btn {
+            background: var(--bg-tertiary);
             border: 1px solid var(--border-color);
             color: var(--text-secondary);
             padding: 0.375rem 0.75rem;
             border-radius: 6px;
-            font-size: 0.875rem;
+            font-size: 0.8125rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.15s;
         }
 
-        .toggle-btn:hover {
-            background-color: var(--border-color);
+        .filter-btn:hover {
+            background: var(--border-color);
             color: var(--text-primary);
         }
 
-        .toggle-btn.active {
-            background-color: var(--accent-success);
-            color: white;
+        .filter-btn.active {
+            background: var(--accent-success);
             border-color: var(--accent-success);
+            color: #fff;
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 3rem;
+        .filter-btn.active.f-server1 { background: var(--server1); border-color: var(--server1); }
+        .filter-btn.active.f-server2 { background: var(--server2); border-color: var(--server2); }
+        .filter-btn.active.f-server3 { background: var(--server3); border-color: var(--server3); }
+
+        /* Collections Grid */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .col-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 3px solid var(--border-color);
+            transition: border-color 0.15s, transform 0.1s;
+        }
+
+        .col-card:hover {
+            transform: translateY(-1px);
+        }
+
+        .col-card.s1 { border-left-color: var(--server1); }
+        .col-card.s2 { border-left-color: var(--server2); }
+        .col-card.s3 { border-left-color: var(--server3); }
+
+        .col-card.complete {
+            border-color: rgba(35, 134, 54, 0.3);
+            border-left-color: var(--accent-success);
+        }
+
+        .col-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.625rem;
+            gap: 0.5rem;
+        }
+
+        .col-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            line-height: 1.3;
+            word-break: break-word;
+        }
+
+        .col-badge {
+            font-size: 0.625rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .col-badge.s1 { background: var(--server1-bg); color: var(--server1); }
+        .col-badge.s2 { background: var(--server2-bg); color: var(--server2); }
+        .col-badge.s3 { background: var(--server3-bg); color: var(--server3); }
+
+        .col-progress-bar {
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            height: 6px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .col-progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .col-progress-fill.s1 { background: var(--server1); }
+        .col-progress-fill.s2 { background: var(--server2); }
+        .col-progress-fill.s3 { background: var(--server3); }
+        .col-progress-fill.complete { background: var(--accent-success); }
+
+        .col-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
             color: var(--text-secondary);
         }
 
-        .error-state {
-            text-align: center;
-            padding: 3rem;
-            color: var(--accent-danger);
+        .col-status {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
+        .col-status.downloading { color: var(--accent-warning); }
+        .col-status.complete { color: var(--accent-success); }
+        .col-status.queued { color: var(--text-muted); }
+
+        .col-detail {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            margin-top: 0.375rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
@@ -637,604 +414,470 @@
             margin-top: 2rem;
         }
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        footer a {
+            color: var(--accent-info);
+            text-decoration: none;
+        }
 
-            .stats-summary {
-                width: 100%;
-                justify-content: space-between;
-            }
+        footer a:hover { text-decoration: underline; }
 
-            main {
-                padding: 1rem;
-            }
+        /* Loading */
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
 
-            .server-tabs {
-                overflow-x: auto;
-                flex-wrap: nowrap;
-            }
+        .loading-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
 
-            .combined-progress {
-                grid-template-columns: 1fr;
-            }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--bg-tertiary);
+            border-top-color: var(--accent-success);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 1rem;
+        }
 
-            .file-activity {
-                grid-template-columns: 1fr;
-            }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-            .collections-grid {
-                grid-template-columns: 1fr;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .server-cards { grid-template-columns: repeat(2, 1fr); }
+            .server-cards .server-card:last-child {
+                grid-column: 1 / -1;
             }
+            .collections-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .countdown-banner { font-size: 0.75rem; }
+            header { padding: 1rem; top: 29px; }
+            .header-content { flex-direction: column; align-items: flex-start; }
+            .header-stats { width: 100%; justify-content: space-between; }
+            main { padding: 1rem; }
+            .server-cards { grid-template-columns: 1fr; }
+            .server-cards .server-card:last-child { grid-column: auto; }
+            .collections-grid { grid-template-columns: 1fr; }
+            .filter-bar { flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="spinner"></div>
-        <p>Loading archive data...</p>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loading">
+    <div class="spinner"></div>
+    <p style="color: var(--text-secondary);">Loading archive data...</p>
+</div>
+
+<!-- Countdown Banner -->
+<div class="countdown-banner" id="countdown-banner">
+    <span class="countdown-text">Myrient shuts down</span>
+    <span class="countdown-timer" id="countdown-timer">--d --h --m --s</span>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-content">
+        <a href="#" class="logo">
+            <div class="logo-icon">M</div>
+            <span>Myrient Archive</span>
+        </a>
+        <div class="header-stats">
+            <div class="header-stat">
+                <div class="header-stat-value" id="h-total-downloaded">--</div>
+                <div class="header-stat-label">Downloaded</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value" id="h-days-left">--</div>
+                <div class="header-stat-label">Days Left</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value" id="h-collections">--</div>
+                <div class="header-stat-label">Collections</div>
+            </div>
+            <div class="header-stat">
+                <div class="header-stat-value">3</div>
+                <div class="header-stat-label">Servers</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Server Cards -->
+    <div class="server-cards" id="server-cards">
+        <!-- Populated by JS -->
     </div>
 
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-icon">📦</div>
-                <span>Archive Status</span>
-            </a>
-            <div class="stats-summary">
-                <div class="stat-item">
-                    <div class="stat-value" id="total-servers">2</div>
-                    <div class="stat-label">Servers</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="total-downloaded">-</div>
-                    <div class="stat-label">Total Downloaded</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="total-collections">-</div>
-                    <div class="stat-label">Collections</div>
-                </div>
-            </div>
+    <!-- Collections -->
+    <div class="collections-header">
+        <h2 class="collections-title">Collections</h2>
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn f-server1" data-filter="archive1">Archive 1</button>
+            <button class="filter-btn f-server2" data-filter="archive2">Archive 2</button>
+            <button class="filter-btn f-server3" data-filter="archive3">Archive 3</button>
         </div>
-    </header>
+    </div>
+    <div class="collections-grid" id="collections-grid"></div>
+</main>
 
-    <main>
-        <!-- Server Tabs -->
-        <div class="server-tabs">
-            <button class="server-tab server1" data-server="archive1">
-                <span class="server-indicator online" id="indicator-archive1"></span>
-                Archive 1
-            </button>
-            <button class="server-tab server2" data-server="archive2">
-                <span class="server-indicator online" id="indicator-archive2"></span>
-                Archive 2
-            </button>
-            <button class="server-tab active" data-server="combined">
-                <span class="server-indicator online"></span>
-                Combined View
-            </button>
-        </div>
+<footer>
+    <p>Myrient Archive Mirror &middot; 3-Server Progress Tracker</p>
+    <p style="margin-top: 0.375rem; font-size: 0.75rem;">
+        Auto-refreshes every 5 minutes &middot;
+        <a href="https://github.com/kawaii-not-kawaii/myrient-archieve" target="_blank">Source</a>
+    </p>
+</footer>
 
-        <!-- Combined View -->
-        <div id="combined-view">
-            <!-- Combined Progress Cards -->
-            <div class="combined-progress">
-                <div class="server-progress-card server1">
-                    <div class="server-header">
-                        <div class="server-title server1">
-                            <span class="indicator"></span>
-                            Archive 1
-                        </div>
-                        <span class="server-status" id="status-archive1">Loading...</span>
-                    </div>
-                    <div class="overall-progress">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill server1-fill" id="progress-bar-archive1" style="width: 0%"></div>
-                        </div>
-                        <div class="progress-stats">
-                            <span><span class="highlight server1-text" id="downloaded-archive1">-</span> downloaded</span>
-                            <span><span class="highlight" id="percentage-archive1">-</span></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="server-progress-card server2">
-                    <div class="server-header">
-                        <div class="server-title server2">
-                            <span class="indicator"></span>
-                            Archive 2
-                        </div>
-                        <span class="server-status" id="status-archive2">Loading...</span>
-                    </div>
-                    <div class="overall-progress">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill server2-fill" id="progress-bar-archive2" style="width: 0%"></div>
-                        </div>
-                        <div class="progress-stats">
-                            <span><span class="highlight server2-text" id="downloaded-archive2">-</span> downloaded</span>
-                            <span><span class="highlight" id="percentage-archive2">-</span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<script>
+// ── Constants ──
+const DEADLINE = new Date('2026-03-31T23:59:59Z');
 
-            <!-- File Activity Section -->
-            <div class="file-activity" id="file-activity">
-                <!-- Archive 1 Activity -->
-                <div class="activity-card server1" id="activity-archive1">
-                    <div class="activity-header">
-                        <span>📥</span>
-                        <span>Archive 1 - Currently Downloading</span>
-                    </div>
-                    <div class="activity-list" id="downloading-list-archive1">
-                        <div class="activity-empty">No active downloads</div>
-                    </div>
-                    <div class="activity-header" style="margin-top: 1rem;">
-                        <span>✓</span>
-                        <span>Recently Completed</span>
-                    </div>
-                    <div class="activity-list" id="completed-list-archive1">
-                        <div class="activity-empty">No recent completions</div>
-                    </div>
-                </div>
+const SERVER_META = {
+    archive1: { name: 'Archive 1', location: 'Hetzner Finland', color: 'server1', diskTotal: '44T' },
+    archive2: { name: 'Archive 2', location: 'Hetzner Finland', color: 'server2', diskTotal: '57T' },
+    archive3: { name: 'Archive 3', location: 'Leaseweb Canada', color: 'server3', diskTotal: '44T' }
+};
 
-                <!-- Archive 2 Activity -->
-                <div class="activity-card server2" id="activity-archive2">
-                    <div class="activity-header">
-                        <span>📥</span>
-                        <span>Archive 2 - Currently Downloading</span>
-                    </div>
-                    <div class="activity-list" id="downloading-list-archive2">
-                        <div class="activity-empty">No active downloads</div>
-                    </div>
-                    <div class="activity-header" style="margin-top: 1rem;">
-                        <span>✓</span>
-                        <span>Recently Completed</span>
-                    </div>
-                    <div class="activity-list" id="completed-list-archive2">
-                        <div class="activity-empty">No recent completions</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+const DATA_FILES = {
+    archive1: 'download_status.json',
+    archive2: 'download_status_archive2.json',
+    archive3: 'download_status_archive3.json'
+};
 
-        <!-- Archive 1 View -->
-        <div class="overview-card" id="view-archive1">
-            <div class="overview-header">
-                <h2 class="overview-title">📦 Archive 1 - Internet Archive Download</h2>
-                <span class="last-updated">Updated: <span id="last-updated-archive1">-</span></span>
-            </div>
-            <div class="overall-progress">
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill server1-fill" id="progress-bar-archive1-single" style="width: 0%"></div>
-                </div>
-                <div class="progress-stats">
-                    <span><span class="highlight server1-text" id="downloaded-amount-archive1">-</span> downloaded</span>
-                    <span><span class="highlight" id="total-amount-archive1">-</span> total</span>
-                    <span><span class="highlight" id="percentage-archive1-single">-</span></span>
-                </div>
-                <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
-                    <span style="color: var(--text-muted);">Files: <span id="files-archive1" style="color: var(--server1-color);">-</span></span>
-                    <span style="color: var(--text-muted);">Speed: <span id="speed-archive1" style="color: var(--server1-color);">-</span></span>
-                </div>
-            </div>
-            <div class="legend">
-                <div class="legend-item">
-                    <span class="legend-icon downloaded">✓</span>
-                    <span>Downloaded</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon in-progress">⏳</span>
-                    <span>In Progress</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon pending">○</span>
-                    <span>Pending</span>
-                </div>
-            </div>
-        </div>
+// ── State ──
+let serverData = { archive1: null, archive2: null, archive3: null };
+let assignments = null;
+let activeFilter = 'all';
 
-        <!-- Archive 2 View -->
-        <div class="overview-card" id="view-archive2">
-            <div class="overview-header">
-                <h2 class="overview-title">🎮 Archive 2 - Collections Download</h2>
-                <span class="last-updated">Updated: <span id="last-updated-archive2">-</span></span>
-            </div>
-            <div class="overall-progress">
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill server2-fill" id="progress-bar-archive2-single" style="width: 0%"></div>
-                </div>
-                <div class="progress-stats">
-                    <span><span class="highlight server2-text" id="downloaded-amount-archive2">-</span> downloaded</span>
-                    <span><span class="highlight" id="disk-used-archive2">-</span> used</span>
-                    <span><span class="highlight" id="percentage-archive2-single">-</span></span>
-                </div>
-                <div class="progress-stats" style="margin-top: 0.25rem; font-size: 0.75rem;">
-                    <span style="color: var(--text-muted);">Collections: <span id="collections-count-archive2" style="color: var(--server2-color);">-</span></span>
-                    <span style="color: var(--text-muted);">Next update: <span id="next-update-archive2">-</span></span>
-                </div>
-            </div>
-            <div class="legend">
-                <div class="legend-item">
-                    <span class="legend-icon downloaded">✓</span>
-                    <span>Complete</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-icon in-progress">⏳</span>
-                    <span>Downloading</span>
-                </div>
-            </div>
-        </div>
+// ── Helpers ──
+function formatBytes(bytes) {
+    if (!bytes || bytes <= 0) return '0 B';
+    const k = 1024;
+    const units = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + units[i];
+}
 
-        <!-- Collections Section -->
-        <div class="collections-section" id="collections-section">
-            <div class="section-header">
-                <h2 class="section-title">Collections Overview</h2>
-                <div class="view-toggle">
-                    <button class="toggle-btn active" data-filter="all">All</button>
-                    <button class="toggle-btn" data-filter="archive1">Archive 1</button>
-                    <button class="toggle-btn" data-filter="archive2">Archive 2</button>
-                </div>
-            </div>
-            <div class="collections-grid" id="collections-grid"></div>
-        </div>
-    </main>
+function parseDiskTotal(s) {
+    if (!s) return 0;
+    const m = s.match(/([\d.]+)\s*T/i);
+    return m ? parseFloat(m[1]) * 1024 * 1024 * 1024 * 1024 : 0;
+}
 
-    <footer>
-        <p>Myrient Archive Mirror • Multi-Server Progress Tracker</p>
-        <p style="margin-top: 0.5rem; font-size: 0.75rem;">Data updates automatically from both servers</p>
-    </footer>
+function timeAgo(ts) {
+    if (!ts) return 'unknown';
+    const diff = Math.floor((Date.now() - new Date(ts).getTime()) / 1000);
+    if (diff < 60) return 'just now';
+    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+    return Math.floor(diff / 86400) + 'd ago';
+}
 
-    <script>
-        let serverData = {
-            archive1: null,
-            archive2: null
-        };
-        let currentView = 'combined';
-        let currentFilter = 'all';
+function pct(a, b) {
+    if (!b || b <= 0) return 0;
+    return Math.min((a / b) * 100, 100);
+}
 
-        function formatBytes(bytes) {
-            if (bytes === 0) return '0 B';
-            const k = 1024;
-            const sizes = ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+// ── Countdown ──
+function updateCountdown() {
+    const now = Date.now();
+    const diff = DEADLINE.getTime() - now;
+    const banner = document.getElementById('countdown-banner');
+    const el = document.getElementById('countdown-timer');
+
+    if (diff <= 0) {
+        el.textContent = 'SHUTDOWN';
+        banner.classList.add('urgent');
+        return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    el.textContent = d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
+
+    if (d < 7) banner.classList.add('urgent');
+
+    document.getElementById('h-days-left').textContent = d;
+}
+
+// ── Data Loading ──
+async function loadData() {
+    const fetches = Object.entries(DATA_FILES).map(async ([key, file]) => {
+        try {
+            const r = await fetch(file + '?t=' + Date.now());
+            if (r.ok) serverData[key] = await r.json();
+        } catch (_) { /* offline */ }
+    });
+
+    try {
+        const r = await fetch('server_assignments.json?t=' + Date.now());
+        if (r.ok) assignments = await r.json();
+    } catch (_) { /* ok */ }
+
+    await Promise.all(fetches);
+    render();
+    document.getElementById('loading').classList.add('hidden');
+}
+
+// ── Render ──
+function render() {
+    renderHeader();
+    renderServerCards();
+    renderCollections();
+}
+
+function renderHeader() {
+    let totalBytes = 0;
+    let totalCollections = 0;
+
+    for (const key of Object.keys(serverData)) {
+        const d = serverData[key];
+        if (!d) continue;
+        if (d.disk_used_bytes) {
+            totalBytes += d.disk_used_bytes;
+        } else if (d.download_bytes) {
+            totalBytes += d.download_bytes;
+        }
+        if (d.collections) {
+            totalCollections += d.collections.length;
+        }
+    }
+
+    document.getElementById('h-total-downloaded').textContent = formatBytes(totalBytes);
+    document.getElementById('h-collections').textContent = totalCollections || '--';
+}
+
+function renderServerCards() {
+    const container = document.getElementById('server-cards');
+    container.innerHTML = '';
+
+    for (const [key, meta] of Object.entries(SERVER_META)) {
+        const d = serverData[key];
+        const diskTotalBytes = parseDiskTotal(meta.diskTotal);
+
+        let diskUsedStr = '--';
+        let diskPct = 0;
+        let speed = '--';
+        let eta = '--';
+        let colCount = 0;
+        let lastUpdated = '--';
+
+        if (d) {
+            diskUsedStr = d.disk_used || d.download_human || '--';
+            diskPct = d.disk_percent || 0;
+            if (typeof diskPct === 'string') diskPct = parseFloat(diskPct);
+            if (d.disk_used_bytes && diskTotalBytes > 0) {
+                diskPct = pct(d.disk_used_bytes, diskTotalBytes);
+            }
+            colCount = (d.collections || []).length;
+            lastUpdated = timeAgo(d.timestamp);
+
+            // Aggregate speed from collections
+            if (d.collections) {
+                const speeds = d.collections
+                    .map(c => c.speed)
+                    .filter(s => s && s !== '--');
+                if (speeds.length > 0) speed = speeds.join(', ');
+            }
+
+            // Aggregate ETAs
+            if (d.collections) {
+                const etas = d.collections
+                    .filter(c => c.eta && c.eta !== '--' && c.status === 'downloading')
+                    .map(c => c.eta);
+                if (etas.length > 0) eta = etas[0] + (etas.length > 1 ? ' (+' + (etas.length - 1) + ' more)' : '');
+            }
         }
 
-        async function loadServerData() {
-            try {
-                const response1 = await fetch('download_status.json?t=' + Date.now());
-                if (response1.ok) {
-                    serverData.archive1 = await response1.json();
-                }
-            } catch (e) {
-                console.log('Archive1 data not available:', e.message);
-            }
+        const online = d !== null;
+        const card = document.createElement('div');
+        card.className = 'server-card ' + meta.color;
+        card.innerHTML =
+            '<div class="server-card-header">' +
+                '<div class="server-name">' +
+                    '<span class="server-dot ' + meta.color + '"></span>' +
+                    meta.name +
+                '</div>' +
+                '<span class="server-location">' + meta.location + '</span>' +
+            '</div>' +
+            '<div class="server-disk">' +
+                '<div class="disk-label">' +
+                    '<span>Disk: ' + diskUsedStr + ' / ' + meta.diskTotal + '</span>' +
+                    '<span>' + diskPct.toFixed(1) + '%</span>' +
+                '</div>' +
+                '<div class="disk-bar-bg">' +
+                    '<div class="disk-bar-fill ' + meta.color + '" style="width:' + Math.min(diskPct, 100) + '%"></div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="server-meta">' +
+                '<div class="server-meta-item">' +
+                    '<span class="meta-label">Collections</span>' +
+                    '<span class="meta-value">' + colCount + '</span>' +
+                '</div>' +
+                '<div class="server-meta-item">' +
+                    '<span class="meta-label">Status</span>' +
+                    '<span class="meta-value" style="color:' + (online ? 'var(--accent-success)' : 'var(--accent-danger)') + '">' + (online ? 'Online' : 'Offline') + '</span>' +
+                '</div>' +
+                '<div class="server-meta-item">' +
+                    '<span class="meta-label">Speed</span>' +
+                    '<span class="meta-value speed">' + speed + '</span>' +
+                '</div>' +
+                '<div class="server-meta-item">' +
+                    '<span class="meta-label">Updated</span>' +
+                    '<span class="meta-value">' + lastUpdated + '</span>' +
+                '</div>' +
+            '</div>';
 
-            try {
-                const response2 = await fetch('download_status_archive2.json?t=' + Date.now());
-                if (response2.ok) {
-                    serverData.archive2 = await response2.json();
-                }
-            } catch (e) {
-                console.log('Archive2 data not available:', e.message);
-            }
+        container.appendChild(card);
+    }
+}
 
-            updateUI();
-            document.getElementById('loading-overlay').classList.add('hidden');
-        }
+function renderCollections() {
+    const grid = document.getElementById('collections-grid');
+    grid.innerHTML = '';
 
-        function updateUI() {
-            updateHeaderStats();
-            updateArchive1View();
-            updateArchive2View();
-            updateFileActivity();
-            renderCollections();
-        }
+    const allCollections = [];
 
-        function updateHeaderStats() {
-            let totalBytes = 0;
-            let totalCollections = 0;
+    // Gather collections from each server's status JSON
+    for (const [serverKey, meta] of Object.entries(SERVER_META)) {
+        const d = serverData[serverKey];
+        if (!d || !d.collections) continue;
 
-            if (serverData.archive1) {
-                totalBytes += serverData.archive1.download_bytes || 0;
-                totalCollections += 1;
-            }
-
-            if (serverData.archive2) {
-                totalBytes += serverData.archive2.download_bytes || 0;
-                const cols = serverData.archive2.collections || [];
-                totalCollections += cols.length;
-            }
-
-            document.getElementById('total-downloaded').textContent = formatBytes(totalBytes);
-            document.getElementById('total-collections').textContent = totalCollections;
-        }
-
-        function updateArchive1View() {
-            if (!serverData.archive1) {
-                document.getElementById('status-archive1').textContent = 'Offline';
-                document.getElementById('indicator-archive1').classList.remove('online');
-                return;
-            }
-
-            const data = serverData.archive1;
-            const totalBytes = 44511371905891;
-            const downloadedBytes = data.download_bytes || 0;
-            const progress = Math.min((downloadedBytes / totalBytes * 100), 100);
-
-            document.getElementById('status-archive1').textContent = 'Online';
-            document.getElementById('indicator-archive1').classList.add('online');
-
-            document.getElementById('progress-bar-archive1-single').style.width = progress + '%';
-            document.getElementById('downloaded-amount-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
-            document.getElementById('total-amount-archive1').textContent = '40.48 TiB';
-            document.getElementById('percentage-archive1-single').textContent = progress.toFixed(2) + '%';
-            document.getElementById('files-archive1').textContent = (data.files_transferred || 0) + ' / ' + (data.files_total || 0);
-            document.getElementById('speed-archive1').textContent = data.rclone_stats ? 'Active' : '-';
-            
-            if (data.timestamp) {
-                const lastUpdate = new Date(data.timestamp);
-                document.getElementById('last-updated-archive1').textContent = timeAgo(lastUpdate);
-            }
-
-            document.getElementById('progress-bar-archive1').style.width = progress + '%';
-            document.getElementById('downloaded-archive1').textContent = data.download_human || formatBytes(downloadedBytes);
-            document.getElementById('percentage-archive1').textContent = progress.toFixed(2) + '%';
-        }
-
-        function updateArchive2View() {
-            if (!serverData.archive2) {
-                document.getElementById('status-archive2').textContent = 'Offline';
-                document.getElementById('indicator-archive2').classList.remove('online');
-                return;
-            }
-
-            const data = serverData.archive2;
-            const collections = data.collections || [];
-            
-            document.getElementById('status-archive2').textContent = 'Online';
-            document.getElementById('indicator-archive2').classList.add('online');
-
-            const collectionSizes = {
-                'T-En Collection': 832446147181,
-                'Hardware Target Game Database': 490822207707,
-                'TOSEC': 326081509387,
-                'Total DOS Collection': 1116805583650,
-                'HBMAME': 38357862790,
-                'FinalBurn Neo': 30073971110,
-                'bitsavers': 1807835033486,
-                'TOSEC-PIX': 2477640936497
-            };
-            
-            let totalTarget = 0;
-            collections.forEach(col => {
-                totalTarget += collectionSizes[col.name] || 0;
+        for (const col of d.collections) {
+            allCollections.push({
+                name: col.name,
+                server: serverKey,
+                serverColor: meta.color,
+                downloadedBytes: col.downloaded_bytes || 0,
+                downloadedHuman: col.downloaded_human || '--',
+                targetTib: col.target_tib || 0,
+                percent: col.percent || 0,
+                speed: col.speed || '--',
+                eta: col.eta || '--',
+                status: col.status || 'downloading'
             });
-
-            const downloadedBytes = data.download_bytes || 0;
-            const progress = totalTarget > 0 ? Math.min((downloadedBytes / totalTarget * 100), 100) : 0;
-
-            document.getElementById('progress-bar-archive2-single').style.width = progress + '%';
-            document.getElementById('downloaded-amount-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
-            document.getElementById('disk-used-archive2').textContent = data.disk_used || '-';
-            document.getElementById('percentage-archive2-single').textContent = progress.toFixed(1) + '%';
-            document.getElementById('collections-count-archive2').textContent = collections.length;
-
-            if (data.timestamp) {
-                const lastUpdate = new Date(data.timestamp);
-                document.getElementById('last-updated-archive2').textContent = timeAgo(lastUpdate);
-                
-                const nextUpdate = new Date(lastUpdate);
-                nextUpdate.setMinutes(nextUpdate.getMinutes() + 30);
-                const minsUntil = Math.floor((nextUpdate - new Date()) / 60000);
-                document.getElementById('next-update-archive2').textContent = minsUntil > 0 ? minsUntil + ' min' : 'soon';
-            }
-
-            document.getElementById('progress-bar-archive2').style.width = Math.min(progress, 100) + '%';
-            document.getElementById('downloaded-archive2').textContent = data.download_human || formatBytes(downloadedBytes);
-            document.getElementById('percentage-archive2').textContent = progress.toFixed(1) + '%';
         }
+    }
 
-        function updateFileActivity() {
-            // Archive 1 Activity
-            if (serverData.archive1) {
-                const downloading1 = serverData.archive1.currently_downloading || [];
-                const completed1 = serverData.archive1.recently_completed || [];
-                
-                updateActivityList('downloading-list-archive1', downloading1, 'downloading');
-                updateActivityList('completed-list-archive1', completed1, 'completed');
-            }
-
-            // Archive 2 Activity
-            if (serverData.archive2) {
-                const downloading2 = serverData.archive2.currently_downloading || [];
-                const completed2 = serverData.archive2.recently_completed || [];
-                
-                updateActivityList('downloading-list-archive2', downloading2, 'downloading');
-                updateActivityList('completed-list-archive2', completed2, 'completed');
-            }
-        }
-
-        function updateActivityList(elementId, items, type) {
-            const container = document.getElementById(elementId);
-            if (!items || items.length === 0) {
-                container.innerHTML = '<div class="activity-empty">No ' + (type === 'downloading' ? 'active downloads' : 'recent completions') + '</div>';
-                return;
-            }
-
-            container.innerHTML = items.slice(0, 4).map(item => {
-                const file = item.file || 'Unknown';
-                const shortFile = file.length > 40 ? '...' + file.slice(-37) : file;
-                const meta = type === 'downloading' ? (item.progress || '0%') : (item.size || '');
-                const progressPercent = parseInt(item.progress) || 0;
-                
-                return `
-                    <div class="activity-item">
-                        <span class="file-icon ${type}">${type === 'downloading' ? '⏳' : '✓'}</span>
-                        <span class="file-name" title="${file}">${shortFile}</span>
-                        ${type === 'downloading' ? `
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${progressPercent}%"></div>
-                            </div>
-                        ` : ''}
-                        <span class="file-meta">${meta}</span>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function timeAgo(date) {
-            const now = new Date();
-            const diff = Math.floor((now - date) / 1000);
-            
-            if (diff < 60) return 'just now';
-            if (diff < 3600) return Math.floor(diff / 60) + ' min ago';
-            if (diff < 86400) return Math.floor(diff / 3600) + ' hours ago';
-            return Math.floor(diff / 86400) + ' days ago';
-        }
-
-        function parseSize(sizeStr) {
-            if (!sizeStr) return 0;
-            const units = { 'B': 1, 'KiB': 1024, 'MiB': 1024**2, 'GiB': 1024**3, 'TiB': 1024**4, 
-                           'K': 1024, 'M': 1024**2, 'G': 1024**3, 'T': 1024**4 };
-            const match = sizeStr.match(/^([\d.]+)\s*(B|KiB|MiB|GiB|TiB|K|M|G|T)$/i);
-            if (!match) return 0;
-            return parseFloat(match[1]) * (units[match[2]] || 1);
-        }
-
-        function renderCollections() {
-            const grid = document.getElementById('collections-grid');
-            grid.innerHTML = '';
-
-            if (serverData.archive1 && (currentFilter === 'all' || currentFilter === 'archive1')) {
-                const card = createCollectionCard({
-                    name: 'Internet Archive',
-                    size: '40.48 TiB',
-                    files: (serverData.archive1.files_transferred || 0) + ' / ' + (serverData.archive1.files_total || 0) + ' files',
-                    server: 'archive1',
-                    progress: ((serverData.archive1.download_bytes || 0) / 44511371905891 * 100),
-                    isActive: true
-                });
-                grid.appendChild(card);
-            }
-
-            if (serverData.archive2 && (currentFilter === 'all' || currentFilter === 'archive2')) {
-                const collections = serverData.archive2.collections || [];
-                const collectionSizes = {
-                    'T-En Collection': 832446147181,
-                    'Hardware Target Game Database': 490822207707,
-                    'TOSEC': 326081509387,
-                    'Total DOS Collection': 1116805583650,
-                    'HBMAME': 38357862790,
-                    'FinalBurn Neo': 30073971110,
-                    'bitsavers': 1807835033486,
-                    'TOSEC-PIX': 2477640936497
-                };
-                
-                collections.forEach(col => {
-                    const targetSize = collectionSizes[col.name] || 0;
-                    const currentSize = parseSize(col.size);
-                    const progress = targetSize > 0 ? (currentSize / targetSize * 100) : 0;
-                    
-                    const card = createCollectionCard({
-                        name: col.name,
-                        size: col.size || 'Calculating...',
-                        files: targetSize > 0 ? progress.toFixed(1) + '% of ' + formatBytes(targetSize) : 'Downloading...',
-                        server: 'archive2',
-                        progress: progress,
-                        isActive: true
-                    });
-                    grid.appendChild(card);
+    // If no live collection data, fall back to server_assignments.json
+    if (allCollections.length === 0 && assignments && assignments.servers) {
+        for (const [serverKey, srv] of Object.entries(assignments.servers)) {
+            const meta = SERVER_META[serverKey];
+            if (!meta || !srv.collections) continue;
+            for (const col of srv.collections) {
+                allCollections.push({
+                    name: col.name,
+                    server: serverKey,
+                    serverColor: meta.color,
+                    downloadedBytes: 0,
+                    downloadedHuman: '--',
+                    targetTib: col.size_tib || 0,
+                    percent: 0,
+                    speed: '--',
+                    eta: '--',
+                    status: col.status || 'queued'
                 });
             }
+        }
+    }
 
-            if (grid.innerHTML === '') {
-                grid.innerHTML = '<div class="empty-state">No collections to display</div>';
-            }
+    // Filter
+    const filtered = activeFilter === 'all'
+        ? allCollections
+        : allCollections.filter(c => c.server === activeFilter);
+
+    // Sort: downloading first, then by percent descending, complete last
+    const statusOrder = { downloading: 0, queued: 1, complete: 2 };
+    filtered.sort((a, b) => {
+        const sa = statusOrder[a.status] !== undefined ? statusOrder[a.status] : 1;
+        const sb = statusOrder[b.status] !== undefined ? statusOrder[b.status] : 1;
+        if (sa !== sb) return sa - sb;
+        return b.percent - a.percent;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:2rem; color:var(--text-muted);">No collections to display</div>';
+        return;
+    }
+
+    for (const col of filtered) {
+        const card = document.createElement('div');
+        const isComplete = col.status === 'complete';
+        const sClass = col.serverColor.replace('server', 's');
+        card.className = 'col-card ' + sClass + (isComplete ? ' complete' : '');
+
+        const statusIcon = isComplete ? '&#10003;' : col.status === 'downloading' ? '&#9660;' : '&#9675;';
+        const statusClass = isComplete ? 'complete' : col.status === 'downloading' ? 'downloading' : 'queued';
+        const statusLabel = isComplete ? 'Complete' : col.status === 'downloading' ? 'Downloading' : 'Queued';
+
+        const sizeStr = col.targetTib > 0 ? col.targetTib.toFixed(2) + ' TiB' : col.downloadedHuman;
+        const barClass = isComplete ? 'complete' : sClass;
+
+        let detailStr = '';
+        if (col.speed !== '--' && col.status === 'downloading') {
+            detailStr = col.speed + (col.eta !== '--' ? ' &middot; ETA: ' + col.eta : '');
         }
 
-        function createCollectionCard(data) {
-            const card = document.createElement('div');
-            card.className = `collection-card ${data.server}-card`;
-            
-            const progress = Math.min(data.progress || 0, 100);
-            
-            let statusText, statusColor, icon;
-            if (progress >= 100) {
-                statusText = 'Complete';
-                statusColor = 'var(--accent-success)';
-                icon = '✓';
-                card.classList.add('downloaded');
-            } else if (data.isActive || progress > 0) {
-                statusText = 'In Progress';
-                statusColor = 'var(--accent-warning)';
-                icon = '⏳';
-                card.classList.add('in-progress');
-            } else {
-                statusText = 'Pending';
-                statusColor = 'var(--text-muted)';
-                icon = '○';
-            }
+        card.innerHTML =
+            '<div class="col-card-header">' +
+                '<div class="col-name">' + escapeHtml(col.name) + '</div>' +
+                '<span class="col-badge ' + sClass + '">' + SERVER_META[col.server].name.replace('Archive ', 'A') + '</span>' +
+            '</div>' +
+            '<div class="col-progress-bar">' +
+                '<div class="col-progress-fill ' + barClass + '" style="width:' + Math.min(col.percent, 100) + '%"></div>' +
+            '</div>' +
+            '<div class="col-stats">' +
+                '<span>' + sizeStr + '</span>' +
+                '<span class="col-status ' + statusClass + '">' + statusIcon + ' ' + statusLabel +
+                    (col.percent > 0 && !isComplete ? ' (' + col.percent.toFixed(1) + '%)' : '') +
+                '</span>' +
+            '</div>' +
+            (detailStr ? '<div class="col-detail">' + detailStr + '</div>' : '');
 
-            card.innerHTML = `
-                <div class="collection-header">
-                    <div>
-                        <div class="collection-name">${data.name}</div>
-                        <div class="collection-files">${data.files}</div>
-                    </div>
-                    <span class="collection-server ${data.server}">${data.server}</span>
-                </div>
-                <div class="collection-progress">
-                    <div class="progress-bar-bg">
-                        <div class="progress-bar-fill ${data.server}-fill" style="width: ${progress}%"></div>
-                    </div>
-                </div>
-                <div class="collection-stats">
-                    <span>${data.size}</span>
-                    <span style="color: ${statusColor};">${icon} ${statusText}</span>
-                </div>
-            `;
+        grid.appendChild(card);
+    }
+}
 
-            return card;
-        }
+function escapeHtml(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
+}
 
-        document.querySelectorAll('.server-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.server-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                const server = tab.dataset.server;
-                currentView = server;
+// ── Filter Buttons ──
+document.getElementById('filter-bar').addEventListener('click', function(e) {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCollections();
+});
 
-                document.getElementById('combined-view').style.display = 'none';
-                document.getElementById('view-archive1').classList.remove('active');
-                document.getElementById('view-archive2').classList.remove('active');
-
-                if (server === 'combined') {
-                    document.getElementById('combined-view').style.display = 'block';
-                } else if (server === 'archive1') {
-                    document.getElementById('view-archive1').classList.add('active');
-                } else if (server === 'archive2') {
-                    document.getElementById('view-archive2').classList.add('active');
-                }
-            });
-        });
-
-        document.querySelectorAll('.toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.dataset.filter;
-                renderCollections();
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadServerData();
-            setInterval(loadServerData, 5 * 60 * 1000);
-        });
-    </script>
+// ── Init ──
+document.addEventListener('DOMContentLoaded', function() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+    loadData();
+    setInterval(loadData, 5 * 60 * 1000);
+});
+</script>
 </body>
 </html>

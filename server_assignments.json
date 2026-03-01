@@ -27,9 +27,31 @@
           "tmux_window": "internet-archive",
           "started": "2026-02-28",
           "restarted_in_tmux": "2026-03-01"
+        },
+        {
+          "name": "No-Intro - Microsoft Xbox 360 (Digital)",
+          "source": "Myrient:No-Intro/Microsoft - Xbox 360 (Digital)/",
+          "size_tib": 1.19,
+          "files": 14373,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "ni-xbox360",
+          "started": "2026-03-01",
+          "note": "No-Intro spillover to use Archive1 spare capacity"
+        },
+        {
+          "name": "No-Intro - Source Code - Various",
+          "source": "Myrient:No-Intro/Source Code - Various/",
+          "size_tib": 1.00,
+          "files": 24,
+          "priority": "medium",
+          "status": "downloading",
+          "tmux_window": "ni-sourcecode",
+          "started": "2026-03-01",
+          "note": "No-Intro spillover to use Archive1 spare capacity"
         }
       ],
-      "total_allocated_tib": 40.48
+      "total_allocated_tib": 42.67
     },
     "archive2": {
       "hostname": "archive2",
@@ -290,23 +312,108 @@
           "status": "downloading",
           "tmux_window": "redump-small",
           "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Nintendo - Wii NKit RVZ",
+          "source": "Myrient:Redump/Nintendo - Wii - NKit RVZ [zstd-19-128k]/",
+          "size_tib": 5.87,
+          "files": 3778,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "wii-redump",
+          "started": "2026-03-01"
+        },
+        {
+          "name": "Redump - Nintendo - Wii U WUX",
+          "source": "Myrient:Redump/Nintendo - Wii U - WUX/",
+          "size_tib": 3.90,
+          "files": 537,
+          "priority": "high",
+          "status": "downloading",
+          "tmux_window": "wiiu-redump",
+          "started": "2026-03-01"
         }
       ],
-      "total_allocated_tib": 45.89
+      "total_allocated_tib": 55.66
+    },
+    "archive3": {
+      "hostname": "s1257615",
+      "ip": "184.107.132.106",
+      "user": "root",
+      "storage_total": "44T",
+      "storage_target": "42T",
+      "storage_setup": "6x 8TB disks. 5 formatted ext4 (/mnt/disk1-5) + root disk branch (/mnt/disk-root), pooled via mergerfs at /mnt/storage",
+      "download_path": "/mnt/storage/myrient_downloads/",
+      "rclone_params": "--transfers 32 --checkers 64 --buffer-size 256M --multi-thread-streams 4",
+      "tmux_session": "myrient",
+      "collections": [
+        {
+          "name": "No-Intro - Nintendo (all subcollections)",
+          "source": "Myrient:No-Intro/ (filtered: Nintendo *)",
+          "size_tib": 18.04,
+          "files": 87,
+          "priority": "critical",
+          "status": "downloading",
+          "tmux_window": "ni-nintendo",
+          "started": "2026-03-01",
+          "note": "87 Nintendo subcollections: 3DS, Wii U, DS, GBA, SNES, N64, Game Boy, NES, Virtual Boy, etc."
+        },
+        {
+          "name": "No-Intro - Sony (all subcollections)",
+          "source": "Myrient:No-Intro/ (filtered: Sony *)",
+          "size_tib": 24.78,
+          "files": 14,
+          "priority": "critical",
+          "status": "downloading",
+          "tmux_window": "ni-sony",
+          "started": "2026-03-01",
+          "note": "14 Sony subcollections: PS3 PSN, PS Vita, PSP, PS1 Classics, PS Mobile"
+        },
+        {
+          "name": "No-Intro - Classic Retro (30+ manufacturers)",
+          "source": "Myrient:No-Intro/ (filtered: Sega, NEC, SNK, Bandai, Commodore, Atari, etc.)",
+          "size_tib": 0.025,
+          "priority": "critical",
+          "status": "downloading",
+          "tmux_window": "ni-classic",
+          "started": "2026-03-01",
+          "note": "All small retro manufacturers: Sega carts, NEC, SNK, Bandai, Commodore, Atari, Casio, Coleco, Mattel, Magnavox, GCE, Fairchild, etc."
+        }
+      ],
+      "total_allocated_tib": 42.85,
+      "note": "Nintendo + Sony run in parallel. Nintendo (18T) completes first, Sony fills remaining space. Classic retro (<25G) completes in minutes."
     }
   },
   "unassigned_collections": [
     {
-      "name": "No-Intro",
-      "size_tib": 83.46,
-      "files": 306890,
-      "note": "Too large for current servers. Needs dedicated storage or 3rd server."
+      "name": "No-Intro - IBM/PC (GOG, DLsite, Humble Bundle, etc.)",
+      "size_tib": 16.8,
+      "note": "Largest unassigned No-Intro group. Non-gaming-console content."
     },
     {
-      "name": "Redump (remaining)",
-      "size_tib": 181.65,
-      "files": 171359,
-      "note": "Only selective subcollections assigned. Bulk requires 3rd server."
+      "name": "No-Intro - Unofficial (Obscure Gamers, UMD Video)",
+      "size_tib": 4.2,
+      "note": "Community preservation collections"
+    },
+    {
+      "name": "No-Intro - Video (DVD-Video, BD-Video)",
+      "size_tib": 4.32,
+      "note": "Non-gaming video content"
+    },
+    {
+      "name": "No-Intro - Microsoft Xbox 360 (Dev Kit HDDs)",
+      "size_tib": 2.26,
+      "note": "Dev kit hard drive images. Xbox 360 Digital is on Archive1."
+    },
+    {
+      "name": "No-Intro - Various (itch.io, Games for Windows, etc.)",
+      "size_tib": 3.6,
+      "note": "Miscellaneous PC digital distribution"
+    },
+    {
+      "name": "Redump (remaining - PS2, PS3, Xbox 360, PC, Wii U disc, etc.)",
+      "size_tib": 171.88,
+      "note": "Major Redump collections not assigned. Would need 170+ TB additional storage."
     }
   ]
 }

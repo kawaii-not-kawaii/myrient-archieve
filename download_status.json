@@ -1,52 +1,40 @@
 {
-  "timestamp": "2026-03-01T13:00:03Z",
-  "download_bytes": 4308263429765,
-  "download_human": "4.6T",
+  "timestamp": "2026-03-01T12:00:00Z",
+  "server": "archive1",
+  "disk_total": "44T",
   "disk_used": "4.6T",
-  "disk_percent": "12%",
-  "files_transferred": 1031,
-  "files_total": 11067,
-  "currently_downloading": [{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"58%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"68%"},{"file":"PS3_ALVRO_PART…orn_Star_BLUS31478.rar","progress":"89%"},{"file":"PS3_ALVRO_PART…d_Core_4_BLUS30027.rar","progress":"78%"}],
-  "recently_completed": [
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Metroid Other M [000500001019E000][USA].7z",
-    "size": "7.4Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Metroid Prime Trilogy [000500001019DD00][USA].7z",
-    "size": "7.6Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Trauma Team [00050000101B7800][USA].7z",
-    "size": "3.1Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Wario Land Shake It [00050000101BDF00][USA].7z",
-    "size": "3.6Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/The Legend of Zelda Skyward Sword [00050000101B1100][EUR].7z",
-    "size": "4.2Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Metroid Prime Trilogy [000500001019DE00][EUR].7z",
-    "size": "7.5Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/METROID Other M [000500001019E100][EUR].7z",
-    "size": "7.4Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/Xenoblade Chronicles [000500001019D700][JPN].7z",
-    "size": "4.2Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/WARIO WARE SMOOTH MOVES [00050000101ECA00][USA].7z",
-    "size": "3.4Gi"
-  },
-  {
-    "file": "Internet Archive/archiver_2020/wii-u-wii-nus/ZACK & WIKI QUEST FOR BARBAROS' TREASURE [00050000101BDA00][USA].7z",
-    "size": "1.9Gi"
-  }
-]
+  "disk_used_bytes": 5057235836928,
+  "disk_percent": 12,
+  "collections": [
+    {
+      "name": "Internet Archive",
+      "downloaded_bytes": 3960000000000,
+      "downloaded_human": "3.6 TiB",
+      "target_tib": 40.48,
+      "percent": 8.7,
+      "speed": "60.3 MiB/s",
+      "eta": "~4d",
+      "status": "downloading"
+    },
+    {
+      "name": "No-Intro - Microsoft Xbox 360 (Digital)",
+      "downloaded_bytes": 550000000000,
+      "downloaded_human": "512.23 GiB",
+      "target_tib": 1.19,
+      "percent": 41.3,
+      "speed": "12 MiB/s",
+      "eta": "~2d19h",
+      "status": "downloading"
+    },
+    {
+      "name": "No-Intro - Source Code - Various",
+      "downloaded_bytes": 400000000000,
+      "downloaded_human": "372.53 GiB",
+      "target_tib": 1.0,
+      "percent": 36.4,
+      "speed": "5 MiB/s",
+      "eta": "~1d11h",
+      "status": "downloading"
+    }
+  ]
 }

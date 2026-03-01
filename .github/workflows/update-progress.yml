@@ -2,69 +2,471 @@ name: Update Download Progress
 
 on:
   schedule:
-    # Run every hour
     - cron: '0 * * * *'
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:
 
 jobs:
   update-progress:
     runs-on: ubuntu-latest
-    
+    timeout-minutes: 15
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.8.0
       with:
         ssh-private-key: ${{ secrets.ARCHIVE_SERVER_SSH_KEY }}
-        
-    - name: Add server to known hosts
+
+    - name: Add servers to known hosts
       run: |
         mkdir -p ~/.ssh
         echo "${{ secrets.ARCHIVE_SERVER_HOST_KEY }}" >> ~/.ssh/known_hosts
-        
-    - name: Fetch download progress from server
+
+    - name: Collect Archive1 stats
+      id: archive1
+      continue-on-error: true
       run: |
-        # Create download_status.json with current stats
-        echo "Fetching download stats..."
-        
-        # Get current download size
-        DOWNLOAD_SIZE=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "du -sb /mnt/storage/myrient_downloads 2>/dev/null || echo 0")
-        DOWNLOAD_SIZE=${DOWNLOAD_SIZE%%$'\t'*}
-        
-        # Get rclone progress
-        RCLONE_STATS=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "tail -5 /mnt/storage/myrient_downloads/rclone.log 2>/dev/null | grep 'Transferred:' | tail -1 || echo 'No data'")
-        
-        # Get disk usage
-        DISK_USAGE=$(ssh -o StrictHostKeyChecking=no ${{ secrets.ARCHIVE_SERVER_USER }}@${{ secrets.ARCHIVE_SERVER_HOST }} "df -h /mnt/storage | grep mergerfs || echo 'No data'")
-        
-        # Create status JSON
-        cat > download_status.json << EOF
-        {
-          "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-          "server": "${{ secrets.ARCHIVE_SERVER_HOST }}",
-          "download_bytes": $DOWNLOAD_SIZE,
-          "download_human": "$(numfmt --to=iec-i --suffix=B $DOWNLOAD_SIZE 2>/dev/null || echo '0B')",
-          "rclone_stats": "$RCLONE_STATS",
-          "disk_usage": "$DISK_USAGE"
+        SSH="ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no root@135.181.220.252"
+
+        # Run all commands in a single SSH session
+        STATS=$($SSH bash -s << 'REMOTE'
+        set -e
+
+        # Disk usage
+        DISK_LINE=$(df -h /mnt/storage 2>/dev/null | tail -1)
+        DISK_TOTAL=$(echo "$DISK_LINE" | awk '{print $2}')
+        DISK_USED=$(echo "$DISK_LINE" | awk '{print $3}')
+        DISK_PCT=$(echo "$DISK_LINE" | awk '{print $5}' | tr -d '%')
+        DISK_USED_BYTES=$(df -B1 /mnt/storage 2>/dev/null | tail -1 | awk '{print $3}')
+
+        echo "DISK_TOTAL=$DISK_TOTAL"
+        echo "DISK_USED=$DISK_USED"
+        echo "DISK_PCT=$DISK_PCT"
+        echo "DISK_USED_BYTES=$DISK_USED_BYTES"
+
+        # Per-collection sizes (run in parallel)
+        BASE="/mnt/storage/myrient_downloads"
+
+        ia_bytes=$(du -sb "$BASE/Internet Archive" 2>/dev/null | cut -f1) &
+        xbox_bytes=$(du -sb "$BASE/No-Intro/Microsoft - Xbox 360 (Digital)" 2>/dev/null | cut -f1) &
+        src_bytes=$(du -sb "$BASE/No-Intro/Source Code - Various" 2>/dev/null | cut -f1) &
+        wait
+
+        ia_bytes=${ia_bytes:-0}
+        xbox_bytes=${xbox_bytes:-0}
+        src_bytes=${src_bytes:-0}
+
+        echo "COL_IA=$ia_bytes"
+        echo "COL_XBOX360=$xbox_bytes"
+        echo "COL_SRCCODE=$src_bytes"
+
+        # Rclone stats from tmux
+        for win in internet-archive ni-xbox360 ni-sourcecode; do
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          echo "RCLONE_${win}=$line"
+        done
+        REMOTE
+        )
+
+        # Parse into env vars
+        while IFS='=' read -r key value; do
+          [ -n "$key" ] && echo "$key=$value" >> "$GITHUB_ENV"
+        done <<< "$STATS"
+
+        echo "archive1_ok=true" >> "$GITHUB_OUTPUT"
+
+    - name: Collect Archive2 stats
+      id: archive2
+      continue-on-error: true
+      run: |
+        SSH="ssh -o ConnectTimeout=10 -o StrictHostKeyChecking=no root@65.21.35.118"
+
+        STATS=$($SSH bash -s << 'REMOTE'
+        set -e
+
+        DISK_LINE=$(df -h /mnt/storage 2>/dev/null | tail -1)
+        echo "A2_DISK_TOTAL=$(echo "$DISK_LINE" | awk '{print $2}')"
+        echo "A2_DISK_USED=$(echo "$DISK_LINE" | awk '{print $3}')"
+        echo "A2_DISK_PCT=$(echo "$DISK_LINE" | awk '{print $5}' | tr -d '%')"
+        echo "A2_DISK_USED_BYTES=$(df -B1 /mnt/storage 2>/dev/null | tail -1 | awk '{print $3}')"
+
+        BASE="/mnt/storage/myrient_downloads"
+
+        # All collection dirs - use Python to avoid shell quoting issues
+        python3 -c "
+        import os, subprocess, json
+        base = '$BASE'
+        cols = {}
+        for name in sorted(os.listdir(base)):
+            path = os.path.join(base, name)
+            if not os.path.isdir(path):
+                continue
+            try:
+                result = subprocess.run(['du', '-sb', path], capture_output=True, text=True, timeout=120)
+                size = int(result.stdout.split()[0]) if result.stdout.strip() else 0
+            except:
+                size = 0
+            cols[name] = size
+        print('A2_COLS=' + json.dumps(cols))
+        "
+
+        # Rclone from tmux windows
+        for win in bitsavers htgdb t-en tosec-pix dos mame tosec-iso misc laserdisc retro-lost-touhou eggman exo-tekno redump-big redump-small wii-redump wiiu-redump; do
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          echo "A2_RCLONE_${win}=$line"
+        done
+        REMOTE
+        )
+
+        while IFS='=' read -r key value; do
+          [ -n "$key" ] && echo "$key=$value" >> "$GITHUB_ENV"
+        done <<< "$STATS"
+
+        echo "archive2_ok=true" >> "$GITHUB_OUTPUT"
+
+    - name: Collect Archive3 stats
+      id: archive3
+      continue-on-error: true
+      run: |
+        SSH="ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no root@184.107.132.106"
+
+        STATS=$($SSH bash -s << 'REMOTE'
+        set -e
+
+        DISK_LINE=$(df -h /mnt/storage 2>/dev/null | tail -1)
+        echo "A3_DISK_TOTAL=$(echo "$DISK_LINE" | awk '{print $2}')"
+        echo "A3_DISK_USED=$(echo "$DISK_LINE" | awk '{print $3}')"
+        echo "A3_DISK_PCT=$(echo "$DISK_LINE" | awk '{print $5}' | tr -d '%')"
+        echo "A3_DISK_USED_BYTES=$(df -B1 /mnt/storage 2>/dev/null | tail -1 | awk '{print $3}')"
+
+        BASE="/mnt/storage/myrient_downloads/No-Intro"
+
+        # Nintendo total
+        nintendo_bytes=$(du -sbc "$BASE"/Nintendo\ -\ */ 2>/dev/null | tail -1 | cut -f1 || echo 0)
+        echo "A3_NINTENDO=$nintendo_bytes"
+
+        # Sony total
+        sony_bytes=$(du -sbc "$BASE"/Sony\ -\ */ 2>/dev/null | tail -1 | cut -f1 || echo 0)
+        echo "A3_SONY=$sony_bytes"
+
+        # Classic retro (everything else in No-Intro except Nintendo/Sony)
+        classic_bytes=$(find "$BASE" -maxdepth 1 -mindepth 1 -type d \
+          ! -name "Nintendo *" ! -name "Sony *" \
+          -exec du -sb {} + 2>/dev/null | awk '{s+=$1}END{print s+0}')
+        echo "A3_CLASSIC=$classic_bytes"
+
+        # Rclone from tmux
+        for win in ni-nintendo ni-sony ni-classic; do
+          line=$(tmux capture-pane -t myrient:$win -p -S -100 2>/dev/null | grep "Transferred:" | grep -v "Errors\|Elapsed" | tail -1 || echo "")
+          echo "A3_RCLONE_${win}=$line"
+        done
+        REMOTE
+        )
+
+        while IFS='=' read -r key value; do
+          [ -n "$key" ] && echo "$key=$value" >> "$GITHUB_ENV"
+        done <<< "$STATS"
+
+        echo "archive3_ok=true" >> "$GITHUB_OUTPUT"
+
+    - name: Generate JSON files
+      run: |
+        TIMESTAMP=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+        python3 << 'PYEOF'
+        import json, os, re
+        from datetime import datetime, timezone
+
+        ts = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+
+        def env(key, default=''):
+            return os.environ.get(key, default)
+
+        def env_int(key, default=0):
+            v = os.environ.get(key, '')
+            try:
+                return int(v)
+            except:
+                return default
+
+        def env_float(key, default=0.0):
+            v = os.environ.get(key, '')
+            try:
+                return float(v)
+            except:
+                return default
+
+        def human_bytes(b):
+            if b <= 0:
+                return '0 B'
+            for unit in ['B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB']:
+                if abs(b) < 1024.0:
+                    return f'{b:.2f} {unit}'
+                b /= 1024.0
+            return f'{b:.2f} PiB'
+
+        def parse_rclone_speed(line):
+            """Extract speed from rclone Transferred line."""
+            if not line:
+                return '--'
+            m = re.search(r'(\d+[\d.]*\s*[KMGTP]?i?B(?:yte)?/s)', line)
+            return m.group(1) if m else '--'
+
+        def parse_rclone_eta(line):
+            """Extract ETA from rclone Transferred line."""
+            if not line:
+                return '--'
+            m = re.search(r'ETA\s+([\dhms ]+)', line)
+            return m.group(1).strip() if m else '--'
+
+        # ── Archive 1 ──
+        a1_collections = [
+            {
+                'name': 'Internet Archive',
+                'downloaded_bytes': env_int('COL_IA'),
+                'downloaded_human': human_bytes(env_int('COL_IA')),
+                'target_tib': 40.48,
+                'percent': round(env_int('COL_IA') / (40.48 * 1024**4) * 100, 2) if env_int('COL_IA') > 0 else 0,
+                'speed': parse_rclone_speed(env('RCLONE_internet-archive')),
+                'eta': parse_rclone_eta(env('RCLONE_internet-archive')),
+                'status': 'downloading'
+            },
+            {
+                'name': 'No-Intro - Microsoft Xbox 360 (Digital)',
+                'downloaded_bytes': env_int('COL_XBOX360'),
+                'downloaded_human': human_bytes(env_int('COL_XBOX360')),
+                'target_tib': 1.19,
+                'percent': round(env_int('COL_XBOX360') / (1.19 * 1024**4) * 100, 2) if env_int('COL_XBOX360') > 0 else 0,
+                'speed': parse_rclone_speed(env('RCLONE_ni-xbox360')),
+                'eta': parse_rclone_eta(env('RCLONE_ni-xbox360')),
+                'status': 'downloading'
+            },
+            {
+                'name': 'No-Intro - Source Code - Various',
+                'downloaded_bytes': env_int('COL_SRCCODE'),
+                'downloaded_human': human_bytes(env_int('COL_SRCCODE')),
+                'target_tib': 1.00,
+                'percent': round(env_int('COL_SRCCODE') / (1.00 * 1024**4) * 100, 2) if env_int('COL_SRCCODE') > 0 else 0,
+                'speed': parse_rclone_speed(env('RCLONE_ni-sourcecode')),
+                'eta': parse_rclone_eta(env('RCLONE_ni-sourcecode')),
+                'status': 'downloading'
+            }
+        ]
+
+        a1 = {
+            'timestamp': ts,
+            'server': 'archive1',
+            'disk_total': env('DISK_TOTAL', '44T'),
+            'disk_used': env('DISK_USED', '0'),
+            'disk_used_bytes': env_int('DISK_USED_BYTES'),
+            'disk_percent': env_float('DISK_PCT'),
+            'collections': a1_collections
         }
-        EOF
-        
-        echo "Status file created:"
-        cat download_status.json
-        
-    - name: Commit and push changes
+
+        with open('download_status.json', 'w') as f:
+            json.dump(a1, f, indent=2)
+        print('Wrote download_status.json')
+
+        # ── Archive 2 ──
+        # Collection name -> assignment mapping for target sizes
+        a2_targets = {
+            'bitsavers': 1.64, 'FinalBurn Neo': 0.027, 'HBMAME': 0.035,
+            'Hardware Target Game Database': 0.446, 'T-En Collection': 0.757,
+            'TOSEC': 0.296, 'TOSEC-PIX': 2.25, 'Total DOS Collection': 1.02,
+            'MAME': 5.96, 'TOSEC-ISO': 6.05, 'Miscellaneous': 6.52,
+            'Laserdisc Collection': 4.37, 'RetroAchievements': 2.84,
+            "Eggman's Arcade Repository": 2.79, 'eXo': 2.19,
+            'TeknoParrot': 1.60, 'Touhou Project Collection': 0.42,
+            'Lost Level': 0.28,
+            'Redump - Sony - PlayStation': 2.99,
+            'Redump - Nintendo - GameCube NKit RVZ': 1.48,
+            'Redump - Sega - Saturn': 0.77,
+            'Redump - Sega - Dreamcast': 0.75,
+            'Redump - NEC - PC Engine CD & TurboGrafx CD': 0.19,
+            'Redump - Sega - Mega CD & Sega CD': 0.17,
+            'Redump - SNK - Neo Geo CD': 0.05,
+            'Redump - Nintendo - Wii NKit RVZ': 5.87,
+            'Redump - Nintendo - Wii U WUX': 3.90,
+        }
+
+        # Completed collections
+        a2_complete = {'FinalBurn Neo', 'HBMAME', 'TOSEC'}
+
+        # Window to collection mapping (for rclone stats)
+        a2_window_map = {
+            'bitsavers': ['bitsavers'],
+            'htgdb': ['Hardware Target Game Database'],
+            't-en': ['T-En Collection'],
+            'tosec-pix': ['TOSEC-PIX'],
+            'dos': ['Total DOS Collection'],
+            'mame': ['MAME'],
+            'tosec-iso': ['TOSEC-ISO'],
+            'misc': ['Miscellaneous'],
+            'laserdisc': ['Laserdisc Collection'],
+            'retro-lost-touhou': ['RetroAchievements', 'Lost Level', 'Touhou Project Collection'],
+            'eggman': ["Eggman's Arcade Repository"],
+            'exo-tekno': ['eXo', 'TeknoParrot'],
+            'redump-big': ['Redump - Sony - PlayStation', 'Redump - Nintendo - GameCube NKit RVZ'],
+            'redump-small': ['Redump - Sega - Saturn', 'Redump - Sega - Dreamcast',
+                            'Redump - NEC - PC Engine CD & TurboGrafx CD',
+                            'Redump - Sega - Mega CD & Sega CD', 'Redump - SNK - Neo Geo CD'],
+            'wii-redump': ['Redump - Nintendo - Wii NKit RVZ'],
+            'wiiu-redump': ['Redump - Nintendo - Wii U WUX'],
+        }
+
+        # Build rclone speed/eta lookup by collection name
+        a2_rclone = {}
+        for win, cols in a2_window_map.items():
+            line = env(f'A2_RCLONE_{win}')
+            for col_name in cols:
+                a2_rclone[col_name] = line
+
+        # Parse du output from Python on remote
+        a2_cols_raw = {}
+        a2_cols_str = env('A2_COLS')
+        if a2_cols_str:
+            try:
+                a2_cols_raw = json.loads(a2_cols_str)
+            except:
+                pass
+
+        # Map directory names to collection names
+        # Simple approach: directory name == collection name for most
+        # For Redump dirs, they're in Redump/ subdir
+        a2_dir_to_col = {}
+        for col_name in a2_targets:
+            # Direct match on dir name
+            a2_dir_to_col[col_name] = col_name
+            # Redump subdirs
+            if col_name.startswith('Redump - '):
+                # The actual dir would be under Redump/
+                short = col_name.replace('Redump - ', '')
+                a2_dir_to_col[short] = col_name
+
+        a2_collections = []
+        seen_collections = set()
+
+        # From du output
+        for dir_name, size_bytes in a2_cols_raw.items():
+            col_name = a2_dir_to_col.get(dir_name, dir_name)
+            if col_name in seen_collections:
+                continue
+            seen_collections.add(col_name)
+            target = a2_targets.get(col_name, 0)
+            pct_val = round(size_bytes / (target * 1024**4) * 100, 2) if target > 0 and size_bytes > 0 else 0
+            status = 'complete' if col_name in a2_complete else 'downloading'
+            rclone_line = a2_rclone.get(col_name, '')
+
+            a2_collections.append({
+                'name': col_name,
+                'downloaded_bytes': size_bytes,
+                'downloaded_human': human_bytes(size_bytes),
+                'target_tib': target,
+                'percent': min(pct_val, 100),
+                'speed': parse_rclone_speed(rclone_line),
+                'eta': parse_rclone_eta(rclone_line),
+                'status': status
+            })
+
+        # Add any assigned collections not seen in du output
+        for col_name, target in a2_targets.items():
+            if col_name not in seen_collections:
+                status = 'complete' if col_name in a2_complete else 'downloading'
+                rclone_line = a2_rclone.get(col_name, '')
+                a2_collections.append({
+                    'name': col_name,
+                    'downloaded_bytes': 0,
+                    'downloaded_human': '0 B',
+                    'target_tib': target,
+                    'percent': 0,
+                    'speed': parse_rclone_speed(rclone_line),
+                    'eta': parse_rclone_eta(rclone_line),
+                    'status': status
+                })
+
+        a2 = {
+            'timestamp': ts,
+            'server': 'archive2',
+            'disk_total': env('A2_DISK_TOTAL', '57T'),
+            'disk_used': env('A2_DISK_USED', '0'),
+            'disk_used_bytes': env_int('A2_DISK_USED_BYTES'),
+            'disk_percent': env_float('A2_DISK_PCT'),
+            'collections': a2_collections
+        }
+
+        with open('download_status_archive2.json', 'w') as f:
+            json.dump(a2, f, indent=2)
+        print('Wrote download_status_archive2.json')
+
+        # ── Archive 3 ──
+        nintendo_bytes = env_int('A3_NINTENDO')
+        sony_bytes = env_int('A3_SONY')
+        classic_bytes = env_int('A3_CLASSIC')
+
+        a3_collections = [
+            {
+                'name': 'No-Intro - Nintendo (all subcollections)',
+                'downloaded_bytes': nintendo_bytes,
+                'downloaded_human': human_bytes(nintendo_bytes),
+                'target_tib': 18.04,
+                'percent': round(nintendo_bytes / (18.04 * 1024**4) * 100, 2) if nintendo_bytes > 0 else 0,
+                'speed': parse_rclone_speed(env('A3_RCLONE_ni-nintendo')),
+                'eta': parse_rclone_eta(env('A3_RCLONE_ni-nintendo')),
+                'status': 'downloading'
+            },
+            {
+                'name': 'No-Intro - Sony (all subcollections)',
+                'downloaded_bytes': sony_bytes,
+                'downloaded_human': human_bytes(sony_bytes),
+                'target_tib': 24.78,
+                'percent': round(sony_bytes / (24.78 * 1024**4) * 100, 2) if sony_bytes > 0 else 0,
+                'speed': parse_rclone_speed(env('A3_RCLONE_ni-sony')),
+                'eta': parse_rclone_eta(env('A3_RCLONE_ni-sony')),
+                'status': 'downloading'
+            },
+            {
+                'name': 'No-Intro - Classic Retro (30+ manufacturers)',
+                'downloaded_bytes': classic_bytes,
+                'downloaded_human': human_bytes(classic_bytes),
+                'target_tib': 0.025,
+                'percent': round(classic_bytes / (0.025 * 1024**4) * 100, 2) if classic_bytes > 0 else 0,
+                'speed': parse_rclone_speed(env('A3_RCLONE_ni-classic')),
+                'eta': parse_rclone_eta(env('A3_RCLONE_ni-classic')),
+                'status': 'downloading'
+            }
+        ]
+
+        a3 = {
+            'timestamp': ts,
+            'server': 'archive3',
+            'disk_total': env('A3_DISK_TOTAL', '44T'),
+            'disk_used': env('A3_DISK_USED', '0'),
+            'disk_used_bytes': env_int('A3_DISK_USED_BYTES'),
+            'disk_percent': env_float('A3_DISK_PCT'),
+            'collections': a3_collections
+        }
+
+        with open('download_status_archive3.json', 'w') as f:
+            json.dump(a3, f, indent=2)
+        print('Wrote download_status_archive3.json')
+        PYEOF
+
+        echo "All status files generated:"
+        ls -la download_status*.json
+
+    - name: Commit and push
       run: |
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
-        
-        # Check if there are changes
-        if git diff --quiet && git diff --staged --quiet; then
+
+        git add download_status.json download_status_archive2.json download_status_archive3.json
+
+        if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
         fi
-        
-        git add download_status.json
-        git commit -m "Update download progress - $(date -u +%Y-%m-%d %H:%M UTC)"
+
+        git commit -m "Update: $(date -u +'%Y-%m-%d %H:%M UTC')"
         git push
