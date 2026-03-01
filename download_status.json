@@ -1,52 +1,52 @@
 {
-  "timestamp": "2026-03-01T08:00:03Z",
-  "download_bytes": 2878574264702,
-  "download_human": "3.0T",
-  "disk_used": "3.0T",
+  "timestamp": "2026-03-01T09:00:03Z",
+  "download_bytes": 2939909571108,
+  "download_human": "3.1T",
+  "disk_used": "3.1T",
   "disk_percent": "8%",
-  "files_transferred": 993,
-  "files_total": 11029,
-  "currently_downloading": [{"file":"FP41Data.zip","progress":"78%"},{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"34%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"41%"},{"file":"PS3_ALVRO_PART…PS3-JPN_Caravan_JB.rar","progress":"95%"}],
+  "files_transferred": 1008,
+  "files_total": 11044,
+  "currently_downloading": [{"file":"FP41Data.zip","progress":"95%"},{"file":"tiny-best-set-g…xpansion-128-games.zip","progress":"40%"},{"file":"tiny-best-set-g…expansion-64-games.zip","progress":"47%"},{"file":"PS3_ALVRO_PART…All_DLC__BLES01697.rar","progress":"77%"}],
   "recently_completed": [
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-64-games.zip",
-    "size": "20Gi"
+    "size": "23Gi"
   },
   {
     "file": "EBZero/tiny-best-set-go/tiny-best-set-go-expansion-128-games.zip",
-    "size": "15Gi"
+    "size": "17Gi"
   },
   {
     "file": "bluemaxima/FP41Data/FP41Data.zip",
-    "size": "25Gi"
+    "size": "31Gi"
   },
   {
     "file": "aitus95/PS3_ALVRO_PART_1/Anarchy_Reigns_PS3-EU_STRiKE_BLES01232.rar",
+    "size": "3.7Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/AquaPazza_AquaPlus_Dream_Match_BLUS31321.rar",
+    "size": "2.5Gi"
+  },
+  {
+    "file": "aitus95/PS3_ALVRO_PART_1/Arcana_Heart_3_EUR_PS3-AGENCY.rar",
     "size": "1.6Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/428_Fuusa_Sareta_Shibuya_de_PS3-JPN_Caravan_JB.rar",
-    "size": "14Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_4_BLUS30027.rar",
+    "size": "700Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Aliens_Colonial_Marines_BLES01455.rar",
-    "size": "4.2Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Arcana_Heart_3_Love_Max______PS3-JPN.rar",
+    "size": "733Mi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/All-Pro_Football_2K8_-BLUS30049.rar",
-    "size": "3.4Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Ape_Escape_on_the_Move.rar",
+    "size": "1.8Gi"
   },
   {
-    "file": "aitus95/PS3_ALVRO_PART_1/Alone_in_the_Dark_Inferno_BLUS30232.rar",
-    "size": "3.3Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_1/Akatsuki_no_Goei_Trinity_PS3-JPN_HR_BLJM60521.rar",
-    "size": "5.9Gi"
-  },
-  {
-    "file": "aitus95/PS3_ALVRO_PART_1/Angel_Love_Online_BLJS10124.rar",
-    "size": "1.2Gi"
+    "file": "aitus95/PS3_ALVRO_PART_1/Armored_Core_V_BLES01440.rar",
+    "size": "347Mi"
   }
 ]
 }
